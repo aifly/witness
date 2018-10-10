@@ -129,15 +129,8 @@ var zmitiUtil = {
 
 	getOauthurl: function(obserable) {
 
-		/*$.ajax({
-			type:"post",
-			url:"http://h5.zhongguowangshi.com/interface/public/index.php?s=v2/Share/createImageByUrl",
-			data:{
-				setimagesrc:"http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK4D8RdGsOFc4UuTR5vGdL1x2dHxMoABic6x21sjL6A1hj30MyZ2CMLJsYibyIUPKpEvCMRN18xBolw/0"
-			}
-		}).done(data=>{
-			console.log(data)
-		})*/
+	 
+		return;
 		var s = this;
 		var {
 			wxappid,
@@ -145,37 +138,29 @@ var zmitiUtil = {
 			customid
 		} = this.wxInfo();
 
-		
-		var key = 'headimgurl8'
-		if(window.localStorage.getItem('nickname') && window.localStorage.getItem(key)){
-			if (obserable) {
-				obserable.trigger({
-					type: 'setUserInfo',
-					data: {
-						nickname:window.localStorage.getItem('nickname'),
-						headimgurl: window.localStorage.getItem(key)
-					}
-				})
 
-				setTimeout(()=>{
-					obserable.trigger({
-						type:'initWebgl'
-					})
-				},2000)
-			}
-			return;
-		}
+		var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + wxappid + '&redirect_uri=https://openapi.zhongguowangshi.com/wxHandler.ashx?action=getWeixinUserInfo&response_type=code&scope=snsapi_userinfo&state=XHSA' + window.h5name + 'AindexAhtml#wechat_redirect'
+		
+		 alert(url);
 		$.ajax({
 			type: 'post',
 			//url: window.baseUrl + '/weixin/getwxuserinfo/',
-			url: window.protocol + '//api.zmiti.com/v2/weixin/getwxuserinfo/',
+			url: url,
 			data: {
-				code: s.getQueryString('code'),
+				/* code: s.getQueryString('code'),
 				wxappid,
-				wxappsecret
+				wxappsecret */
 			},
-			error: function() {},
+			error: function(e) {
+				alert('服务器端报错了。'); 
+				
+			},
 			success: function(dt) {
+
+				for(var d in dt){
+					alert('d => '+ d+ ' --- value =>'+dt[d]);
+				}
+				return;
 				if (dt.getret === 0) {
 
 					s.openid = dt.userinfo.openid;

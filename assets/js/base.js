@@ -1,36 +1,42 @@
 ﻿var imgs = {
-	play: './assets/images/play.png',
-	logo: './assets/images/logo.png',
-	arrow: './assets/images/arrow.png',
-	logo2: './assets/images/logo6.png',
-	resultBg: './assets/images/result-bg.jpg',
-	indexTitle: './assets/images/index-title.png',
-	point:'./assets/images/point.png',
-	team1:'./assets/images/team1.png',
-	team1Ico:'./assets/images/team-ico1.png',
-	team2Ico:'./assets/images/team-ico2.png',
-	team2:'./assets/images/team2.png',
-	team3:'./assets/images/team3.png',
-	team4:'./assets/images/team4.png',
-	logo1:'./assets/images/logo1.png',
-	logo3:'./assets/images/logo4.png',
-	pk:'./assets/images/pk.png',
-	zheng:'./assets/images/zheng.png',
-	qrcode:'./assets/images/qrcode.png',
-	cow:'./assets/images/cow.png',
-	talkTitle:'./assets/images/talk-title.jpg',
-	talkBg:'./assets/images/talk-bg.jpg',
-	vs:'./assets/images/vs.png',
-	result1:'./assets/images/result1.png',
-	result2:'./assets/images/result2.png',
-	telBg:'./assets/images/tel-bg1.png',
-	xiaoxin:'./assets/images/xiaoxin.png',
-	countdownBg:'./assets/images/countdown-bg.png',
-	xiaoxinTextBg:'./assets/images/xiaoxin-text-bg.png',
-	
-	
+	logo: './assets/images/arrow.png',
+	model1:'./assets/images/1.png',
+	model2:'./assets/images/2.png',
+	model3:'./assets/images/3.png',
+	model4:'./assets/images/4.png',
+	model5:'./assets/images/5.png',
+	model6:'./assets/images/6.png',
+	model7:'./assets/images/7.png',
+	model8:'./assets/images/8.png',
+	model9:'./assets/images/9.png',
+	model10:'./assets/images/10.png',
+	model11:'./assets/images/11.png',
+	model12:'./assets/images/12.png',
+	model13:'./assets/images/13.png',
 	indexBg: './assets/images/index-bg.jpg',
-	entry:'./assets/images/entry.png'
+	btnBg: './assets/images/btn-bg.png',
+
+
+	modelBg: './assets/images/model-bg.jpg',
+	entry:'./assets/images/entry.png',
+	checked:'./assets/images/checked.png',
+	boy:'./assets/images/boy.png',
+	girl:'./assets/images/girl.png',
+	subtitle:'./assets/images/subtitle.png',
+	upload:'./assets/images/upload.png',
+	rephoto:'./assets/images/rephoto.png',
+	share:'./assets/images/share.png',
+	title:'./assets/images/title.png',
+	text:'./assets/images/text.png',
+	flag:'./assets/images/flag.png',
+	sure:'./assets/images/sure.png',
+	info:'./assets/images/info.png',
+	sex:'./assets/images/sex.png',
+	imgBar:'./assets/images/img-bar.png',
+	uploadText: './assets/images/upload-text.png'
+
+
+
 
 	
 }
@@ -38,7 +44,14 @@
 
 
 var arr = [];
+window.modelList = [
 
+];
+for(var i = 1 ;i<=13;i++){
+	window.modelList.push({
+		url:imgs['model'+i]
+	})
+}
 
 for (var attr in imgs) {
 	arr.push(imgs[attr]);

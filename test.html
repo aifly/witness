@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+    <script>
+        var wxappid = 'wx5ec3d35069383211';
+        window.h5name = 'witness'
+        var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + wxappid + '&redirect_uri=https://openapi.zhongguowangshi.com/wxHandler.ashx?action=getWeixinUserInfo&response_type=code&scope=snsapi_userinfo&state=XHSA' + window.h5name + 'AindexAhtml#wechat_redirect'
+        alert(url);
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: {
+            
+            },
+            error: function (e) {
+                alert('服务器端报错了。');
+            },
+            success: function (dt) {
+
+                for (var d in dt) {
+                    alert('d => ' + d + ' --- value =>' + dt[d]);
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

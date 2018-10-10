@@ -1,8 +1,10 @@
 import Vue from "vue";
 import './components/css/index.css';
 import Index from './components/index/index';
-import Talk from './components/talk/index';
 import Music from './components/music/index';
+import Main from './components/main/index';
+import Upload from './components/upload/index';
+import Share from './components/share/index';
 import Obserable from './components/lib/obserable';
 import {
 	imgs
@@ -56,6 +58,9 @@ new Vue({
 		*/
 		template: `<div>
 		<Index :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Index>
+		<Main :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Main>
+		<Upload :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Upload>
+		
 		<div  v-if='!loaded' :style='{background:"#158ae4"}' class='zmiti-loading lt-full'>
 			<div class='zmiti-loading-ui'>
 				 <a href="#">
@@ -119,7 +124,9 @@ new Vue({
 	components: {
 		Index,
 		Music,
-		Talk
+		Main,
+		Upload,
+        Share
 	},
 	mounted() {
 
@@ -167,57 +174,6 @@ new Vue({
 		zmitiUtil.wxConfig(document.title, window.desc);
 		
 		return;
-		/*$.ajax({
-			type:'post',
-			url:"http://api.zmiti.com/v2/weixin/getwxuserlist/",
-			data:{
-				worksid:window.customid
-			},
-			error(){
-
-				clearTimeout(t);
-				window.headImgs = [
-				]
-
-				for(var i =1 ;i<=Math.min(100,870 - arr.length);i++){
-					headImgs.push('./assets/images/'+i+'.jpg');
-				}
-				arr.concat(headImgs);
-
-				s.loading(arr, (scale) => {
-					s.width = scale * 100 | 0;
-				}, () => {
-					s.show = true;
-					s.loaded = true;
-				})
-			},
-			success(data){
-				clearTimeout(t);
-				if(data.getret === 0){
-					
-
-					if(data.list.length>=870){
-						data.list.length = 870;
-					}
-					window.headImgs = [
-						
-					]
-					headImgs =  headImgs.concat(data.list.map((item)=>{return item.headimgurl}));
-
-
-					for(var i =1 ;i<=Math.min(100,870 - arr.length);i++){
-						headImgs.push('./assets/images/'+i+'.jpg');
-					}
-					arr.concat(headImgs);
-
-					s.loading(arr, (scale) => {
-						s.width = scale * 100 | 0;
-					}, () => {
-						s.show = true;
-						s.loaded = true;
-					})
-				}
-			}
-		})*/
+		 
 	}
 })

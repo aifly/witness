@@ -89,9 +89,9 @@
 }
 
 @mixin fly-h-gradient-line {
-  background: -webkit-gradient(linear, left top, right top, from(rgba(225, 225, 2, .2)), color-stop(0.5, rgba(225, 225, 2, 1)), to(rgba(225, 225, 2, .2)));
-  background: -moz-linear-gradient(left, rgba(225, 225, 2, .2), rgba(225, 225, 2, 1) 50%, rgba(225, 225, 2, .2));
-  background: -ms-linear-gradient(left, rgba(225, 225, 2, .2), rgba(225, 225, 2, 1) 50%, rgba(225, 225, 2, .2));
+  background: -webkit-gradient(linear, left top, right top, from(rgba(3,114,195, .2)), color-stop(0.5, rgba(3,114,195, 1)), to(rgba(3,114,195, .2)));
+  background: -moz-linear-gradient(left, rgba(3,114,195, .2), rgba(3,114,195, 1) 50%, rgba(3,114,195, .2));
+  background: -ms-linear-gradient(left, rgba(3,114,195, .2), rgba(3,114,195, 1) 50%, rgba(3,114,195, .2));
 }
 
 @mixin fly-v-gradient-line($minOpacity:.2, $maxOpacity:1) {
