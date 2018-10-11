@@ -13,8 +13,13 @@
 			<img @touchstart='imgStart' :src="imgs.title" alt="">
 		</div>
 
-		<div class='zmiti-index-entry'>
+		<div class='zmiti-index-entry' v-tap='[entry]'>
 			<img @touchstart='imgStart' :src="imgs.entry" alt="">
+		</div>
+
+		<div class='zmiti-index-logo'>
+			<img :src="imgs.logo" alt="">
+			<span>新华社客户端</span>
 		</div>
 		 
 	</div>
@@ -43,7 +48,7 @@
 				showLight:false,
 				starting:false,
 				planeClass:'',
-				show:false,
+				show:true,
 				maxHeight:80,
 				showjiasu:false,
 				showIndexMask:false,
@@ -61,6 +66,17 @@
 			imgStart(e){
 				e.preventDefault(); 
 			},
+			entry(){
+				this.show =false;
+				var {obserable} = this;
+				this.show = false;
+				obserable.trigger({
+					type:'toggleMain',
+					data:{
+						show:true
+					}
+				})
+			}
 			
 			 
 			  
@@ -78,6 +94,15 @@
 				this.showSubmit = data;
 				this.starting = !data;
 			})
+
+			var self = this;
+
+			
+
+		
+
+
+			
 
 
 

@@ -22,7 +22,7 @@
 			</div>
 
 			<div class='zmiti-done' v-show='index<=-1'>
-				<img @touchstart='imgStart' :src="imgs.sure" alt="">
+				<img @touchstart='imgStart' :src="imgs.sure" alt="" v-tap='[chooseModel]'>
 				<img :src="imgs.info" alt="" class='zmiti-info'>
 			</div>
 
@@ -37,7 +37,7 @@
 					</li>
 				</ul>
 				<div class='zmiti-photo-C'>
-					<div class='zmiti-goto-photo'>
+					<div class='zmiti-goto-photo' v-tap='[chooseModel]'>
 						<img @touchstart='imgStart' :src="imgs.sure" alt="">
 					</div>
 					<div class='zmiti-model-close' v-tap='[closeModel]'></div>
@@ -46,6 +46,7 @@
 					<span :style="{WebkitTransform:'scale('+(index/(modelList.length-1))+',1)'}"></span>
 				</div>
 			</div>
+			<Toast :errorMsg='errMsg'></Toast>
 		</div>
 
 	</transition>
@@ -64,6 +65,7 @@
 	
 	import zmitiUtil from '../lib/util';
 	import IScroll from 'iscroll';
+	import Toast from '../toast/toast.vue'
 	
 	export default {
 	
@@ -74,6 +76,7 @@
 		data() {
 	
 			return {
+				errMsg:'',
 				imgs,
 				showTeam: false,
 				showQrcode: false,
@@ -87,23 +90,48 @@
 			}
 		},
 	
-		components: {},
+		components: {Toast},
 		methods: {
 			swiperight(){
 				this.index--;
-				this.index = Math.max(this.index,0)
+				this.index = Math.max(this.index,0);
+				this.current = this.index;
 			},
 			swipeleft(){
 				this.index++;
 				this.index = Math.min(this.index,this.modelList.length-1)
+				this.current = this.index;
 			},
 
 			closeModel(){
 				this.index =  -1;
 			},
+			chooseModel(){
+
+				if(this.current <= -1){
+					this.errMsg = '请选择一张明信片';
+					setTimeout(() => {
+						this.errMsg = '';
+					}, 2000);
+					return;
+				}
+				var {obserable} = this;
+				obserable.trigger({
+					type:'toggleMain',
+					data:{
+						show:false
+					}
+				})
+				obserable.trigger({
+					type:'toggleUpload',
+					data:{
+						show:true,
+						modelIndex:this.current
+					}
+				})
+			},
 			toggleModel(index,e){
-				this.current =this.current === index?  -1: index;
-				
+				this.current = this.current === index?  -1: index;
 			},
 			restart() {
 				window.location.href = window.location.href.split('?')[0];
@@ -116,6 +144,7 @@
 			},
 			getDetail(index){
 				this.index = index;
+				this.current = index;
 			}
 		},
 	
@@ -129,6 +158,11 @@
 			setTimeout(() => {
 				this.scroll.refresh();
 			},1000);
+
+			var {obserable } = this;
+			obserable.on('toggleMain',(data)=>{
+				this.show = data.show;
+			})
 		}
 	
 	}

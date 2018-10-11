@@ -36,14 +36,35 @@ $bgColor: #4081dd;
      }
 
      .zmiti-index-entry {
-         @include pos(a);
-         z-index: 1100;
-         bottom: 10vh;
+        @include pos(a);
+        z-index: 1100;
+        bottom: 18vh;
         left: 50%;
-         width: 400px;
-         @include animation(shake 1s infinite alternate);
-         @include transform(translate3d(-50%,0,0));
+        width: 400px;
+        @include animation(shake 1s infinite alternate);
+        @include transform(translate3d(-50%,0,0));
 
+     }
+     .zmiti-index-logo{
+         @include pos(a);
+         color:#fff;
+
+         width: 300px;
+         left: 50%;
+         margin-left: -150px;
+         bottom: 1vh;
+         text-align: center;
+         font-size:24px;
+         span{
+             line-height: 50px;
+             display: block;
+         }
+         img{
+             
+             display: block;
+             width: 100px;
+             margin: 0 auto;
+         }
      }
 
     .zmiti-submit-bg{
@@ -69,7 +90,7 @@ $bgColor: #4081dd;
 
     @-webkit-keyframes shake{
         to{
-            @include transform(translate3d(-50%,-20px,0) scale(.97));
+            @include transform(translate3d(-50%,-10px,0) scale(.99));
         }
     }
  

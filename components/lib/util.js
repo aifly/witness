@@ -30,7 +30,7 @@ var zmitiUtil = {
 		var s = this;
 
 
-		var img = window.baseUrl + '/assets/images/300.jpg';
+		var img = 'http://www.zhongguowangshi.com/h5/'+window.h5name+'/assets/images/301.jpg';
 		var appId = this.wxInfo().wxappid;
 		var durl = url || location.href.split('#')[0];
 		var code_durl = encodeURIComponent(durl);
@@ -56,6 +56,7 @@ var zmitiUtil = {
 			jsonp: "callback",
 			jsonpCallback: "jsonFlickrFeed",
 			error: function() {
+				alert('error')
 			},
 			success: function(data) {
 				wx.config({
@@ -129,8 +130,6 @@ var zmitiUtil = {
 
 	getOauthurl: function(obserable) {
 
-	 
-		return;
 		var s = this;
 		var {
 			wxappid,
@@ -138,6 +137,39 @@ var zmitiUtil = {
 			customid
 		} = this.wxInfo();
 
+		 var url = location.href;
+		 var paraString = '';
+		 if (url.indexOf("?") > 0) {
+		 	paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+		 }
+		
+		 if (paraString.length > 0) {
+			var key = 'headingurl';
+			if (!(window.localStorage.getItem(key) || window.localStorage.getItem('nickname'))) {
+				var nickname = this.getQueryString('nickname');
+				var headimgurl = this.getQueryString('headimgurl');
+				window.localStorage.setItem(key, headimgurl);
+				window.localStorage.setItem('nickname', nickname);
+				window.nickname = nickname;
+				window.headimgurl = headimgurl;
+
+			} else {
+				window.nickname = window.localStorage.getItem('nickname');
+				window.headimgurl = window.localStorage.getItem(key);
+				if (window.nickname || window.headimgurl) {
+					return;
+				}
+			}
+		 }else{
+			 if (!this.isWeiXin()) {
+			 	return;
+			 } 
+			var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + wxappid + '&redirect_uri=https://openapi.zhongguowangshi.com/wxHandler.ashx?action=getWeixinUserInfo&response_type=code&scope=snsapi_userinfo&state=XHSAh5A' + window.h5name + 'AindexAhtml#wechat_redirect'
+			window.location.href = url;
+		 }
+		
+		return;
+	
 
 		var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + wxappid + '&redirect_uri=https://openapi.zhongguowangshi.com/wxHandler.ashx?action=getWeixinUserInfo&response_type=code&scope=snsapi_userinfo&state=XHSA' + window.h5name + 'AindexAhtml#wechat_redirect'
 		

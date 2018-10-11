@@ -1,5 +1,6 @@
 ﻿var imgs = {
-	logo: './assets/images/arrow.png',
+	logo: './assets/images/logo.png',
+	arrow: './assets/images/arrow.png',
 	model1:'./assets/images/1.png',
 	model2:'./assets/images/2.png',
 	model3:'./assets/images/3.png',
@@ -42,6 +43,10 @@
 }
  
 
+var modelArr = [
+	'pitu_open_1000117_20181011171935_245',
+	'pitu_open_1000117_20181011171935_246',
+]
 
 var arr = [];
 window.modelList = [
@@ -55,6 +60,11 @@ for(var i = 1 ;i<=13;i++){
 
 for (var attr in imgs) {
 	arr.push(imgs[attr]);
+}
+
+window.config = {
+	baseUrl: 'https://xlive.xinhuaapp.com',
+	secretKey: "e9469538b0623783f38c585821459454"
 }
  
 var musics = {

@@ -103,7 +103,7 @@ new Vue({
 		},
 	
 		updatePv() {
-			$.ajax({
+			/* $.ajax({
 				url: window.protocol + '//api.zmiti.com/v2/custom/update_pvnum/',
 				type: 'post',
 				data: {
@@ -118,7 +118,49 @@ new Vue({
 					//zmitiUtil.wxConfig('我是第'+this.pv+'位参与者',window.desc);
 					//zmitiUtil.wxConfig('我是'+(this.nickname||'新华社网友') +'，已获得改革开放40周年勋章，一起来吧！','勋章编号：No.'+this.pv);
 				}
-			});
+			}); */
+
+			var s = this;
+
+			$.ajax({
+				type: 'post',
+				url: window.config.baseUrl + '//xhs-security-activity/postcard/getPv',
+				dataType: 'JSON',
+				charset: "utf-8",
+				contentType: "application/json",
+				data: JSON.stringify({
+					secretKey: window.config.secretKey
+				}),
+				success(data) {
+					if (typeof data === 'string') {
+						var data = JSON.parse(data);
+					};
+					console.log(data);
+					if (data.rc === 0) {
+						s.pv = data.data.pv;
+					}
+				}
+
+			})
+
+			$.ajax({
+				type: 'post',
+				url: window.config.baseUrl + '//xhs-security-activity/postcard/updatePv',
+				dataType: 'JSON',
+				charset: "utf-8",
+				contentType: "application/json",
+				data: JSON.stringify({
+					secretKey: window.config.secretKey,
+					pv: 0
+				}),
+				success(data) {
+					if (typeof data === 'string') {
+						var data = JSON.parse(data);
+						console.log(data);
+					};
+				}
+
+			})
 		}
 	},
 	components: {
@@ -168,10 +210,10 @@ new Vue({
 			this.pv += data;
 
 		});
+		this.updatePv();
 		zmitiUtil.getOauthurl(()=>{
-			this.updatePv();
 		});
-		zmitiUtil.wxConfig(document.title, window.desc);
+		//zmitiUtil.wxConfig(document.title, window.desc);
 		
 		return;
 		 
