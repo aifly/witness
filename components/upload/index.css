@@ -187,6 +187,16 @@
   position: relative;
 }
 
+.zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img canvas {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
 .zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info {
   position: absolute;
   color: #333;
@@ -211,7 +221,7 @@
 }
 
 .zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info > div span {
-  font-size: 40px;
+  font-size: 32px;
   color: #0372c3;
 }
 
@@ -225,6 +235,12 @@
 .zmiti-upload-main-ui .zmiti-share-ui .zmiti-share-btns > div {
   margin: 0 60px;
   width: 240px;
+}
+
+.zmiti-upload-main-ui .zmiti-cache-img {
+  position: fixed;
+  z-index: -1;
+  left: 100%;
 }
 
 @-webkit-keyframes flash {

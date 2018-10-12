@@ -152,14 +152,18 @@ var zmitiUtil = {
 				window.localStorage.setItem('nickname', nickname);
 				window.nickname = nickname;
 				window.headimgurl = headimgurl;
+				
 
 			} else {
 				window.nickname = window.localStorage.getItem('nickname');
 				window.headimgurl = window.localStorage.getItem(key);
-				if (window.nickname || window.headimgurl) {
-					return;
-				}
+				
 			}
+			
+			obserable.trigger({
+				type: 'setNickname',
+				data: window.nickname
+			})
 		 }else{
 			 if (!this.isWeiXin()) {
 			 	return;

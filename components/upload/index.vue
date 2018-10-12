@@ -1,17 +1,17 @@
 <template>
 	<transition name='upload'>
 		<div class="lt-full zmiti-upload-main-ui "  v-show='show' ref='page' :style="{background:'url('+imgs.modelBg+') no-repeat center center',backgroundSize:'cover'}">
-			<div class='zmiti-upload-C ' v-if='!mergeImg'>
+			<div class='zmiti-upload-C ' v-if='!mergeImg &&!createImg'>
 				<div>
 					<h2>
 						<img :src="imgs.uploadText" alt="">
 					</h2>
 					<div class='zmiti-upload' :class="{'uploading':uploading}">
-						<img v-tap='[uploadErr]' :src="imgs.upload" alt="" @touchstart='imgStart'>
-						<div>上传中...</div>
+						<img @touchstart='uploadErr' :src="imgs.upload" alt="">
+						<div @touchstart='uploadErr'>上传中...</div>
 						<input v-if='sex>-1' @change='upload'  accept="image/*" type="file" class='zmiti-file' ref='file'>
 					</div>
-					<div class='zmiti-rechoose'>不喜欢这张?重新选择~</div>
+					<div class='zmiti-rechoose' v-tap='[rephoto]'>不喜欢这张?重新选择~</div>
 				</div>
 				<div>
 					<h3>
@@ -36,17 +36,18 @@
 
 			<div v-else class='zmiti-share-ui lt-full'>
 				<div><img :src="imgs.subtitle" alt=""></div>
-				<div class='zmiti-merge-img'>
-					<img :src="mergeImg" alt="">
+				<div class='zmiti-merge-img' ref='img'>
+					<canvas width='750' height='530' ref='canvas'></canvas>
+					<img   ref='mergeimg' :src="createImg||mergeImg" alt="">
 					<div class='zmiti-nickname'>
-						{{nickname||'fly'}}
+						
 					</div>
 					<div class='zmiti-card-info'>
 						<div>新华社弄潮系列珍藏明信片</div>
 						<div>
 							<div>限量编号：</div>
 							<div>
-								<span>{{pv}}</span>/4000
+								<span>{{pv}}</span><label for="" v-if='pv<400000'>/400000</label>
 							</div>
 						</div>
 					</div>
@@ -60,6 +61,7 @@
 			<div class='zmiti-share-mask lt-full' v-if='showMask' @touchend='showMask = false'>
 				<img :src="imgs.arrow" alt="">
 			</div>
+			<img :src="cacheImg" ref='cacheimg' class='zmiti-cache-img' alt="" />
 			<Toast :errorMsg='errMsg'></Toast>
 		</div>
 	</transition>
@@ -68,9 +70,10 @@
 <script>
 	import './index.css';
 	import {imgs,mainImgList} from '../lib/assets.js';
-	import Toast from '../toast/toast.vue'
+	import Toast from '../toast/toast.vue';
+	import '../lib/html2canvas'
 	export default {
-		props:['obserable','pv','nickname','headimgurl'],
+		props:['obserable','pv','headimgurl'],
 		name:'zmitiindex',
 		data(){
 			return{
@@ -80,10 +83,13 @@
 				viewW:window.innerWidth,
 				viewH:window.innerHeight,
 				sex:-1,
+				createImg:"",
 				modelArr,
+				nickname:decodeURI(window.nickname) === 'undefined'?'':decodeURI(window.nickname),
 				mergeImg:'',
 				showMask:false,
-				uploading:false
+				uploading:false,
+				cacheImg:''
 				
 			}
 		},
@@ -106,7 +112,8 @@
 			},
 			rephoto(){
 				this.show = false;
-				this.mergeImg = false;
+				this.mergeImg = '';
+				this.createImg = '';
 				var {obserable} = this;
 				obserable.trigger({
 					type:'toggleMain',
@@ -115,7 +122,8 @@
 					}
 				})
 			},
-			uploadErr(){
+			uploadErr(e){
+				e.preventDefault();
 				this.errMsg = '请先选择性别';
 				setTimeout(() => {
 					this.errMsg = '';
@@ -124,6 +132,7 @@
 
 			upload(){
 				var s = this;
+				
 				var file = this.$refs['file'].files[0];
 				if(file.name.split('.')[1] === 'jpg'||file.name.split('.')[1] === 'jpeg'){
 
@@ -140,7 +149,7 @@
 							contentType:"application/json",
 							data:JSON.stringify({
 								secretKey:window.config.secretKey,
-								modelId:s.modelArr[s.sex],
+								modelId:s.modelArr[s.modelIndex][s.sex],
 								imgData:self.result.replace('data:image/jpeg;base64,','')
 							}),
 							success(data){
@@ -148,8 +157,38 @@
 								if(typeof data === 'string'){
 									var data = JSON.parse(data);
 								}
-								if(data.rc===0){
-									s.mergeImg = data.data.imgUrl;
+								if(data.rc === 0){
+									s.mergeImg = 'data:image/jpeg;base64,'+ data.data.imgBase64;
+									//s.mergeImg =  data.data.imgUrl;
+									
+									setTimeout(() => {
+										var canvas = s.$refs['canvas'];
+										var context = canvas.getContext('2d');
+										var img = new Image();
+										img.onload = function(){
+											context.drawImage(this,0,0,canvas.width,canvas.height);
+											setTimeout(() => {
+												s.html2img();
+
+												setTimeout(() => {
+													context.drawImage(s.$refs['cacheimg'],0,0,canvas.width,canvas.height);
+													setTimeout(() => {
+														s.createImg = canvas.toDataURL();
+													}, 100);
+												}, 1000);
+											}, 100);
+											/* setTimeout(() => {
+												canvas.toBlob((blob)=>{
+													//s.mergeImg = URL.createObjectURL(blob);
+
+													
+												});
+												
+											}, 1000); */
+										}
+										img.src = s.mergeImg;
+									}, 1000);
+
 								}
 								else{
 									s.errMsg = data.msg;
@@ -175,6 +214,33 @@
 				}
 				
 			},
+			html2img(){
+				var s = this;
+
+				var {obserable} = this;
+
+
+
+				//document.title = '开始截图....'
+
+
+				setTimeout(()=>{
+					//this.showLoading = true;
+					var ref = 'img';
+					var dom = this.$refs[ref];
+					html2canvas(dom,{
+						useCORS: true,
+						onrendered: function(canvas) {
+					        var src = canvas.toDataURL();
+							//s.mergeImg = '';
+							//s.createImg = src;
+							s.cacheImg = src;
+					      },
+					      width: dom.clientWidth,
+					      height:dom.clientHeight
+					})
+				},100)
+			},
 
 			
 		},
@@ -182,6 +248,13 @@
 
 			window.s = this;
 			var {obserable} = this;
+
+			obserable.on('setNickname',(data)=>{
+				if(this.nickname){
+					return;
+				}
+				this.nickname =decodeURI( data);
+			})
 
 		 
 

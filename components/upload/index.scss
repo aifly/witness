@@ -153,6 +153,18 @@ $viewW: 750px;
         .zmiti-merge-img {
             @include pos(r);
 
+            canvas{
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                z-index: -1;
+                opacity: 0;
+                @include pos(a);
+
+
+            }
+
             .zmiti-card-info {
                 @include pos(a);
 
@@ -174,12 +186,14 @@ $viewW: 750px;
                     font-family: Georgia;
 
                     span {
-                        font-size: 40px;
+                        font-size: 32px;
                         color: #0372c3;
                     }
                 }
             }
         }
+
+        
 
         .zmiti-share-btns {
             @include displayBox(horizontal);
@@ -189,6 +203,12 @@ $viewW: 750px;
                 width: 240px;
             }
         }
+    }
+
+    .zmiti-cache-img{
+        @include pos(f);
+        z-index: -1;
+        left: 100%;
     }
 }
 
