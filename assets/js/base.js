@@ -14,11 +14,15 @@
 	model11:'./assets/images/11.png',
 	model12:'./assets/images/12.png',
 	model13:'./assets/images/13.png',
-	indexBg: './assets/images/index-bg.jpg',
+	loadingBg: './assets/images/loading-bg.jpg',
 	btnBg: './assets/images/btn-bg.png',
+	book1:'./assets/images/book1.png',
+	ar:'./assets/images/ar.png',
+	book2:'./assets/images/book2.png',
+	choose:'./assets/images/choose.png',
+	1978:'./assets/images/1978.png',
 
 
-	modelBg: './assets/images/model-bg.jpg',
 	entry:'./assets/images/entry.png',
 	checked:'./assets/images/checked.png',
 	boy:'./assets/images/boy.png',
@@ -27,13 +31,9 @@
 	upload:'./assets/images/upload.png',
 	rephoto:'./assets/images/rephoto.png',
 	share:'./assets/images/share.png',
-	title:'./assets/images/title.png',
-	text:'./assets/images/text.png',
-	flag:'./assets/images/flag.png',
+	title:'./assets/images/title1.png',
 	sure:'./assets/images/sure.png',
-	info:'./assets/images/info.png',
 	sex:'./assets/images/sex.png',
-	imgBar:'./assets/images/img-bar.png',
 	uploadText: './assets/images/upload-text.png'
 
 
@@ -103,9 +103,17 @@ var arr = [];
 window.modelList = [
 
 ];
+this.viewW = window.innerWidth;
+this.viewH = window.innerHeight;
 for(var i = 1 ;i<=13;i++){
+	var x = (this.viewW * Math.random()) + (Math.random() > .5 ? this.viewW * 2 : -1 * this.viewW * 2),
+		y = (this.viewH * Math.random()) + (Math.random() > .5 ? this.viewH * 2 : -1 * this.viewH * 2);
 	window.modelList.push({
-		url:imgs['model'+i]
+		url:imgs['model'+i],
+		transX: x,
+		transY: y,
+		defaultX:x,
+		defaultY:y
 	})
 }
 

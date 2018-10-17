@@ -1,27 +1,40 @@
 <template>
-	<div ref='page'  class="lt-full zmiti-index-main-ui " :style="{background:'url('+imgs.indexBg+') no-repeat center bottom',backgroundSize:'cover'}"   :class="{'show':show}" >
+	<div ref='page'  class="lt-full zmiti-index-main-ui " :style="{background:'url('+imgs.loadingBg+') no-repeat center bottom',backgroundSize:'cover'}"   :class="{'show':show}" >
 
-		<div class='zmiti-index-flag'>
-			<img @touchstart='imgStart' :src="imgs.flag" alt="">
+		<div class='zmiti-book1' :class="{'active':showBook}" @transitionend='endBook'>
+			<img :src="imgs.book1" alt="">
+		</div>
+		<div class='zmiti-book2' :class="{'active':showBook}">
+			<img :src="imgs.book2" alt="">
 		</div>
 
-		<div class='zmiti-index-text'>
-			<img @touchstart='imgStart' :src="imgs.text" alt="">
-		</div>
-
-		<div class='zmiti-index-title'>
-			<img @touchstart='imgStart' :src="imgs.title" alt="">
-		</div>
-
-		<div class='zmiti-index-entry' v-tap='[entry]'>
-			<img @touchstart='imgStart' :src="imgs.entry" alt="">
-		</div>
-
-		<div class='zmiti-index-logo'>
-			<img :src="imgs.logo" alt="">
-			<span>新华社客户端</span>
-		</div>
-		 
+		<transition name='model'>
+			<div v-if='showModelList' class='zmiti-model-list'>
+				<div :class='{"active":reverse}' @transitionend='end' v-for='(model,i) in modelList' :key="i" :style="{WebkitTransform:'translate3d('+( model.transX || 0 )+'px,'+ ( model.transY || 0 ) +'px,0) scale('+(model.scale===undefined?1:model.scale)+') rotate('+( model.rotate||0 ) + 'deg) '}">
+					<img :src="model.url" alt="">
+				</div>
+			</div>	
+		</transition>
+		
+			<div class='zmiti-index-main' >
+				<transition name='model'>
+					<div class='zmiti-index-title'  v-if='!showModelList'>
+						<img @touchstart='imgStart' :src="imgs.title" alt="">
+					</div>
+				</transition>
+				<transition name='model'>
+					<div class='zmiti-index-entry' v-tap='[entry]'  v-if='!showModelList'>
+						<img @touchstart='imgStart' :src="imgs.entry" alt="">
+					</div>
+				</transition>
+				<transition name='model'  >
+					<div class='zmiti-index-logo' v-if='!showModelList'>
+						<img :src="imgs.logo" alt="">
+						<span>新华社客户端</span>
+					</div>
+				</transition>
+			</div>
+		
 	</div>
 </template>
 
@@ -36,11 +49,14 @@
 			return{
 				imgs,
 				pointW:0,
+				showBook:false,
+				modelList,
 				showSubmit:true,
 				transY:0,
 				pointH:0,
 				points:[],
 				showStartBtn:false,
+				showModelList:true,
 				index:-1,
 				showOthers:true,
 				showRemark:false,
@@ -53,15 +69,40 @@
 				showjiasu:false,
 				showIndexMask:false,
 				viewW:Math.min(window.innerWidth,750),
-				viewH:window.innerHeight
+				viewH:window.innerHeight,
+				count:0,
+				reverse:false,
 			}
 		},
 		components:{
 		},
 		
 		methods:{
+			endBook(){
+				this.modelList.forEach((model,i)=>{
 
-			
+					model.rotate = Math.random()*60*(Math.random()>.5?-1:1);
+					model.transX = (this.viewW - 260) * Math.random();
+					model.transY = (this.viewH/2 ) * Math.random();
+
+				});
+			},
+			end(e){
+				this.count++;
+				if(this.count>=this.modelList.length){
+					setTimeout(() => {
+						this.reverse = true;
+						//this.showModelList = false;
+						this.modelList.forEach((model,i)=>{
+							model.scale = 0;
+						});
+					}, 500);
+				}
+				if(this.count>=this.modelList.length*2-1){
+					this.reverse = true;
+					this.showModelList = false;
+				}
+			},
 
 			imgStart(e){
 				e.preventDefault(); 
@@ -77,18 +118,23 @@
 					}
 				})
 			}
-			
-			 
-			  
 		},
 		mounted(){
 
 			var {obserable} = this;
 
+			setTimeout(() => {
+				this.showBook = true;
+				 
+			}, 400);
 
 			obserable.on('toggleIndex',(data)=>{
 				this.show = data.show;
-			})
+				this.showBook =!data.show;
+				
+			});
+
+			
 
 			obserable.on('hideIndexSubmitBg',data=>{
 				this.showSubmit = data;

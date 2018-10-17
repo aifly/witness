@@ -42,7 +42,7 @@
 }
 
 .zmiti-upload-main-ui .zmiti-upload-C {
-  color: #f55051;
+  color: #f4d893;
   text-align: center;
   position: absolute;
   width: 88vw;
@@ -66,6 +66,7 @@
 
 .zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload {
   position: relative;
+  margin: 4vh 0 0 0;
 }
 
 .zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload div {
@@ -131,13 +132,13 @@
 .zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) .zmiti-upload-sex > div {
   margin: 0 50px;
   position: relative;
+  width: 170px;
 }
 
 .zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) .zmiti-upload-sex .zmiti-sex-checked {
   position: absolute;
   width: 40px;
-  left: 50%;
-  margin-left: -20px;
+  left: 67%;
   bottom: 14px;
   overflow: hidden;
 }
@@ -158,12 +159,41 @@
 .zmiti-upload-main-ui .zmiti-share-mask {
   background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
-  text-align: right;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: vertical;
 }
 
-.zmiti-upload-main-ui .zmiti-share-mask img {
+.zmiti-upload-main-ui .zmiti-share-mask > img {
   width: 400px;
+  position: absolute;
   margin: 10px 10px 0 0;
+  right: 0px;
+}
+
+.zmiti-upload-main-ui .zmiti-share-mask > div {
+  color: #fff;
+}
+
+.zmiti-upload-main-ui .zmiti-share-mask > div img {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.zmiti-upload-main-ui .zmiti-share-mask > div > div {
+  font-weight: bold;
+  text-align: center;
+}
+
+.zmiti-upload-main-ui .zmiti-share-mask > div > div:nth-of-type(1) {
+  margin: 20px 0;
+}
+
+.zmiti-upload-main-ui .zmiti-share-mask > div > div:nth-of-type(2) {
+  color: #ef5050;
+  font-weight: normal;
 }
 
 .zmiti-upload-main-ui .zmiti-share-ui {
@@ -171,7 +201,7 @@
   -webkit-box-align: center;
   -webkit-box-pack: center;
   -webkit-box-orient: vertical;
-  color: #f55051;
+  color: #f4d893;
 }
 
 .zmiti-upload-main-ui .zmiti-share-ui > div {
@@ -181,10 +211,17 @@
 .zmiti-upload-main-ui .zmiti-share-ui .zmiti-img-tip {
   margin-top: -20px;
   font-size: 26px;
+  top: -26px;
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  position: absolute;
+  z-index: 100;
 }
 
 .zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img {
   position: relative;
+  width: 750px;
 }
 
 .zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img canvas {

@@ -18,17 +18,37 @@ $bgColor: #4081dd;
         z-index: 200;
     }
 
-    .zmiti-index-flag{
-        @include pos(a);
-    }
+    
+    .zmiti-index-main{
+        @include displayBox(vertical);
+        &>div{
+            &:nth-of-type(1){
+                 &.model-enter-active,
+                 &.model-leave-active {
+                     @include transition(opacity 1s .5s);
+                 }
+            }
+            &:nth-of-type(2){
+                &.model-enter-active,
+                &.model-leave-active {
+                    @include transition(opacity 1s 1.5s);
+                }
+            }
+            &:nth-of-type(3){
+                &.model-enter-active,
+                &.model-leave-active {
+                    @include transition(opacity 1s 2s);
+                }
+            }
+        }
+       
 
-     .zmiti-index-text {
-         @include pos(a);
-         right: 20px;
-         top: 30px;
-         width: 100px;
-     }
-     .zmiti-index-title{
+        .model-enter,
+        .model-leave-to {
+            opacity: 0;
+        }
+    }
+    .zmiti-index-title{
          @include pos(r);
          z-index: 100;
          width: 90%;
@@ -36,22 +56,59 @@ $bgColor: #4081dd;
      }
 
      .zmiti-index-entry {
-        @include pos(a);
         z-index: 1100;
         bottom: 18vh;
         left: 50%;
         width: 400px;
+        margin: 4vh 0;
         @include animation(shake 1s infinite alternate);
-        @include transform(translate3d(-50%,0,0));
+        //@include transform(translate3d(-50%,0,0));
 
      }
+     .zmiti-model-list{
+         height: 50vh;
+         @include pos(r);
+         top:-8vh;
+         z-index: 10;
+         width: 100%;
+         &.model-enter-active,
+         &.model-leave-active {
+             @include transition(.4s );
+         }
+         &.model-enter,
+         &.model-leave-to {
+             opacity: 0;
+             @include transform(scale(0))
+         }
+         div{
+             left: 0;
+             top:0;
+             width:260px;
+             border:4px solid #fff;
+             @include pos(a);
+             @include transition(.4s);
+             &.active{
+                 @for $i from 1 through 13 {
+                     &:nth-of-type(#{$i}) {
+                         transition-delay: (13 - $i)*100ms;
+                     }
+                 }
+             }
+
+             @for $i from 1 through 13{
+                &:nth-of-type(#{$i}){
+                    transition-delay: $i*200ms;
+                }
+             }
+         }
+     }
      .zmiti-index-logo{
-         @include pos(a);
+       
          color:#fff;
 
          width: 300px;
-         left: 50%;
-         margin-left: -150px;
+         //left: 50%;
+         //margin-left: -150px;
          bottom: 1vh;
          text-align: center;
          font-size:24px;
@@ -90,7 +147,7 @@ $bgColor: #4081dd;
 
     @-webkit-keyframes shake{
         to{
-            @include transform(translate3d(-50%,-10px,0) scale(.99));
+            @include transform(translate3d(0,-10px,0) scale(.99));
         }
     }
  

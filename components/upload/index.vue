@@ -1,6 +1,6 @@
 <template>
 	<transition name='upload'>
-		<div class="lt-full zmiti-upload-main-ui "  v-show='show' ref='page' :style="{background:'url('+imgs.modelBg+') no-repeat center center',backgroundSize:'cover'}">
+		<div class="lt-full zmiti-upload-main-ui "  v-show='show' ref='page' :style="{background:'url('+imgs.loadingBg+') no-repeat center center',backgroundSize:'cover'}">
 			<div class='zmiti-upload-C ' v-if='!mergeImg &&!createImg'>
 				<div>
 					<h2>
@@ -42,8 +42,8 @@
 					<div class='zmiti-nickname'>
 						
 					</div>
-					<div class='zmiti-card-info'>
-						<div>新华社弄潮系列珍藏明信片</div>
+					<div class='zmiti-card-info' v-if='showCode'>
+						<div>新华社见证系列珍藏明信片</div>
 						<div>
 							<div>限量编号：</div>
 							<div>
@@ -51,8 +51,8 @@
 							</div>
 						</div>
 					</div>
+					<div class='zmiti-img-tip'>长按图片保存</div>
 				</div>
-				<div class='zmiti-img-tip'>长按图片保存</div>
 				<div class='zmiti-share-btns'>
 					<div v-tap='[rephoto]'><img :src="imgs.rephoto" alt=""></div>
 					<div v-tap='[showShareMask]'><img :src="imgs.share" alt=""></div>
@@ -60,6 +60,11 @@
 			</div>
 			<div class='zmiti-share-mask lt-full' v-if='showMask' @touchend='showMask = false'>
 				<img :src="imgs.arrow" alt="">
+				<div>
+					<img :src="imgs.logo" alt="">
+					<div>新华社客户端</div>
+					<div>纪念改革开放40年献礼策划</div>
+				</div>
 			</div>
 			<img :src="cacheImg" ref='cacheimg' class='zmiti-cache-img' alt="" />
 			<Toast :errorMsg='errMsg'></Toast>
@@ -80,6 +85,7 @@
 				imgs,
 				show:false,
 				errMsg:'',
+				showCode:true,
 				viewW:window.innerWidth,
 				viewH:window.innerHeight,
 				sex:-1,
@@ -174,6 +180,7 @@
 													context.drawImage(s.$refs['cacheimg'],0,0,canvas.width,canvas.height);
 													setTimeout(() => {
 														s.createImg = canvas.toDataURL();
+														s.showCode = false;
 													}, 100);
 												}, 1000);
 											}, 100);

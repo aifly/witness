@@ -5,6 +5,7 @@ import Music from './components/music/index';
 import Main from './components/main/index';
 import Upload from './components/upload/index';
 import Share from './components/share/index';
+import Loading from './components/loading/index';
 import Obserable from './components/lib/obserable';
 import {
 	imgs
@@ -42,6 +43,7 @@ new Vue({
 		loaded: false,
 		nickname: '',
 		headimgurl: '',
+
 		playStyle: {
 
 		}
@@ -60,20 +62,7 @@ new Vue({
 		<Index :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Index>
 		<Main :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Main>
 		<Upload :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Upload>
-		
-		<div  v-if='!loaded' :style='{background:"#158ae4"}' class='zmiti-loading lt-full'>
-			<div class='zmiti-loading-ui'>
-				 <a href="#">
-			  		<section class='zmiti-head' :style="{background:'url(./assets/images/logo.png) no-repeat center / cover'}"></section>
-			        <div class="line1"></div>
-			        <div class="line2"></div>
-			        <div class="line3"></div>
-					<div class='zmiti-progress'>{{width}}%</div>
-			    </a>
-			</div>
-		</div>
-
-	
+		<Loading v-if='!show' :width='width' :obserable='obserable'></Loading>
 	</div>`,
 	methods: {
 
@@ -168,7 +157,8 @@ new Vue({
 		Music,
 		Main,
 		Upload,
-        Share
+		Share,
+		Loading
 	},
 	mounted() {
 
@@ -191,11 +181,14 @@ new Vue({
 		}
 
 		s.loading(arr, (scale) => {
-			s.width = scale * 100 | 0;
+			s.width = scale *390;
 		}, () => {
+			
 			s.show = true;
 			s.loaded = true;
-			
+			setTimeout(() => {
+				
+			}, 1000);
 		})
 		
 

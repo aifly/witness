@@ -12,8 +12,7 @@
 <script>
 	import './index.css';
 	import {imgs} from '../lib/assets.js';
-	import zmitiUtil from '../lib/util';
-	import '../lib/html2canvas';
+	import zmitiUtil from '../lib/util'; 
 	export default {
 		props:['obserable','pv'],
 		name:'zmitiindex',
@@ -65,78 +64,7 @@
 			afterEnter(){
 				this.showBtns = true;
 			},
-			html2img(){
-				var s = this;
-
-				var {obserable} = this;
-
-
-
-				//document.title = '开始截图....'
-
-
-				setTimeout(()=>{
-					//this.showLoading = true;
-					var ref = 'zmiti-cache-page';
-					var dom = this.$refs[ref];
-					html2canvas(dom,{
-						useCORS: true,
-						onrendered: function(canvas) {
-
-					        var src = canvas.toDataURL();
-					        s.createImg = src;
-		             		s.showBtns = true;
-		             		s.showLoading = false;
-
-		             		obserable.trigger({
-								type:'playVoice',
-								data:"photo"
-							})
-
-		             		setTimeout(()=>{
-		             			//document.title=s.viewH+','+(s.$refs['createimgs'].offsetHeight*1.2)
-								s.$refs['createimgs'].style.WebkitTransform = 'scale('+s.viewH/(s.$refs['createimgs'].offsetHeight*1.2)+')'
-
-								///s.deleteImg(s.headimg);
-
-								
-							},100);
-
-
-
-							$.ajax({
-					          url:window.protocol+'//'+window.server+'.zmiti.com/v2/share/base64_image/',
-					          type: 'post',
-					          data: {
-					            setcontents: src,
-					            setwidth: dom.clientWidth,
-					            setheight:dom.clientHeight
-					          },
-					          success: function(data) {
-					            if (data.getret === 0) {
-					            	//s.deleteImg(dt.img);
-						            var src = data.getimageurl;
-									var url = window.location.href.split('#')[0];
-					            	console.log(src);
-
-									url = zmitiUtil.changeURLPar(url,'src',src);
-									url = zmitiUtil.changeURLPar(url,'num',s.pv);
-									zmitiUtil.wxConfig('我是第'+s.pv+'位为雄安过周岁者',window.desc,url);
-									
-								       
-					            }
-
-					          }
-					        })
-
-							/*zmitiUtil.wxConfig(window.zmitiConfig.shareTitle.replace(/{{totalPv}}/ig, s.totalpv),
-							window.zmitiConfig.shareDesc.replace(/{{periods}}/ig, s.periodsUpper[window.zmitiConfig.periods - 1]).replace(/{{pv}}/ig, s.randomPv));*/
-					      },
-					      width: dom.clientWidth,
-					      height:dom.clientHeight
-					})
-				},100)
-			},
+			
 			deleteImg(url){//删除原图
 
 				setTimeout(()=>{

@@ -8,7 +8,7 @@ $viewW: 750px;
     z-index: 110;
 
     .zmiti-upload-C {
-        color: #f55051;
+        color: #f4d893;
         text-align: center;
 
         h1,
@@ -31,6 +31,7 @@ $viewW: 750px;
 
         .zmiti-upload {
             @include pos(r);
+            margin: 4vh 0 0 0 ;
             div {
                 color: #fff;
                 @include pos(a);
@@ -94,17 +95,17 @@ $viewW: 750px;
 
                     & > div {
                         margin: 0 50px;
-
                         @include pos(r);
+                        width: 170px;
                     }
 
                     .zmiti-sex-checked {
                         @include pos(a);
 
                         width: 40px;
-                        left: 50%;
-                        margin-left: -20px;
-                        bottom: 14px;
+                        left: 67%;
+                       
+                        bottom:14px;
                         overflow: hidden;
 
                         img {
@@ -128,18 +129,39 @@ $viewW: 750px;
     .zmiti-share-mask {
         background: rgba(0, 0, 0, 0.8);
         z-index: 1000;
-        text-align: right;
-
-        img {
+        text-align: center;
+        @include displayBox(vertical);
+        &>img {
             width: 400px;
+            @include pos(a);
             margin: 10px 10px 0 0;
+            right: 0px;
+        }
+        &>div{
+            color:#fff;
+            img{
+                width: 100px;
+                margin: 0 auto;
+
+            }
+            &>div{
+                font-weight: bold;
+                text-align: center;
+                &:nth-of-type(1){
+                    margin: 20px 0;
+                }
+                &:nth-of-type(2){
+                    color:#ef5050;
+                    font-weight: normal;
+                }
+            }
         }
     }
 
     .zmiti-share-ui {
         @include displayBox(vertical);
 
-        color: #f55051;
+        color: #f4d893;
 
         & > div {
             margin: 3vh 0;
@@ -148,11 +170,17 @@ $viewW: 750px;
         .zmiti-img-tip {
             margin-top: -20px;
             font-size: 26px;
+            top: -26px;
+            text-align: center;
+            width: 100%;
+            font-size:30px;
+            @include pos(a);
+            z-index: 100;
         }
 
         .zmiti-merge-img {
             @include pos(r);
-
+            width:$viewW;
             canvas{
                 width: 100%;
                 height: 100%;
