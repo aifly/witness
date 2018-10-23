@@ -10,20 +10,34 @@ $viewW: 750px;
     .zmiti-upload-C {
         color: #f4d893;
         text-align: center;
+       
+        @include transition(.1s);
+
+         &.upload-enter-active,
+         &.upload-leave-active {
+         }
+
+         &.upload-enter,
+         &.upload-leave-to {
+            opacity: 0;
+         }
 
         h1,
         h2,
         h3,
         h5 {
             font-weight: normal;
+            width: 500px;
         }
+
+        h3{margin-left: 20px;;}
 
         @include pos(a);
 
         width: 88vw;
-        height: 94vh;
+        height: 84vh;
         left: 6vw;
-        top: 3vh;
+        top: 4vh;
         z-index: 2;
 
         @include br(20px);
@@ -32,6 +46,7 @@ $viewW: 750px;
         .zmiti-upload {
             @include pos(r);
             margin: 4vh 0 0 0 ;
+            width: 250px;
             div {
                 color: #fff;
                 @include pos(a);
@@ -63,12 +78,12 @@ $viewW: 750px;
 
         & > div {
             &:nth-of-type(1) {
-                -webkit-box-flex: 5;
+                -webkit-box-flex: 4;
 
                 @include displayBox(vertical);
 
                 .zmiti-rechoose {
-                    margin-top: 40px;
+                    margin-top: 20px;
                     text-decoration: underline;
                 }
             }
@@ -161,7 +176,7 @@ $viewW: 750px;
     .zmiti-share-ui {
         @include displayBox(vertical);
 
-        color: #f4d893;
+        color: #fe9a74;
 
         & > div {
             margin: 3vh 0;
@@ -197,7 +212,7 @@ $viewW: 750px;
                 @include pos(a);
 
                 color: #333;
-                font-size: 20px;
+                font-size: 18px;
                 bottom: 2px;
                 right: 120px;
                 background: #fff;
@@ -205,7 +220,7 @@ $viewW: 750px;
                 border: 1px solid #ccc;
                 line-height: 36px;
 
-                @include transform(scale(0.9));
+                @include transform(scale(.95));
 
                 & > div {
                     @include displayBox(horizontal);
@@ -214,7 +229,7 @@ $viewW: 750px;
                     font-family: Georgia;
 
                     span {
-                        font-size: 32px;
+                        font-size: 34px;
                         color: #0372c3;
                     }
                 }
@@ -225,10 +240,12 @@ $viewW: 750px;
 
         .zmiti-share-btns {
             @include displayBox(horizontal);
-
+            margin: 3vh 0;
+            @include pos(r);
+            top: -2vh;
             & > div {
                 margin: 0 60px;
-                width: 240px;
+                width: 200px;
             }
         }
     }

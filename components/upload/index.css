@@ -44,11 +44,13 @@
 .zmiti-upload-main-ui .zmiti-upload-C {
   color: #f4d893;
   text-align: center;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
   position: absolute;
   width: 88vw;
-  height: 94vh;
+  height: 84vh;
   left: 6vw;
-  top: 3vh;
+  top: 4vh;
   z-index: 2;
   border-radius: 20px;
   display: -webkit-box;
@@ -57,16 +59,26 @@
   -webkit-box-orient: vertical;
 }
 
+.zmiti-upload-main-ui .zmiti-upload-C.upload-enter, .zmiti-upload-main-ui .zmiti-upload-C.upload-leave-to {
+  opacity: 0;
+}
+
 .zmiti-upload-main-ui .zmiti-upload-C h1,
 .zmiti-upload-main-ui .zmiti-upload-C h2,
 .zmiti-upload-main-ui .zmiti-upload-C h3,
 .zmiti-upload-main-ui .zmiti-upload-C h5 {
   font-weight: normal;
+  width: 500px;
+}
+
+.zmiti-upload-main-ui .zmiti-upload-C h3 {
+  margin-left: 20px;
 }
 
 .zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload {
   position: relative;
   margin: 4vh 0 0 0;
+  width: 250px;
 }
 
 .zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload div {
@@ -98,7 +110,7 @@
 }
 
 .zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(1) {
-  -webkit-box-flex: 5;
+  -webkit-box-flex: 4;
   display: -webkit-box;
   -webkit-box-align: center;
   -webkit-box-pack: center;
@@ -106,7 +118,7 @@
 }
 
 .zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(1) .zmiti-rechoose {
-  margin-top: 40px;
+  margin-top: 20px;
   text-decoration: underline;
 }
 
@@ -201,7 +213,7 @@
   -webkit-box-align: center;
   -webkit-box-pack: center;
   -webkit-box-orient: vertical;
-  color: #f4d893;
+  color: #fe9a74;
 }
 
 .zmiti-upload-main-ui .zmiti-share-ui > div {
@@ -237,15 +249,15 @@
 .zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info {
   position: absolute;
   color: #333;
-  font-size: 20px;
+  font-size: 18px;
   bottom: 2px;
   right: 120px;
   background: #fff;
   padding: 0 16px;
   border: 1px solid #ccc;
   line-height: 36px;
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info > div {
@@ -258,7 +270,7 @@
 }
 
 .zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info > div span {
-  font-size: 32px;
+  font-size: 34px;
   color: #0372c3;
 }
 
@@ -267,11 +279,14 @@
   -webkit-box-align: center;
   -webkit-box-pack: center;
   -webkit-box-orient: horizontal;
+  margin: 3vh 0;
+  position: relative;
+  top: -2vh;
 }
 
 .zmiti-upload-main-ui .zmiti-share-ui .zmiti-share-btns > div {
   margin: 0 60px;
-  width: 240px;
+  width: 200px;
 }
 
 .zmiti-upload-main-ui .zmiti-cache-img {

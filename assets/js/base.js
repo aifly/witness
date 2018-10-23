@@ -1,6 +1,7 @@
 ﻿var imgs = {
 	logo: './assets/images/logo.png',
 	arrow: './assets/images/arrow.png',
+	play: './assets/images/play.png',
 	model1:'./assets/images/1.png',
 	model2:'./assets/images/2.png',
 	model3:'./assets/images/3.png',
@@ -19,7 +20,7 @@
 	book1:'./assets/images/book1.png',
 	ar:'./assets/images/ar.png',
 	book2:'./assets/images/book2.png',
-	choose:'./assets/images/choose.png',
+	choose:'./assets/images/choose1.png',
 	1978:'./assets/images/1978.png',
 
 
@@ -27,14 +28,14 @@
 	checked:'./assets/images/checked.png',
 	boy:'./assets/images/boy.png',
 	girl:'./assets/images/girl.png',
-	subtitle:'./assets/images/subtitle.png',
+	subtitle:'./assets/images/subtitle1.png',
 	upload:'./assets/images/upload.png',
-	rephoto:'./assets/images/rephoto.png',
-	share:'./assets/images/share.png',
-	title:'./assets/images/title1.png',
+	rephoto:'./assets/images/rephoto1.png',
+	share:'./assets/images/share1.png',
+	title:'./assets/images/title2.png',
 	sure:'./assets/images/sure.png',
 	sex:'./assets/images/sex.png',
-	uploadText: './assets/images/upload-text.png'
+	uploadText: './assets/images/upload-text1.png'
 
 
 
@@ -128,16 +129,10 @@ window.config = {
  
 var musics = {
 	music: {
-		src: './assets/music/bg2.mp3',
+		src: './assets/music/bg.mp3',
 		autoplay: false,
 		name: 'bg',
 		loop: true
-	},
-	photo:{
-		src:'./assets/music/photo.mp3',
-		autoplay:false,
-		name:"photo",
-		loop:false
 	}
 };
 

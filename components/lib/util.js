@@ -144,7 +144,8 @@ var zmitiUtil = {
 		 }
 		
 		 if (paraString.length > 0) {
-			var key = 'headingurl';
+			var key = 'headingurl2',
+				key1 = 'nickname';
 			if (!(window.localStorage.getItem(key) || window.localStorage.getItem('nickname'))) {
 				var nickname = this.getQueryString('nickname');
 				var headimgurl = this.getQueryString('headimgurl');
@@ -152,7 +153,6 @@ var zmitiUtil = {
 				window.localStorage.setItem('nickname', nickname);
 				window.nickname = nickname;
 				window.headimgurl = headimgurl;
-				
 
 			} else {
 				window.nickname = window.localStorage.getItem('nickname');
@@ -163,7 +163,9 @@ var zmitiUtil = {
 			obserable.trigger({
 				type: 'setNickname',
 				data: window.nickname
-			})
+			});
+			
+			wxHandlercallback('', window.nickname+' 刚刚定制到一款限量版明信片，你要吗？',document.title);
 		 }else{
 			 if (!this.isWeiXin()) {
 			 	return;
@@ -177,7 +179,6 @@ var zmitiUtil = {
 
 		var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + wxappid + '&redirect_uri=https://openapi.zhongguowangshi.com/wxHandler.ashx?action=getWeixinUserInfo&response_type=code&scope=snsapi_userinfo&state=XHSA' + window.h5name + 'AindexAhtml#wechat_redirect'
 		
-		 alert(url);
 		$.ajax({
 			type: 'post',
 			//url: window.baseUrl + '/weixin/getwxuserinfo/',

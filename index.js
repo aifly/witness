@@ -55,10 +55,10 @@ new Vue({
 		<audio src='./assets/music/photo.mp3' ref='photo'></audio>
 		<audio src='./assets/music/bg.mp3' ref='audio'></audio>
 		<audio src='./assets/music/tu.mp3' ref='tu' loop></audio>
-		<Music :obserable='obserable'></Music>
 		<Main :pv='pv' :nickname='nickname' :headimgurl='headimgurl'  v-if='show && !isShare'  :obserable='obserable'></Main>
 		*/
 		template: `<div>
+		<Music :obserable='obserable'></Music>
 		<Index :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Index>
 		<Main :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Main>
 		<Upload :pv='pv' :nickname='nickname' :headimgurl='headimgurl'   v-if='show && !isShare'  :obserable='obserable'></Upload>
@@ -204,7 +204,7 @@ new Vue({
 
 		});
 		this.updatePv();
-		//zmitiUtil.getOauthurl(obserable);
+		zmitiUtil.getOauthurl(obserable);
 		//zmitiUtil.wxConfig(document.title, window.desc);
 		
 		return;

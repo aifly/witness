@@ -7,8 +7,11 @@ $bgColor: #4081dd;
 .zmiti-index-main-ui {
     overflow: hidden;
     width: $viewW !important;
-    left: 50% !important;
-    margin-left: -$viewW / 2;
+    
+    left: 0;;
+
+
+    
  
     opacity: 0;
     z-index: -1;
@@ -59,8 +62,8 @@ $bgColor: #4081dd;
         z-index: 1100;
         bottom: 18vh;
         left: 50%;
-        width: 400px;
-        margin: 4vh 0;
+        width: 300px;
+        margin: 10vh 0;
         @include animation(shake 1s infinite alternate);
         //@include transform(translate3d(-50%,0,0));
 

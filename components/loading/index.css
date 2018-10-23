@@ -90,8 +90,8 @@
 
 .zmiti-book1.active,
 .zmiti-book2.active {
-  -webkit-transform: translate3d(0, -60px, 0);
-  transform: translate3d(0, -60px, 0);
+  -webkit-transform: translate3d(0, -80px, 0);
+  transform: translate3d(0, -80px, 0);
 }
 
 .zmiti-book2 {
@@ -100,6 +100,6 @@
 }
 
 .zmiti-book2.active {
-  -webkit-transform: translate3d(0, 60px, 0);
-  transform: translate3d(0, 60px, 0);
+  -webkit-transform: translate3d(0, 80px, 0);
+  transform: translate3d(0, 80px, 0);
 }

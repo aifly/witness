@@ -39,8 +39,7 @@
 .zmiti-index-main-ui {
   overflow: hidden;
   width: 750px !important;
-  left: 50% !important;
-  margin-left: -375px;
+  left: 0;
   opacity: 0;
   z-index: -1;
   display: -webkit-box;
@@ -92,8 +91,8 @@
   z-index: 1100;
   bottom: 18vh;
   left: 50%;
-  width: 400px;
-  margin: 4vh 0;
+  width: 300px;
+  margin: 10vh 0;
   -webkit-animation: shake 1s infinite alternate;
   animation: shake 1s infinite alternate;
 }

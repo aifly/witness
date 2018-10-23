@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 <meta name="viewport" content="width=750,user-scalable=no" />
-	<title>见证 改革开放四十年</title>
+	<title>历史的回眸 定制改开放40年纪念明信片</title>
 <script>
 	document.getElementsByTagName('html')[0].style.fontSize = 750 / 10 + 'px';
 	window.protocol = location.protocol;
@@ -12,7 +12,7 @@
 	window.customid = '1697340893'; //改革开放40周年.
 
 	window.baseUrl = window.protocol + '//api.zmiti.com/v2';
-	window.wxappid = 'wxfacf4a639d9e3bcc';
+	window.wxappid = 'wx5ec3d35069383211';
 	window.wxappsecret = '149cdef95c99ff7cab523d8beca86080';
 
 	
@@ -29,21 +29,22 @@
 	<div id='app'></div>
 	<script src="//res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>
 	<script>
-		function wxHandlercallback(res) {
+		function wxHandlercallback(res,title,desc) {
+			arguments.callee.res = arguments.callee.res || res;
 			wx.config({
 				debug: false,
-				appId: res.appId,
-				timestamp: res.timestamp,
-				nonceStr: res.nonceStr,
-				signature: res.signature,
+				appId: arguments.callee.res.appId,
+				timestamp: arguments.callee.res.timestamp,
+				nonceStr: arguments.callee.res.nonceStr,
+				signature: arguments.callee.res.signature,
 				jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareQZone",
 					"onMenuShareWeibo"
 				]
 			});
 			wx.ready(function () {
 				var config = {
-					title: document.title,
-					desc: window.desc,
+					title: title||document.title,
+					desc: desc|| window.desc,
 					link: document.URL,
 					imgUrl: "http://h5.zhongguowangshi.com/h5/"+window.h5name+"/assets/images/302.jpg"
 				};
@@ -60,14 +61,14 @@
 			document.body.appendChild(script)
 		}
 		/*
+		*/
 		loadScript('./assets/js/base.js');
 		loadScript('./assets/js/index.js');
-		*/
 	</script>
 
-	<script src='./assets/js/base.js'></script>
-	<script src='http://localhost:4051/index.js' onerror="loadScript('./assets/js/index.js')"></script>
 	<!-- 
+		<script src='./assets/js/base.js'></script>
+		<script src='http://localhost:4051/index.js' onerror="loadScript('./assets/js/index.js')"></script>
 	 -->
 </body>
 

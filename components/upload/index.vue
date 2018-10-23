@@ -1,40 +1,48 @@
 <template>
 	<transition name='upload'>
 		<div class="lt-full zmiti-upload-main-ui "  v-show='show' ref='page' :style="{background:'url('+imgs.loadingBg+') no-repeat center center',backgroundSize:'cover'}">
-			<div class='zmiti-upload-C ' v-if='!mergeImg &&!createImg'>
-				<div>
-					<h2>
-						<img :src="imgs.uploadText" alt="">
-					</h2>
-					<div class='zmiti-upload' :class="{'uploading':uploading}">
-						<img @touchstart='uploadErr' :src="imgs.upload" alt="">
-						<div @touchstart='uploadErr'>上传中...</div>
-						<input v-if='sex>-1' @change='upload'  accept="image/*" type="file" class='zmiti-file' ref='file'>
-					</div>
-					<div class='zmiti-rechoose' v-tap='[rephoto]'>不喜欢这张?重新选择~</div>
-				</div>
-				<div>
-					<h3>
-						<img :src="imgs.sex" alt="">
-					</h3>
-					<div class='zmiti-upload-sex'>
-						<div v-tap='[chooseSex,0]'>
-							<img :src="imgs.boy" alt="" @touchstart='imgStart' >
-							<div class='zmiti-sex-checked' v-if='sex === 0'>
-								<img  :src="imgs.checked" alt="">
-							</div>
-						</div>
-						<div v-tap='[chooseSex,1]'>
-							<img :src="imgs.girl" alt=""  @touchstart='imgStart' >
-							<div class='zmiti-sex-checked'  >
-								<img  :src="imgs.checked" alt="" v-if='sex === 1'>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class='zmiti-book1' :class="{'active':true}" >
+				<img :src="imgs.book1" alt="">
 			</div>
+			<div class='zmiti-book2' :class="{'active':true}">
+				<img :src="imgs.book2" alt="">
+			</div>
+			<transition name='upload'>
+				<div class='zmiti-upload-C '  v-if='!mergeImg &&!createImg'>
+					<div>
+						<h2>
+							<img :src="imgs.uploadText" alt="">
+						</h2>
+						<div class='zmiti-upload' :class="{'uploading':uploading}">
+							<img @touchstart='uploadErr' :src="imgs.upload" alt="">
+							<div @touchstart='uploadErr'>上传中...</div>
+							<input v-if='sex>-1' @change='upload'  accept="image/*" type="file" class='zmiti-file' ref='file'>
+						</div>
+						<div class='zmiti-rechoose' v-tap='[rephoto]'>回去换个模板~</div>
+					</div>
+					<div>
+						<h3>
+							<img :src="imgs.sex" alt="">
+						</h3>
+						<div class='zmiti-upload-sex'>
+							<div v-tap='[chooseSex,0]'>
+								<img :src="imgs.boy" alt="" @touchstart='imgStart' >
+								<div class='zmiti-sex-checked' v-if='sex === 0'>
+									<img  :src="imgs.checked" alt="">
+								</div>
+							</div>
+							<div v-tap='[chooseSex,1]'>
+								<img :src="imgs.girl" alt=""  @touchstart='imgStart' >
+								<div class='zmiti-sex-checked'  >
+									<img  :src="imgs.checked" alt="" v-if='sex === 1'>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</transition>
 
-			<div v-else class='zmiti-share-ui lt-full'>
+			<div v-if='createImg||mergeImg' class='zmiti-share-ui lt-full'>
 				<div><img :src="imgs.subtitle" alt=""></div>
 				<div class='zmiti-merge-img' ref='img'>
 					<canvas width='750' height='530' ref='canvas'></canvas>
@@ -42,7 +50,7 @@
 					<div class='zmiti-nickname'>
 						
 					</div>
-					<div class='zmiti-card-info' v-if='showCode'>
+					<div class='zmiti-card-info'>
 						<div>新华社见证系列珍藏明信片</div>
 						<div>
 							<div>限量编号：</div>
@@ -51,13 +59,14 @@
 							</div>
 						</div>
 					</div>
-					<div class='zmiti-img-tip'>长按图片保存</div>
+					<div class='zmiti-img-tip'>邮票是谁？长按保存高清图</div>
 				</div>
 				<div class='zmiti-share-btns'>
 					<div v-tap='[rephoto]'><img :src="imgs.rephoto" alt=""></div>
 					<div v-tap='[showShareMask]'><img :src="imgs.share" alt=""></div>
 				</div>
 			</div>
+			
 			<div class='zmiti-share-mask lt-full' v-if='showMask' @touchend='showMask = false'>
 				<img :src="imgs.arrow" alt="">
 				<div>
