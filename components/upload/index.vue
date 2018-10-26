@@ -70,8 +70,16 @@
 			<div class='zmiti-share-mask lt-full' v-if='showMask' @touchend='showMask = false'>
 				<img :src="imgs.arrow" alt="">
 				<div>
-					<img :src="imgs.logo" alt="">
-					<div>新华社客户端</div>
+					<div class='zmiti-share-logos'>
+						<div>
+							<img :src="imgs.logo" alt="">
+							<span>新华社客户端</span>
+						</div>
+						<div>
+							<img :src="imgs.pitu" alt="">
+							<span>天天P图</span>
+						</div>
+					</div>
 					<div>纪念改革开放40年献礼策划</div>
 				</div>
 			</div>

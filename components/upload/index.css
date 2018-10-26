@@ -190,8 +190,20 @@
 }
 
 .zmiti-upload-main-ui .zmiti-share-mask > div img {
-  width: 100px;
+  width: 80px;
   margin: 0 auto;
+  display: block;
+}
+
+.zmiti-upload-main-ui .zmiti-share-mask > div .zmiti-share-logos {
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: horizontal;
+}
+
+.zmiti-upload-main-ui .zmiti-share-mask > div .zmiti-share-logos > div {
+  margin: 0 30px;
 }
 
 .zmiti-upload-main-ui .zmiti-share-mask > div > div {

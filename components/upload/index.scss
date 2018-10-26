@@ -155,9 +155,16 @@ $viewW: 750px;
         &>div{
             color:#fff;
             img{
-                width: 100px;
+                width: 80px;
                 margin: 0 auto;
+                display:block;
 
+            }
+            .zmiti-share-logos{
+                @include displayBox(horizontal);
+                &>div{
+                    margin: 0 30px;
+                }
             }
             &>div{
                 font-weight: bold;

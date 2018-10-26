@@ -139,13 +139,12 @@ var zmitiUtil = {
 
 		 var url = location.href;
 		 var paraString = '';
-		 if (url.indexOf("?") > 0) {
+		 if (url.indexOf("?") > 0 ) {
 		 	paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
 		 }
-		
-		 if (paraString.length > 0) {
-			var key = 'headingurl2',
-				key1 = 'nickname';
+		 var key = 'headingurl2',
+			 key1 = 'nickname';
+		if (paraString.length > 0 ) {
 			if (!(window.localStorage.getItem(key) || window.localStorage.getItem('nickname'))) {
 				var nickname = this.getQueryString('nickname');
 				var headimgurl = this.getQueryString('headimgurl');
@@ -165,7 +164,7 @@ var zmitiUtil = {
 				data: window.nickname
 			});
 			
-			wxHandlercallback('', window.nickname+' 刚刚定制到一款限量版明信片，你要吗？',document.title);
+			wxHandlercallback('', decodeURI(window.nickname) + ' 刚刚定制到一款限量版明信片，你要吗？', document.title);
 		 }else{
 			 if (!this.isWeiXin()) {
 			 	return;

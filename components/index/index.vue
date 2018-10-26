@@ -29,8 +29,14 @@
 				</transition>
 				<transition name='model'  >
 					<div class='zmiti-index-logo' v-if='!showModelList'>
-						<img :src="imgs.logo" alt="">
-						<span>新华社客户端</span>
+						<div>
+							<img :src="imgs.logo" alt="">
+							<span>新华社客户端</span>
+						</div>
+						<div>
+							<img :src="imgs.pitu" alt="">
+							<span>天天P图</span>
+						</div>
 					</div>
 				</transition>
 			</div>

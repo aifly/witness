@@ -236,6 +236,14 @@
   bottom: 1vh;
   text-align: center;
   font-size: 24px;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-orient: horizontal;
+}
+
+.zmiti-index-main-ui .zmiti-index-logo div {
+  margin: 0 20px;
 }
 
 .zmiti-index-main-ui .zmiti-index-logo span {
@@ -245,7 +253,7 @@
 
 .zmiti-index-main-ui .zmiti-index-logo img {
   display: block;
-  width: 100px;
+  width: 80px;
   margin: 0 auto;
 }
 
