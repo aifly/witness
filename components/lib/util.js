@@ -129,7 +129,6 @@ var zmitiUtil = {
 	},
 
 	getOauthurl: function(obserable) {
-
 		var s = this;
 		var {
 			wxappid,
@@ -142,29 +141,31 @@ var zmitiUtil = {
 		 if (url.indexOf("?") > 0 ) {
 		 	paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
 		 }
-		 var key = 'headingurl2',
-			 key1 = 'nickname';
+		 var key = 'headingurl4',
+			 key1 = 'nickname2';
 		if (paraString.length > 0 ) {
-			if (!(window.localStorage.getItem(key) || window.localStorage.getItem('nickname'))) {
+			if (!(window.localStorage.getItem(key) || window.localStorage.getItem(key1))) {
 				var nickname = this.getQueryString('nickname');
 				var headimgurl = this.getQueryString('headimgurl');
 				window.localStorage.setItem(key, headimgurl);
-				window.localStorage.setItem('nickname', nickname);
+				window.localStorage.setItem(key1, nickname);
 				window.nickname = nickname;
 				window.headimgurl = headimgurl;
 
 			} else {
-				window.nickname = window.localStorage.getItem('nickname');
+				window.nickname = window.localStorage.getItem(key1);
 				window.headimgurl = window.localStorage.getItem(key);
-				
 			}
 			
 			obserable.trigger({
 				type: 'setNickname',
 				data: window.nickname
 			});
+
 			
-			wxHandlercallback('', decodeURI(window.nickname) + ' 刚刚定制到一款限量版明信片，你要吗？', document.title);
+			setTimeout(()=>{
+				wxHandlercallback('', decodeURI(window.nickname) + ' 刚刚定制到一款限量版明信片，你要吗？', document.title);
+			},5000)
 		 }else{
 			 if (!this.isWeiXin()) {
 			 	return;
