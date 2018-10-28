@@ -32,7 +32,7 @@
 		function wxHandlercallback(res,title,desc) {
 			arguments.callee.res = arguments.callee.res || res;
 			wx.config({
-				debug: false,
+				debug: true,
 				appId: arguments.callee.res.appId,
 				timestamp: arguments.callee.res.timestamp,
 				nonceStr: arguments.callee.res.nonceStr,
@@ -47,7 +47,7 @@
 					title: title||document.title,
 					desc: desc|| window.desc,
 					//link: encodeURIComponent(window.location.href.split('?')[0].split('#')[0]),
-					link: document.URL,
+					link: 'https://h5.zhongguowangshi.com/h5/witness/index.html',
 					imgUrl: "http://h5.zhongguowangshi.com/h5/"+window.h5name+"/assets/images/302.jpg"
 				};
 				wx.onMenuShareAppMessage(config);
