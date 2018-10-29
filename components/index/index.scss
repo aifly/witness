@@ -117,7 +117,7 @@ $bgColor: #4081dd;
          font-size:24px;
          @include displayBox(horizontal);
          div{
-             margin: 0 20px;
+             width:50%;
          }
          span{
              line-height: 50px;

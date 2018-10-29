@@ -29,11 +29,11 @@
     <div id='app'></div>
     <script src="//res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>
     <script>
-        window.wxappid = 'wx5ec3d35069383211';
         function wxHandlercallback(res, title, desc) {
             arguments.callee.res = arguments.callee.res || res;
+
             wx.config({
-                debug: true,
+                debug: false,
                 appId: arguments.callee.res.appId,
                 timestamp: arguments.callee.res.timestamp,
                 nonceStr: arguments.callee.res.nonceStr,
@@ -42,6 +42,7 @@
                     "onMenuShareWeibo"
                 ]
             });
+
             wx.ready(function () {
                 var config = {
                     title: title || document.title,
@@ -54,44 +55,24 @@
                 wx.onMenuShareTimeline(config);
             });
         }
-
-
-        function getQueryString(name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-            var r = window.location.search.substr(1).match(reg);
-            if (r != null) return (r[2]);
-            return null;
-        }
-
-        var url = location.href;
-        var paraString = '';
-        if (url.indexOf("?") > 0 ) {
-          paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
-        }
-  
-        if (paraString.length > 0 ) {
-            var nickname = getQueryString('nickname');
-            var headimgurl = getQueryString('headimgurl');
-            window.nickname = nickname;
-            window.headimgurl = headimgurl;
-        }else{
-      
-            var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + wxappid +
-            '&redirect_uri=https://openapi.zhongguowangshi.com/wxHandler.ashx?action=getWeixinUserInfo&response_type=code&scope=snsapi_userinfo&state=XHSAh5A'
-            + window.h5name + 'AindexAhtml#wechat_redirect'
-            window.location.href = url;
-        }
-
-        setTimeout(()=>{
-            wxHandlercallback('', decodeURI(window.nickname) + ' 刚刚定制到一款限量版明信片，你要吗？', document.title);
-        },1000)
     </script>
     <script src="//openapi.zhongguowangshi.com/wxHandler.ashx?callback=wxHandlercallback&action=getWeixinConfig&debug=1&site=xhsh5"></script>
     <script>
-       
+        function loadScript(src) {
+            var script = document.createElement('script');
+            script.src = src + "?t=" + new Date().getTime();
+            document.body.appendChild(script)
+        }
+        /*
+        loadScript('./assets/js/base.js');
+        loadScript('./assets/js/index.js');
+         */
     </script>
 
-    
+    <!-- 
+		<script src='./assets/js/base.js'></script>
+		<script src='http://localhost:4051/index.js' onerror="loadScript('./assets/js/index.js')"></script>
+	 -->
 </body>
 
 </html>

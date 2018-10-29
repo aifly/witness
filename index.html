@@ -28,13 +28,14 @@
 <body>
 	<div id='app'></div>
 	<script src="//res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>
+
 	<script>
 		
 		function wxHandlercallback(res,title,desc) {
 			arguments.callee.res = arguments.callee.res || res;
 
 			wx.config({
-				debug: true,
+				debug: false,
 				appId: arguments.callee.res.appId,
 				timestamp: arguments.callee.res.timestamp,
 				nonceStr: arguments.callee.res.nonceStr,
@@ -44,6 +45,7 @@
 				]
 			});
 
+			//window.location.href = encodeURI(window.location.href)
 
 			wx.ready(function () {
 				var config = {
@@ -51,7 +53,11 @@
 					desc: desc|| window.desc,
 					//link: encodeURIComponent(window.location.href.split('?')[0].split('#')[0]),
 					link: 'https://h5.zhongguowangshi.com/h5/witness/index.html',
-					imgUrl: "http://h5.zhongguowangshi.com/h5/"+window.h5name+"/assets/images/302.jpg"
+					imgUrl: "http://h5.zhongguowangshi.com/h5/"+window.h5name+"/assets/images/302.jpg",
+					error:function(){
+					},
+					success(){
+					}
 				};
 				wx.onMenuShareAppMessage(config);
 				wx.onMenuShareTimeline(config);
@@ -65,6 +71,7 @@
 			script.src = src + "?t=" + new Date().getTime();
 			document.body.appendChild(script)
 		}
+
 		/*
 		*/
 		loadScript('./assets/js/base.js');

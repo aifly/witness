@@ -58,7 +58,7 @@
 
 	var _componentsIndexIndex2 = _interopRequireDefault(_componentsIndexIndex);
 
-	var _componentsMusicIndex = __webpack_require__(17);
+	var _componentsMusicIndex = __webpack_require__(16);
 
 	var _componentsMusicIndex2 = _interopRequireDefault(_componentsMusicIndex);
 
@@ -86,7 +86,7 @@
 
 	var _componentsLibUtil = __webpack_require__(14);
 
-	var _jquery = __webpack_require__(15);
+	var _jquery = __webpack_require__(18);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -282,7 +282,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
-	 * Vue.js v2.5.17
+	 * Vue.js v2.5.16
 	 * (c) 2014-2018 Evan You
 	 * Released under the MIT License.
 	 */
@@ -5358,7 +5358,7 @@
 	  value: FunctionalRenderContext
 	});
 
-	Vue.version = '2.5.17';
+	Vue.version = '2.5.16';
 
 	/*  */
 
@@ -11235,18 +11235,15 @@
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
-	            (typeof self !== "undefined" && self) ||
-	            window;
-	var apply = Function.prototype.apply;
+	/* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
 
 	// DOM APIs, for completeness
 
 	exports.setTimeout = function() {
-	  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
+	  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
 	};
 	exports.setInterval = function() {
-	  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
+	  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
 	};
 	exports.clearTimeout =
 	exports.clearInterval = function(timeout) {
@@ -11261,7 +11258,7 @@
 	}
 	Timeout.prototype.unref = Timeout.prototype.ref = function() {};
 	Timeout.prototype.close = function() {
-	  this._clearFn.call(scope, this._id);
+	  this._clearFn.call(window, this._id);
 	};
 
 	// Does not start the time, just sets up the members needed.
@@ -11289,7 +11286,7 @@
 
 	// setimmediate attaches itself to the global object
 	__webpack_require__(3);
-	// On some exotic environments, it's not clear which object `setimmediate` was
+	// On some exotic environments, it's not clear which object `setimmeidate` was
 	// able to install onto.  Search each possibility in the same order as the
 	// `setimmediate` library.
 	exports.setImmediate = (typeof self !== "undefined" && self.setImmediate) ||
@@ -12038,7 +12035,7 @@
 
 	var __vue_script__, __vue_template__
 	__vue_script__ = __webpack_require__(10)
-	__vue_template__ = __webpack_require__(16)
+	__vue_template__ = __webpack_require__(15)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -12046,7 +12043,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\witness\\components\\index\\index.vue"
+	  var id = "F:\\xuchang2018\\project\\witness\\components\\index\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -12258,7 +12255,7 @@
 
 
 	// module
-	exports.push([module.id, ".lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n}\r\n\r\n.zmiti-text-overflow {\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  word-break: break-all;\r\n  text-overflow: ellipsis;\r\n  -webkit-text-overflow: ellipsis;\r\n}\r\n\r\n.zmiti-play {\r\n  width: .8rem;\r\n  height: .8rem;\r\n  border-radius: 50%;\r\n  position: fixed;\r\n  z-index: 1000;\r\n  right: .5rem;\r\n  top: .5rem;\r\n}\r\n\r\n.zmiti-play.rotate {\r\n  -webkit-animation: rotate 5s linear infinite;\r\n  animation: rotate 5s linear infinite;\r\n}\r\n\r\n@-webkit-keyframes rotate {\r\n  to {\r\n    -webkit-transform: rotate(360deg);\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.zmiti-index-main-ui {\r\n  overflow: hidden;\r\n  width: 750px !important;\r\n  left: 0;\r\n  opacity: 0;\r\n  z-index: -1;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n}\r\n\r\n.zmiti-index-main-ui.show {\r\n  opacity: 1;\r\n  z-index: 200;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-index-main {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(1).model-enter-active, .zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(1).model-leave-active {\r\n  -webkit-transition: opacity 1s 0.5s;\r\n  transition: opacity 1s 0.5s;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(2).model-enter-active, .zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(2).model-leave-active {\r\n  -webkit-transition: opacity 1s 1.5s;\r\n  transition: opacity 1s 1.5s;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(3).model-enter-active, .zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(3).model-leave-active {\r\n  -webkit-transition: opacity 1s 2s;\r\n  transition: opacity 1s 2s;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-index-main .model-enter,\r\n.zmiti-index-main-ui .zmiti-index-main .model-leave-to {\r\n  opacity: 0;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-index-title {\r\n  position: relative;\r\n  z-index: 100;\r\n  width: 90%;\r\n  top: -20px;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-index-entry {\r\n  z-index: 1100;\r\n  bottom: 18vh;\r\n  left: 50%;\r\n  width: 300px;\r\n  margin: 10vh 0;\r\n  -webkit-animation: shake 1s infinite alternate;\r\n  animation: shake 1s infinite alternate;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list {\r\n  height: 50vh;\r\n  position: relative;\r\n  top: -8vh;\r\n  z-index: 10;\r\n  width: 100%;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list.model-enter-active, .zmiti-index-main-ui .zmiti-model-list.model-leave-active {\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list.model-enter, .zmiti-index-main-ui .zmiti-model-list.model-leave-to {\r\n  opacity: 0;\r\n  -webkit-transform: scale(0);\r\n  transform: scale(0);\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div {\r\n  left: 0;\r\n  top: 0;\r\n  width: 260px;\r\n  border: 4px solid #fff;\r\n  position: absolute;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(1) {\r\n  transition-delay: 1200ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(2) {\r\n  transition-delay: 1100ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(3) {\r\n  transition-delay: 1000ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(4) {\r\n  transition-delay: 900ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(5) {\r\n  transition-delay: 800ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(6) {\r\n  transition-delay: 700ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(7) {\r\n  transition-delay: 600ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(8) {\r\n  transition-delay: 500ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(9) {\r\n  transition-delay: 400ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(10) {\r\n  transition-delay: 300ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(11) {\r\n  transition-delay: 200ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(12) {\r\n  transition-delay: 100ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(13) {\r\n  transition-delay: 0ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(1) {\r\n  transition-delay: 200ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(2) {\r\n  transition-delay: 400ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(3) {\r\n  transition-delay: 600ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(4) {\r\n  transition-delay: 800ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(5) {\r\n  transition-delay: 1000ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(6) {\r\n  transition-delay: 1200ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(7) {\r\n  transition-delay: 1400ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(8) {\r\n  transition-delay: 1600ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(9) {\r\n  transition-delay: 1800ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(10) {\r\n  transition-delay: 2000ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(11) {\r\n  transition-delay: 2200ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(12) {\r\n  transition-delay: 2400ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(13) {\r\n  transition-delay: 2600ms;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-index-logo {\r\n  color: #fff;\r\n  width: 300px;\r\n  bottom: 1vh;\r\n  text-align: center;\r\n  font-size: 24px;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-index-logo div {\r\n  margin: 0 20px;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-index-logo span {\r\n  line-height: 50px;\r\n  display: block;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-index-logo img {\r\n  display: block;\r\n  width: 80px;\r\n  margin: 0 auto;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-submit-bg {\r\n  position: absolute;\r\n  z-index: 100;\r\n  width: 500px;\r\n  left: 50%;\r\n  top: 80%;\r\n}\r\n\r\n.zmiti-index-main-ui .zmiti-submit-bg span {\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100px;\r\n  left: 0;\r\n  top: 0;\r\n  color: #fff;\r\n  line-height: 100px;\r\n  text-align: center;\r\n}\r\n\r\n@-webkit-keyframes shake {\r\n  to {\r\n    -webkit-transform: translate3d(0, -10px, 0) scale(0.99);\r\n    transform: translate3d(0, -10px, 0) scale(0.99);\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, ".lt-full {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n\n.zmiti-text-overflow {\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  -webkit-text-overflow: ellipsis;\n}\n\n.zmiti-play {\n  width: .8rem;\n  height: .8rem;\n  border-radius: 50%;\n  position: fixed;\n  z-index: 1000;\n  right: .5rem;\n  top: .5rem;\n}\n\n.zmiti-play.rotate {\n  -webkit-animation: rotate 5s linear infinite;\n  animation: rotate 5s linear infinite;\n}\n\n@-webkit-keyframes rotate {\n  to {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n.zmiti-index-main-ui {\n  overflow: hidden;\n  width: 750px !important;\n  left: 0;\n  opacity: 0;\n  z-index: -1;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n}\n\n.zmiti-index-main-ui.show {\n  opacity: 1;\n  z-index: 200;\n}\n\n.zmiti-index-main-ui .zmiti-index-main {\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: vertical;\n}\n\n.zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(1).model-enter-active, .zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(1).model-leave-active {\n  -webkit-transition: opacity 1s 0.5s;\n  transition: opacity 1s 0.5s;\n}\n\n.zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(2).model-enter-active, .zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(2).model-leave-active {\n  -webkit-transition: opacity 1s 1.5s;\n  transition: opacity 1s 1.5s;\n}\n\n.zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(3).model-enter-active, .zmiti-index-main-ui .zmiti-index-main > div:nth-of-type(3).model-leave-active {\n  -webkit-transition: opacity 1s 2s;\n  transition: opacity 1s 2s;\n}\n\n.zmiti-index-main-ui .zmiti-index-main .model-enter,\n.zmiti-index-main-ui .zmiti-index-main .model-leave-to {\n  opacity: 0;\n}\n\n.zmiti-index-main-ui .zmiti-index-title {\n  position: relative;\n  z-index: 100;\n  width: 90%;\n  top: -20px;\n}\n\n.zmiti-index-main-ui .zmiti-index-entry {\n  z-index: 1100;\n  bottom: 18vh;\n  left: 50%;\n  width: 300px;\n  margin: 10vh 0;\n  -webkit-animation: shake 1s infinite alternate;\n  animation: shake 1s infinite alternate;\n}\n\n.zmiti-index-main-ui .zmiti-model-list {\n  height: 50vh;\n  position: relative;\n  top: -8vh;\n  z-index: 10;\n  width: 100%;\n}\n\n.zmiti-index-main-ui .zmiti-model-list.model-enter-active, .zmiti-index-main-ui .zmiti-model-list.model-leave-active {\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.zmiti-index-main-ui .zmiti-model-list.model-enter, .zmiti-index-main-ui .zmiti-model-list.model-leave-to {\n  opacity: 0;\n  -webkit-transform: scale(0);\n  transform: scale(0);\n}\n\n.zmiti-index-main-ui .zmiti-model-list div {\n  left: 0;\n  top: 0;\n  width: 260px;\n  border: 4px solid #fff;\n  position: absolute;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(1) {\n  transition-delay: 1200ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(2) {\n  transition-delay: 1100ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(3) {\n  transition-delay: 1000ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(4) {\n  transition-delay: 900ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(5) {\n  transition-delay: 800ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(6) {\n  transition-delay: 700ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(7) {\n  transition-delay: 600ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(8) {\n  transition-delay: 500ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(9) {\n  transition-delay: 400ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(10) {\n  transition-delay: 300ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(11) {\n  transition-delay: 200ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(12) {\n  transition-delay: 100ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div.active:nth-of-type(13) {\n  transition-delay: 0ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(1) {\n  transition-delay: 200ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(2) {\n  transition-delay: 400ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(3) {\n  transition-delay: 600ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(4) {\n  transition-delay: 800ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(5) {\n  transition-delay: 1000ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(6) {\n  transition-delay: 1200ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(7) {\n  transition-delay: 1400ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(8) {\n  transition-delay: 1600ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(9) {\n  transition-delay: 1800ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(10) {\n  transition-delay: 2000ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(11) {\n  transition-delay: 2200ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(12) {\n  transition-delay: 2400ms;\n}\n\n.zmiti-index-main-ui .zmiti-model-list div:nth-of-type(13) {\n  transition-delay: 2600ms;\n}\n\n.zmiti-index-main-ui .zmiti-index-logo {\n  color: #fff;\n  width: 300px;\n  bottom: 1vh;\n  text-align: center;\n  font-size: 24px;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n}\n\n.zmiti-index-main-ui .zmiti-index-logo div {\n  width: 50%;\n}\n\n.zmiti-index-main-ui .zmiti-index-logo span {\n  line-height: 50px;\n  display: block;\n}\n\n.zmiti-index-main-ui .zmiti-index-logo img {\n  display: block;\n  width: 80px;\n  margin: 0 auto;\n}\n\n.zmiti-index-main-ui .zmiti-submit-bg {\n  position: absolute;\n  z-index: 100;\n  width: 500px;\n  left: 50%;\n  top: 80%;\n}\n\n.zmiti-index-main-ui .zmiti-submit-bg span {\n  position: absolute;\n  width: 100%;\n  height: 100px;\n  left: 0;\n  top: 0;\n  color: #fff;\n  line-height: 100px;\n  text-align: center;\n}\n\n@-webkit-keyframes shake {\n  to {\n    -webkit-transform: translate3d(0, -10px, 0) scale(0.99);\n    transform: translate3d(0, -10px, 0) scale(0.99);\n  }\n}\n", ""]);
 
 	// exports
 
@@ -12294,7 +12291,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	var _jquery = __webpack_require__(15);
+	var _jquery = __webpack_require__(18);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -12431,11 +12428,13 @@
 			if (url.indexOf("?") > 0) {
 				paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
 			}
-			var key = 'headingurl4',
-			    key1 = 'nickname2';
+			var key = 'headingur22',
+			    key1 = 'nickname22';
 			if (paraString.length > 0) {
 				if (!(window.localStorage.getItem(key) || window.localStorage.getItem(key1))) {
 					var nickname = this.getQueryString('nickname');
+					var re = /^[\u4e00-\u9fa5]{0,}$/;
+
 					var headimgurl = this.getQueryString('headimgurl');
 					window.localStorage.setItem(key, headimgurl);
 					window.localStorage.setItem(key1, nickname);
@@ -12453,18 +12452,17 @@
 
 				setTimeout(function () {
 					wxHandlercallback('', decodeURI(window.nickname) + ' 刚刚定制到一款限量版明信片，你要吗？', document.title);
-				}, 5000);
+				}, 1000);
 			} else {
 				if (!this.isWeiXin()) {
 					return;
 				}
+
 				var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + wxappid + '&redirect_uri=https://openapi.zhongguowangshi.com/wxHandler.ashx?action=getWeixinUserInfo&response_type=code&scope=snsapi_userinfo&state=XHSAh5A' + window.h5name + 'AindexAhtml#wechat_redirect';
 				window.location.href = url;
 			}
 
 			return;
-
-			var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + wxappid + '&redirect_uri=https://openapi.zhongguowangshi.com/wxHandler.ashx?action=getWeixinUserInfo&response_type=code&scope=snsapi_userinfo&state=XHSA' + window.h5name + 'AindexAhtml#wechat_redirect';
 
 			_jquery2["default"].ajax({
 				type: 'post',
@@ -12654,6 +12652,198 @@
 
 /***/ }),
 /* 15 */
+/***/ (function(module, exports) {
+
+	module.exports = "\r\n\t<div ref='page'  class=\"lt-full zmiti-index-main-ui \" :style=\"{background:'url('+imgs.loadingBg+') no-repeat center bottom',backgroundSize:'cover'}\"   :class=\"{'show':show}\" >\r\n\r\n\t\t<div class='zmiti-book1' :class=\"{'active':showBook}\" @transitionend='endBook'>\r\n\t\t\t<img :src=\"imgs.book1\" alt=\"\">\r\n\t\t</div>\r\n\t\t<div class='zmiti-book2' :class=\"{'active':showBook}\">\r\n\t\t\t<img :src=\"imgs.book2\" alt=\"\">\r\n\t\t</div>\r\n\r\n\t\t<transition name='model'>\r\n\t\t\t<div v-if='showModelList' class='zmiti-model-list'>\r\n\t\t\t\t<div :class='{\"active\":reverse}' @transitionend='end' v-for='(model,i) in modelList' :key=\"i\" :style=\"{WebkitTransform:'translate3d('+( model.transX || 0 )+'px,'+ ( model.transY || 0 ) +'px,0) scale('+(model.scale===undefined?1:model.scale)+') rotate('+( model.rotate||0 ) + 'deg) '}\">\r\n\t\t\t\t\t<img :src=\"model.url\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t</div>\t\r\n\t\t</transition>\r\n\t\t\r\n\t\t\t<div class='zmiti-index-main' >\r\n\t\t\t\t<transition name='model'>\r\n\t\t\t\t\t<div class='zmiti-index-title'  v-if='!showModelList'>\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.title\" alt=\"\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t\t<transition name='model'>\r\n\t\t\t\t\t<div class='zmiti-index-entry' v-tap='[entry]'  v-if='!showModelList'>\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.entry\" alt=\"\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t\t<transition name='model'  >\r\n\t\t\t\t\t<div class='zmiti-index-logo' v-if='!showModelList'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.logo\" alt=\"\">\r\n\t\t\t\t\t\t\t<span>新华社客户端</span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.pitu\" alt=\"\">\r\n\t\t\t\t\t\t\t<span>天天P图</span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t</div>\r\n\t\t\r\n\t</div>\r\n";
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__vue_script__ = __webpack_require__(17)
+	__vue_template__ = __webpack_require__(19)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "F:\\xuchang2018\\project\\witness\\components\\music\\index.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// <template>
+	// 	<div  class="lt-full zmiti-music-main-ui" :style='{height:"10vh"}'>
+	// 		<audio ref='music' v-for='audio in audios' :src='audio.src' :autoplay="audio.autoplay" :loop="audio.loop"></audio>
+	//
+	// 		<div  @click='toggleMusic' class='zmiti-play' :class='{"rotate":rotate}' :style="playStyle">
+	// 			<img  :src='imgs.play'/>
+	// 		</div>
+	// 	</div>
+	// </template>
+	//
+	// <script>
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _jquery = __webpack_require__(18);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _libAssets = __webpack_require__(13);
+
+	var audios = [];
+
+	for (var music in _libAssets.musics) {
+		audios.push(_libAssets.musics[music]);
+	}
+
+	exports['default'] = {
+		props: ['obserable'],
+		name: 'zmitiindex',
+		data: function data() {
+			return {
+				audios: audios,
+				imgs: _libAssets.imgs,
+				rotate: false,
+				playStyle: {}
+			};
+		},
+		components: {},
+
+		methods: {
+
+			toggleMusic: function toggleMusic() {
+
+				var music = this.$refs['music'][0];
+				music[music.paused ? 'play' : 'pause']();
+			},
+			playAudioMuted: function playAudioMuted() {
+				//静音播放
+
+				this.audios.forEach(function (audio, i) {
+					if (i > 0) {
+						if (audio.autoplay) {
+
+							audio.muted = true; //静音
+							audio.play();
+						}
+					}
+				});
+			}
+		},
+		mounted: function mounted() {
+			var _this = this;
+
+			var obserable = this.obserable;
+
+			var audio = this.$refs['music'][0];
+			var len = audio;
+			len && (0, _jquery2['default'])(audio).on('play', function () {
+
+				_this.rotate = true;
+			}).on('pause', function () {
+				_this.rotate = false;
+			});
+
+			len && audio.play();
+			audio.volume = .1;
+
+			this.playAudioMuted();
+
+			obserable.on('playVoice', function (key) {
+				_this.audios.forEach(function (audio, i) {
+					if (i > 0) {
+
+						if (audio.name === key) {
+							_this.$refs['music'][i].currentTime = 0;
+							_this.$refs['music'][i].muted = false; //取消静音
+							_this.$refs['music'][i].play();
+						}
+					}
+				});
+			});
+
+			obserable.on('pauseVoice', function (key) {
+
+				_this.audios.forEach(function (audio, i) {
+					if (i > 0) {
+						if (audio.name === key) {
+							//audio.currentTime = 0;
+
+							_this.$refs['music'][i].pause();
+							_this.$refs['music'][i].muted = false; //取消静音
+						}
+					}
+				});
+			});
+
+			obserable.on('setPlay', function (data) {
+
+				_this.playStyle = data;
+			});
+
+			var s = this;
+			document.addEventListener("WeixinJSBridgeReady", function () {
+				WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+					audio && (audio.volume = .1);
+					len && audio.play();
+					s.playAudioMuted();
+				});
+			}, false);
+
+			var play = function play() {
+				document.removeEventListener("WeixinJSBridgeReady", play);
+				document.removeEventListener("YixinJSBridgeReady", play);
+				s.playAudioMuted();
+				len && audio.play();
+				audio && (audio.volume = .1);
+			};
+
+			if (window.WeixinJSBridge) {
+				audio && (audio.volume = .1);
+				len && audio.play();
+				s.playAudioMuted();
+			}
+			//weixin
+			if (typeof WeixinJSBridge == "undefined") {
+				document.addEventListener("WeixinJSBridgeReady", play, false);
+				s.playAudioMuted();
+			} else {
+				//yixin
+				document.addEventListener('YixinJSBridgeReady', play, false);
+				len && audio.play();
+				s.playAudioMuted();
+			}
+
+			obserable.on('toggleBgMusic', function (data) {
+
+				var audio = _this.$refs['music'][0];
+				audio[data ? 'play' : 'pause']();
+			});
+		}
+	};
+
+	// </script>
+	module.exports = exports['default'];
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -22473,198 +22663,6 @@
 
 
 /***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-	module.exports = "\r\n\t<div ref='page'  class=\"lt-full zmiti-index-main-ui \" :style=\"{background:'url('+imgs.loadingBg+') no-repeat center bottom',backgroundSize:'cover'}\"   :class=\"{'show':show}\" >\r\n\r\n\t\t<div class='zmiti-book1' :class=\"{'active':showBook}\" @transitionend='endBook'>\r\n\t\t\t<img :src=\"imgs.book1\" alt=\"\">\r\n\t\t</div>\r\n\t\t<div class='zmiti-book2' :class=\"{'active':showBook}\">\r\n\t\t\t<img :src=\"imgs.book2\" alt=\"\">\r\n\t\t</div>\r\n\r\n\t\t<transition name='model'>\r\n\t\t\t<div v-if='showModelList' class='zmiti-model-list'>\r\n\t\t\t\t<div :class='{\"active\":reverse}' @transitionend='end' v-for='(model,i) in modelList' :key=\"i\" :style=\"{WebkitTransform:'translate3d('+( model.transX || 0 )+'px,'+ ( model.transY || 0 ) +'px,0) scale('+(model.scale===undefined?1:model.scale)+') rotate('+( model.rotate||0 ) + 'deg) '}\">\r\n\t\t\t\t\t<img :src=\"model.url\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t</div>\t\r\n\t\t</transition>\r\n\t\t\r\n\t\t\t<div class='zmiti-index-main' >\r\n\t\t\t\t<transition name='model'>\r\n\t\t\t\t\t<div class='zmiti-index-title'  v-if='!showModelList'>\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.title\" alt=\"\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t\t<transition name='model'>\r\n\t\t\t\t\t<div class='zmiti-index-entry' v-tap='[entry]'  v-if='!showModelList'>\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.entry\" alt=\"\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t\t<transition name='model'  >\r\n\t\t\t\t\t<div class='zmiti-index-logo' v-if='!showModelList'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.logo\" alt=\"\">\r\n\t\t\t\t\t\t\t<span>新华社客户端</span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.pitu\" alt=\"\">\r\n\t\t\t\t\t\t\t<span>天天P图</span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t</div>\r\n\t\t\r\n\t</div>\r\n";
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(18)
-	__vue_template__ = __webpack_require__(19)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
-	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\witness\\components\\music\\index.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// <template>
-	// 	<div  class="lt-full zmiti-music-main-ui" :style='{height:"10vh"}'>
-	// 		<audio ref='music' v-for='audio in audios' :src='audio.src' :autoplay="audio.autoplay" :loop="audio.loop"></audio>
-	//
-	// 		<div  @click='toggleMusic' class='zmiti-play' :class='{"rotate":rotate}' :style="playStyle">
-	// 			<img  :src='imgs.play'/>
-	// 		</div>
-	// 	</div>
-	// </template>
-	//
-	// <script>
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _jquery = __webpack_require__(15);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _libAssets = __webpack_require__(13);
-
-	var audios = [];
-
-	for (var music in _libAssets.musics) {
-		audios.push(_libAssets.musics[music]);
-	}
-
-	exports['default'] = {
-		props: ['obserable'],
-		name: 'zmitiindex',
-		data: function data() {
-			return {
-				audios: audios,
-				imgs: _libAssets.imgs,
-				rotate: false,
-				playStyle: {}
-			};
-		},
-		components: {},
-
-		methods: {
-
-			toggleMusic: function toggleMusic() {
-
-				var music = this.$refs['music'][0];
-				music[music.paused ? 'play' : 'pause']();
-			},
-			playAudioMuted: function playAudioMuted() {
-				//静音播放
-
-				this.audios.forEach(function (audio, i) {
-					if (i > 0) {
-						if (audio.autoplay) {
-
-							audio.muted = true; //静音
-							audio.play();
-						}
-					}
-				});
-			}
-		},
-		mounted: function mounted() {
-			var _this = this;
-
-			var obserable = this.obserable;
-
-			var audio = this.$refs['music'][0];
-			var len = audio;
-			len && (0, _jquery2['default'])(audio).on('play', function () {
-
-				_this.rotate = true;
-			}).on('pause', function () {
-				_this.rotate = false;
-			});
-
-			len && audio.play();
-			audio.volume = .1;
-
-			this.playAudioMuted();
-
-			obserable.on('playVoice', function (key) {
-				_this.audios.forEach(function (audio, i) {
-					if (i > 0) {
-
-						if (audio.name === key) {
-							_this.$refs['music'][i].currentTime = 0;
-							_this.$refs['music'][i].muted = false; //取消静音
-							_this.$refs['music'][i].play();
-						}
-					}
-				});
-			});
-
-			obserable.on('pauseVoice', function (key) {
-
-				_this.audios.forEach(function (audio, i) {
-					if (i > 0) {
-						if (audio.name === key) {
-							//audio.currentTime = 0;
-
-							_this.$refs['music'][i].pause();
-							_this.$refs['music'][i].muted = false; //取消静音
-						}
-					}
-				});
-			});
-
-			obserable.on('setPlay', function (data) {
-
-				_this.playStyle = data;
-			});
-
-			var s = this;
-			document.addEventListener("WeixinJSBridgeReady", function () {
-				WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-					audio && (audio.volume = .1);
-					len && audio.play();
-					s.playAudioMuted();
-				});
-			}, false);
-
-			var play = function play() {
-				document.removeEventListener("WeixinJSBridgeReady", play);
-				document.removeEventListener("YixinJSBridgeReady", play);
-				s.playAudioMuted();
-				len && audio.play();
-				audio && (audio.volume = .1);
-			};
-
-			if (window.WeixinJSBridge) {
-				audio && (audio.volume = .1);
-				len && audio.play();
-				s.playAudioMuted();
-			}
-			//weixin
-			if (typeof WeixinJSBridge == "undefined") {
-				document.addEventListener("WeixinJSBridgeReady", play, false);
-				s.playAudioMuted();
-			} else {
-				//yixin
-				document.addEventListener('YixinJSBridgeReady', play, false);
-				len && audio.play();
-				s.playAudioMuted();
-			}
-
-			obserable.on('toggleBgMusic', function (data) {
-
-				var audio = _this.$refs['music'][0];
-				audio[data ? 'play' : 'pause']();
-			});
-		}
-	};
-
-	// </script>
-	module.exports = exports['default'];
-
-/***/ }),
 /* 19 */
 /***/ (function(module, exports) {
 
@@ -22684,7 +22682,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\witness\\components\\main\\index.vue"
+	  var id = "F:\\xuchang2018\\project\\witness\\components\\main\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -22989,7 +22987,7 @@
 
 
 	// module
-	exports.push([module.id, ".lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n}\r\n\r\n.zmiti-text-overflow {\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  word-break: break-all;\r\n  text-overflow: ellipsis;\r\n  -webkit-text-overflow: ellipsis;\r\n}\r\n\r\n.zmiti-play {\r\n  width: .8rem;\r\n  height: .8rem;\r\n  border-radius: 50%;\r\n  position: fixed;\r\n  z-index: 1000;\r\n  right: .5rem;\r\n  top: .5rem;\r\n}\r\n\r\n.zmiti-play.rotate {\r\n  -webkit-animation: rotate 5s linear infinite;\r\n  animation: rotate 5s linear infinite;\r\n}\r\n\r\n@-webkit-keyframes rotate {\r\n  to {\r\n    -webkit-transform: rotate(360deg);\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.zmiti-main-ui {\r\n  -webkit-transform-style: preserve-3d;\r\n  transform-style: preserve-3d;\r\n  perspective: 800px;\r\n  -webkit-perspective: 800px;\r\n  width: 750px !important;\r\n  left: 0;\r\n  top: 0;\r\n  overflow: hidden;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  z-index: -1;\r\n  opacity: 0;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list {\r\n  height: 450px;\r\n  width: 100%;\r\n  position: relative;\r\n  z-index: 100;\r\n  margin: 5vh 0 8vh 0;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list .zmiti-ar,\r\n.zmiti-main-ui .zmiti-model-list .zmiti-ar1 {\r\n  position: absolute;\r\n  left: 0;\r\n  top: 50%;\r\n  margin-top: -37px;\r\n  height: 76px;\r\n  z-index: 1000;\r\n  -webkit-transform: translate3d(0, 0, 20px);\r\n  transform: translate3d(0, 0, 20px);\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list .zmiti-ar1 {\r\n  -webkit-transform: translate3d(0, 0, 20px) rotate(180deg);\r\n  transform: translate3d(0, 0, 20px) rotate(180deg);\r\n  left: auto;\r\n  right: 0;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list ul {\r\n  perspective: 500px;\r\n  -webkit-perspective: 500px;\r\n  position: relative;\r\n  height: 450px;\r\n  z-index: 1000;\r\n  -webkit-transform: rotateY(0) translate3d(0, 0, 0px);\r\n  transform: rotateY(0) translate3d(0, 0, 0px);\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list li {\r\n  position: absolute;\r\n  -webkit-transform: rotateY(0) translate3d(0, 0, 100px);\r\n  transform: rotateY(0) translate3d(0, 0, 100px);\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list li.left {\r\n  opacity: .7;\r\n  -webkit-transform: translate3d(-5.66667rem, 0, 0px) rotateY(90deg);\r\n  transform: translate3d(-5.66667rem, 0, 0px) rotateY(90deg);\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list li.transition {\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list li.left1 {\r\n  opacity: 0;\r\n  -webkit-transform: translate3d(-750px, 0, 0px) rotateY(90deg);\r\n  transform: translate3d(-750px, 0, 0px) rotateY(90deg);\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list li.right {\r\n  opacity: .7;\r\n  -webkit-transform: translate3d(5.66667rem, 0, 0px) rotateY(-90deg);\r\n  transform: translate3d(5.66667rem, 0, 0px) rotateY(-90deg);\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list li.right1 {\r\n  opacity: 0;\r\n  -webkit-transform: translate3d(750px, 0, 0px) rotateY(-90deg);\r\n  transform: translate3d(750px, 0, 0px) rotateY(-90deg);\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list li.active {\r\n  -webkit-transform: rotateY(0) translate3d(0, 0, 0px);\r\n  transform: rotateY(0) translate3d(0, 0, 0px);\r\n  z-index: 100;\r\n}\r\n\r\n.zmiti-main-ui.show {\r\n  z-index: 1000;\r\n  opacity: 1;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-main-C {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical;\r\n  opacity: 0;\r\n  -webkit-transition: 0.5s 0.7s;\r\n  transition: 0.5s 0.7s;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-main-C.show {\r\n  opacity: 1;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-main-C > div {\r\n  -webkit-transform: translate3d(0, 0, 10px);\r\n  transform: translate3d(0, 0, 10px);\r\n}\r\n\r\n.zmiti-main-ui .zmiti-main-C > div:nth-of-type(1), .zmiti-main-ui .zmiti-main-C > div:nth-of-type(3) {\r\n  text-align: center;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-main-C > div:nth-of-type(1) img, .zmiti-main-ui .zmiti-main-C > div:nth-of-type(3) img {\r\n  width: 60%;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-main-C > div:nth-of-type(1) img {\r\n  width: 70%;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-done {\r\n  position: absolute;\r\n  bottom: 30px;\r\n  left: 50%;\r\n  width: 400px;\r\n  -webkit-transform: translate3d(-50%, 0, 0);\r\n  transform: translate3d(-50%, 0, 0);\r\n  z-index: 102;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-done .zmiti-info {\r\n  position: absolute;\r\n  width: 60px;\r\n  top: -50px;\r\n  left: 50%;\r\n  margin-left: -30px;\r\n  -webkit-animation: info 1.4s infinite;\r\n  animation: info 1.4s infinite;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list-mask {\r\n  background: rgba(0, 0, 0, 0.7);\r\n  z-index: 1000;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C {\r\n  position: absolute;\r\n  left: 0;\r\n  height: 300px;\r\n  width: 750px;\r\n  bottom: 7vh;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-goto-photo {\r\n  width: 50%;\r\n  margin: 50px auto;\r\n  position: relative;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-goto-photo span {\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100px;\r\n  left: 0;\r\n  top: 0;\r\n  color: #fff;\r\n  line-height: 110px;\r\n  text-align: center;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-model-close {\r\n  width: 100px;\r\n  height: 100px;\r\n  border: 3px solid #fff;\r\n  border-radius: 50%;\r\n  margin: 20px auto;\r\n  position: relative;\r\n  -webkit-transform: rotate(45deg);\r\n  transform: rotate(45deg);\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-model-close:before, .zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-model-close:after {\r\n  content: '';\r\n  position: absolute;\r\n  width: 4px;\r\n  height: 60%;\r\n  background: #fff;\r\n  left: 50%;\r\n  margin-left: -2px;\r\n  border-radius: 1px;\r\n  top: 20%;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-model-close:after {\r\n  -webkit-transform: rotate(90deg);\r\n  transform: rotate(90deg);\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list-mask ul {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-transition: 0.3s;\r\n  transition: 0.3s;\r\n  height: 100vh;\r\n  margin-top: -12vh;\r\n  position: relative;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list-mask ul li {\r\n  height: 100vh;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical;\r\n  padding-top: 50px;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-model-list-mask ul li img {\r\n  display: block;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-progress {\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 4px;\r\n  left: 0;\r\n  bottom: 0;\r\n  z-index: 10000;\r\n}\r\n\r\n.zmiti-main-ui .zmiti-progress span {\r\n  position: absolute;\r\n  -webkit-transform-origin: left;\r\n  transform-origin: left;\r\n  width: 100%;\r\n  height: 100%;\r\n  -webkit-transition: 0.3s;\r\n  transition: 0.3s;\r\n  background: #fff;\r\n}\r\n\r\n@-webkit-keyframes info {\r\n  from {\r\n    -webkit-transform: translate3d(0, -30px, 0);\r\n  }\r\n  to {\r\n    -webkit-transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, ".lt-full {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n\n.zmiti-text-overflow {\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  -webkit-text-overflow: ellipsis;\n}\n\n.zmiti-play {\n  width: .8rem;\n  height: .8rem;\n  border-radius: 50%;\n  position: fixed;\n  z-index: 1000;\n  right: .5rem;\n  top: .5rem;\n}\n\n.zmiti-play.rotate {\n  -webkit-animation: rotate 5s linear infinite;\n  animation: rotate 5s linear infinite;\n}\n\n@-webkit-keyframes rotate {\n  to {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n.zmiti-main-ui {\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n  perspective: 800px;\n  -webkit-perspective: 800px;\n  width: 750px !important;\n  left: 0;\n  top: 0;\n  overflow: hidden;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n  z-index: -1;\n  opacity: 0;\n}\n\n.zmiti-main-ui .zmiti-model-list {\n  height: 450px;\n  width: 100%;\n  position: relative;\n  z-index: 100;\n  margin: 5vh 0 8vh 0;\n}\n\n.zmiti-main-ui .zmiti-model-list .zmiti-ar,\n.zmiti-main-ui .zmiti-model-list .zmiti-ar1 {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  margin-top: -37px;\n  height: 76px;\n  z-index: 1000;\n  -webkit-transform: translate3d(0, 0, 20px);\n  transform: translate3d(0, 0, 20px);\n}\n\n.zmiti-main-ui .zmiti-model-list .zmiti-ar1 {\n  -webkit-transform: translate3d(0, 0, 20px) rotate(180deg);\n  transform: translate3d(0, 0, 20px) rotate(180deg);\n  left: auto;\n  right: 0;\n}\n\n.zmiti-main-ui .zmiti-model-list ul {\n  perspective: 500px;\n  -webkit-perspective: 500px;\n  position: relative;\n  height: 450px;\n  z-index: 1000;\n  -webkit-transform: rotateY(0) translate3d(0, 0, 0px);\n  transform: rotateY(0) translate3d(0, 0, 0px);\n}\n\n.zmiti-main-ui .zmiti-model-list li {\n  position: absolute;\n  -webkit-transform: rotateY(0) translate3d(0, 0, 100px);\n  transform: rotateY(0) translate3d(0, 0, 100px);\n}\n\n.zmiti-main-ui .zmiti-model-list li.left {\n  opacity: .7;\n  -webkit-transform: translate3d(-5.66667rem, 0, 0px) rotateY(90deg);\n  transform: translate3d(-5.66667rem, 0, 0px) rotateY(90deg);\n}\n\n.zmiti-main-ui .zmiti-model-list li.transition {\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.zmiti-main-ui .zmiti-model-list li.left1 {\n  opacity: 0;\n  -webkit-transform: translate3d(-750px, 0, 0px) rotateY(90deg);\n  transform: translate3d(-750px, 0, 0px) rotateY(90deg);\n}\n\n.zmiti-main-ui .zmiti-model-list li.right {\n  opacity: .7;\n  -webkit-transform: translate3d(5.66667rem, 0, 0px) rotateY(-90deg);\n  transform: translate3d(5.66667rem, 0, 0px) rotateY(-90deg);\n}\n\n.zmiti-main-ui .zmiti-model-list li.right1 {\n  opacity: 0;\n  -webkit-transform: translate3d(750px, 0, 0px) rotateY(-90deg);\n  transform: translate3d(750px, 0, 0px) rotateY(-90deg);\n}\n\n.zmiti-main-ui .zmiti-model-list li.active {\n  -webkit-transform: rotateY(0) translate3d(0, 0, 0px);\n  transform: rotateY(0) translate3d(0, 0, 0px);\n  z-index: 100;\n}\n\n.zmiti-main-ui.show {\n  z-index: 1000;\n  opacity: 1;\n}\n\n.zmiti-main-ui .zmiti-main-C {\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: vertical;\n  opacity: 0;\n  -webkit-transition: 0.5s 0.7s;\n  transition: 0.5s 0.7s;\n}\n\n.zmiti-main-ui .zmiti-main-C.show {\n  opacity: 1;\n}\n\n.zmiti-main-ui .zmiti-main-C > div {\n  -webkit-transform: translate3d(0, 0, 10px);\n  transform: translate3d(0, 0, 10px);\n}\n\n.zmiti-main-ui .zmiti-main-C > div:nth-of-type(1), .zmiti-main-ui .zmiti-main-C > div:nth-of-type(3) {\n  text-align: center;\n}\n\n.zmiti-main-ui .zmiti-main-C > div:nth-of-type(1) img, .zmiti-main-ui .zmiti-main-C > div:nth-of-type(3) img {\n  width: 60%;\n}\n\n.zmiti-main-ui .zmiti-main-C > div:nth-of-type(1) img {\n  width: 70%;\n}\n\n.zmiti-main-ui .zmiti-done {\n  position: absolute;\n  bottom: 30px;\n  left: 50%;\n  width: 400px;\n  -webkit-transform: translate3d(-50%, 0, 0);\n  transform: translate3d(-50%, 0, 0);\n  z-index: 102;\n}\n\n.zmiti-main-ui .zmiti-done .zmiti-info {\n  position: absolute;\n  width: 60px;\n  top: -50px;\n  left: 50%;\n  margin-left: -30px;\n  -webkit-animation: info 1.4s infinite;\n  animation: info 1.4s infinite;\n}\n\n.zmiti-main-ui .zmiti-model-list-mask {\n  background: rgba(0, 0, 0, 0.7);\n  z-index: 1000;\n}\n\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C {\n  position: absolute;\n  left: 0;\n  height: 300px;\n  width: 750px;\n  bottom: 7vh;\n}\n\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-goto-photo {\n  width: 50%;\n  margin: 50px auto;\n  position: relative;\n}\n\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-goto-photo span {\n  position: absolute;\n  width: 100%;\n  height: 100px;\n  left: 0;\n  top: 0;\n  color: #fff;\n  line-height: 110px;\n  text-align: center;\n}\n\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-model-close {\n  width: 100px;\n  height: 100px;\n  border: 3px solid #fff;\n  border-radius: 50%;\n  margin: 20px auto;\n  position: relative;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-model-close:before, .zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-model-close:after {\n  content: '';\n  position: absolute;\n  width: 4px;\n  height: 60%;\n  background: #fff;\n  left: 50%;\n  margin-left: -2px;\n  border-radius: 1px;\n  top: 20%;\n}\n\n.zmiti-main-ui .zmiti-model-list-mask .zmiti-photo-C .zmiti-model-close:after {\n  -webkit-transform: rotate(90deg);\n  transform: rotate(90deg);\n}\n\n.zmiti-main-ui .zmiti-model-list-mask ul {\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n  -webkit-transition: 0.3s;\n  transition: 0.3s;\n  height: 100vh;\n  margin-top: -12vh;\n  position: relative;\n}\n\n.zmiti-main-ui .zmiti-model-list-mask ul li {\n  height: 100vh;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: vertical;\n  padding-top: 50px;\n}\n\n.zmiti-main-ui .zmiti-model-list-mask ul li img {\n  display: block;\n}\n\n.zmiti-main-ui .zmiti-progress {\n  position: absolute;\n  width: 100%;\n  height: 4px;\n  left: 0;\n  bottom: 0;\n  z-index: 10000;\n}\n\n.zmiti-main-ui .zmiti-progress span {\n  position: absolute;\n  -webkit-transform-origin: left;\n  transform-origin: left;\n  width: 100%;\n  height: 100%;\n  -webkit-transition: 0.3s;\n  transition: 0.3s;\n  background: #fff;\n}\n\n@-webkit-keyframes info {\n  from {\n    -webkit-transform: translate3d(0, -30px, 0);\n  }\n  to {\n    -webkit-transform: translate3d(0, 0, 0);\n  }\n}\n", ""]);
 
 	// exports
 
@@ -23009,7 +23007,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\witness\\components\\toast\\toast.vue"
+	  var id = "F:\\xuchang2018\\project\\witness\\components\\toast\\toast.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -23033,8 +23031,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c3d03aca&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue", function() {
-				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-c3d03aca&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue");
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6395e7fb&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6395e7fb&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -23189,7 +23187,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\witness\\components\\upload\\index.vue"
+	  var id = "F:\\xuchang2018\\project\\witness\\components\\upload\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -23539,7 +23537,7 @@
 
 
 	// module
-	exports.push([module.id, ".lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n}\r\n\r\n.zmiti-text-overflow {\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  word-break: break-all;\r\n  text-overflow: ellipsis;\r\n  -webkit-text-overflow: ellipsis;\r\n}\r\n\r\n.zmiti-play {\r\n  width: .8rem;\r\n  height: .8rem;\r\n  border-radius: 50%;\r\n  position: fixed;\r\n  z-index: 1000;\r\n  right: .5rem;\r\n  top: .5rem;\r\n}\r\n\r\n.zmiti-play.rotate {\r\n  -webkit-animation: rotate 5s linear infinite;\r\n  animation: rotate 5s linear infinite;\r\n}\r\n\r\n@-webkit-keyframes rotate {\r\n  to {\r\n    -webkit-transform: rotate(360deg);\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.zmiti-upload-main-ui {\r\n  background: #ecf7ff;\r\n  z-index: 110;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C {\r\n  color: #f4d893;\r\n  text-align: center;\r\n  -webkit-transition: 0.1s;\r\n  transition: 0.1s;\r\n  position: absolute;\r\n  width: 88vw;\r\n  height: 84vh;\r\n  left: 6vw;\r\n  top: 4vh;\r\n  z-index: 2;\r\n  border-radius: 20px;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C.upload-enter, .zmiti-upload-main-ui .zmiti-upload-C.upload-leave-to {\r\n  opacity: 0;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C h1,\r\n.zmiti-upload-main-ui .zmiti-upload-C h2,\r\n.zmiti-upload-main-ui .zmiti-upload-C h3,\r\n.zmiti-upload-main-ui .zmiti-upload-C h5 {\r\n  font-weight: normal;\r\n  width: 500px;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C h3 {\r\n  margin-left: 20px;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload {\r\n  position: relative;\r\n  margin: 4vh 0 0 0;\r\n  width: 250px;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload div {\r\n  color: #fff;\r\n  position: absolute;\r\n  top: 50%;\r\n  text-align: center;\r\n  width: 100%;\r\n  margin-top: -15px;\r\n  opacity: 0;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload.uploading {\r\n  -webkit-animation: flash 1s infinite ease-out alternate;\r\n  animation: flash 1s infinite ease-out alternate;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload.uploading div {\r\n  opacity: 1;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload .zmiti-file {\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  opacity: 0;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(1) {\r\n  -webkit-box-flex: 4;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(1) .zmiti-rechoose {\r\n  margin-top: 20px;\r\n  text-decoration: underline;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) {\r\n  -webkit-box-flex: 2;\r\n  position: relative;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) h3 img {\r\n  width: 200px;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) .zmiti-upload-sex {\r\n  margin: 0 auto;\r\n  position: relative;\r\n  top: 30px;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) .zmiti-upload-sex > div {\r\n  margin: 0 50px;\r\n  position: relative;\r\n  width: 170px;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) .zmiti-upload-sex .zmiti-sex-checked {\r\n  position: absolute;\r\n  width: 40px;\r\n  left: 67%;\r\n  bottom: 14px;\r\n  overflow: hidden;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) .zmiti-upload-sex .zmiti-sex-checked img {\r\n  -webkit-transform: scale(0.8);\r\n  transform: scale(0.8);\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-nickname {\r\n  position: absolute;\r\n  top: 64px;\r\n  color: #333;\r\n  right: 140px;\r\n  width: 30px;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-mask {\r\n  background: rgba(0, 0, 0, 0.8);\r\n  z-index: 1000;\r\n  text-align: center;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-mask > img {\r\n  width: 400px;\r\n  position: absolute;\r\n  margin: 10px 10px 0 0;\r\n  right: 0px;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-mask > div {\r\n  color: #fff;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-mask > div img {\r\n  width: 80px;\r\n  margin: 0 auto;\r\n  display: block;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-mask > div .zmiti-share-logos {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-mask > div .zmiti-share-logos > div {\r\n  margin: 0 30px;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-mask > div > div {\r\n  font-weight: bold;\r\n  text-align: center;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-mask > div > div:nth-of-type(1) {\r\n  margin: 20px 0;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-mask > div > div:nth-of-type(2) {\r\n  color: #ef5050;\r\n  font-weight: normal;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-ui {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: vertical;\r\n  color: #fe9a74;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-ui > div {\r\n  margin: 3vh 0;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-img-tip {\r\n  margin-top: -20px;\r\n  font-size: 26px;\r\n  top: -26px;\r\n  text-align: center;\r\n  width: 100%;\r\n  font-size: 30px;\r\n  position: absolute;\r\n  z-index: 100;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img {\r\n  position: relative;\r\n  width: 750px;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img canvas {\r\n  width: 100%;\r\n  height: 100%;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: -1;\r\n  opacity: 0;\r\n  position: absolute;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info {\r\n  position: absolute;\r\n  color: #333;\r\n  font-size: 18px;\r\n  bottom: 2px;\r\n  right: 120px;\r\n  background: #fff;\r\n  padding: 0 16px;\r\n  border: 1px solid #ccc;\r\n  line-height: 36px;\r\n  -webkit-transform: scale(0.95);\r\n  transform: scale(0.95);\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info > div {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-pack: justify;\r\n  font-family: Georgia;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info > div span {\r\n  font-size: 34px;\r\n  color: #0372c3;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-share-btns {\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  margin: 3vh 0;\r\n  position: relative;\r\n  top: -2vh;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-share-btns > div {\r\n  margin: 0 60px;\r\n  width: 200px;\r\n}\r\n\r\n.zmiti-upload-main-ui .zmiti-cache-img {\r\n  position: fixed;\r\n  z-index: -1;\r\n  left: 100%;\r\n}\r\n\r\n@-webkit-keyframes flash {\r\n  to {\r\n    opacity: 0;\r\n  }\r\n}\r\n", ""]);
+	exports.push([module.id, ".lt-full {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n\n.zmiti-text-overflow {\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  -webkit-text-overflow: ellipsis;\n}\n\n.zmiti-play {\n  width: .8rem;\n  height: .8rem;\n  border-radius: 50%;\n  position: fixed;\n  z-index: 1000;\n  right: .5rem;\n  top: .5rem;\n}\n\n.zmiti-play.rotate {\n  -webkit-animation: rotate 5s linear infinite;\n  animation: rotate 5s linear infinite;\n}\n\n@-webkit-keyframes rotate {\n  to {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n.zmiti-upload-main-ui {\n  background: #ecf7ff;\n  z-index: 110;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C {\n  color: #f4d893;\n  text-align: center;\n  -webkit-transition: 0.1s;\n  transition: 0.1s;\n  position: absolute;\n  width: 88vw;\n  height: 84vh;\n  left: 6vw;\n  top: 4vh;\n  z-index: 2;\n  border-radius: 20px;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: vertical;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C.upload-enter, .zmiti-upload-main-ui .zmiti-upload-C.upload-leave-to {\n  opacity: 0;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C h1,\n.zmiti-upload-main-ui .zmiti-upload-C h2,\n.zmiti-upload-main-ui .zmiti-upload-C h3,\n.zmiti-upload-main-ui .zmiti-upload-C h5 {\n  font-weight: normal;\n  width: 500px;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C h3 {\n  margin-left: 20px;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload {\n  position: relative;\n  margin: 4vh 0 0 0;\n  width: 250px;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload div {\n  color: #fff;\n  position: absolute;\n  top: 50%;\n  text-align: center;\n  width: 100%;\n  margin-top: -15px;\n  opacity: 0;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload.uploading {\n  -webkit-animation: flash 1s infinite ease-out alternate;\n  animation: flash 1s infinite ease-out alternate;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload.uploading div {\n  opacity: 1;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C .zmiti-upload .zmiti-file {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(1) {\n  -webkit-box-flex: 4;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: vertical;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(1) .zmiti-rechoose {\n  margin-top: 20px;\n  text-decoration: underline;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) {\n  -webkit-box-flex: 2;\n  position: relative;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) h3 img {\n  width: 200px;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) .zmiti-upload-sex {\n  margin: 0 auto;\n  position: relative;\n  top: 30px;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) .zmiti-upload-sex > div {\n  margin: 0 50px;\n  position: relative;\n  width: 170px;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) .zmiti-upload-sex .zmiti-sex-checked {\n  position: absolute;\n  width: 40px;\n  left: 67%;\n  bottom: 14px;\n  overflow: hidden;\n}\n\n.zmiti-upload-main-ui .zmiti-upload-C > div:nth-of-type(2) .zmiti-upload-sex .zmiti-sex-checked img {\n  -webkit-transform: scale(0.8);\n  transform: scale(0.8);\n}\n\n.zmiti-upload-main-ui .zmiti-nickname {\n  position: absolute;\n  top: 64px;\n  color: #333;\n  right: 140px;\n  width: 30px;\n}\n\n.zmiti-upload-main-ui .zmiti-share-mask {\n  background: rgba(0, 0, 0, 0.8);\n  z-index: 1000;\n  text-align: center;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: vertical;\n}\n\n.zmiti-upload-main-ui .zmiti-share-mask > img {\n  width: 400px;\n  position: absolute;\n  margin: 10px 10px 0 0;\n  right: 0px;\n}\n\n.zmiti-upload-main-ui .zmiti-share-mask > div {\n  color: #fff;\n}\n\n.zmiti-upload-main-ui .zmiti-share-mask > div img {\n  width: 80px;\n  margin: 0 auto;\n  display: block;\n}\n\n.zmiti-upload-main-ui .zmiti-share-mask > div .zmiti-share-logos {\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n}\n\n.zmiti-upload-main-ui .zmiti-share-mask > div .zmiti-share-logos > div {\n  margin: 0 30px;\n}\n\n.zmiti-upload-main-ui .zmiti-share-mask > div > div {\n  font-weight: bold;\n  text-align: center;\n}\n\n.zmiti-upload-main-ui .zmiti-share-mask > div > div:nth-of-type(1) {\n  margin: 20px 0;\n}\n\n.zmiti-upload-main-ui .zmiti-share-mask > div > div:nth-of-type(2) {\n  color: #ef5050;\n  font-weight: normal;\n}\n\n.zmiti-upload-main-ui .zmiti-share-ui {\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: vertical;\n  color: #fe9a74;\n}\n\n.zmiti-upload-main-ui .zmiti-share-ui > div {\n  margin: 3vh 0;\n}\n\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-img-tip {\n  margin-top: -20px;\n  font-size: 26px;\n  top: -26px;\n  text-align: center;\n  width: 100%;\n  font-size: 30px;\n  position: absolute;\n  z-index: 100;\n}\n\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img {\n  position: relative;\n  width: 750px;\n}\n\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img canvas {\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  z-index: -1;\n  opacity: 0;\n  position: absolute;\n}\n\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info {\n  position: absolute;\n  color: #333;\n  font-size: 18px;\n  bottom: 2px;\n  right: 120px;\n  background: #fff;\n  padding: 0 16px;\n  border: 1px solid #ccc;\n  line-height: 36px;\n  -webkit-transform: scale(0.95);\n  transform: scale(0.95);\n}\n\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info > div {\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n  -webkit-box-pack: justify;\n  font-family: Georgia;\n}\n\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info > div span {\n  font-size: 34px;\n  color: #0372c3;\n}\n\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-share-btns {\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n  margin: 3vh 0;\n  position: relative;\n  top: -2vh;\n}\n\n.zmiti-upload-main-ui .zmiti-share-ui .zmiti-share-btns > div {\n  margin: 0 60px;\n  width: 200px;\n}\n\n.zmiti-upload-main-ui .zmiti-cache-img {\n  position: fixed;\n  z-index: -1;\n  left: 100%;\n}\n\n@-webkit-keyframes flash {\n  to {\n    opacity: 0;\n  }\n}\n", ""]);
 
 	// exports
 
@@ -23780,7 +23778,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\witness\\components\\share\\index.vue"
+	  var id = "F:\\xuchang2018\\project\\witness\\components\\share\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -23944,7 +23942,7 @@
 
 
 	// module
-	exports.push([module.id, ".lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n}\r\n\r\n.zmiti-text-overflow {\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  word-break: break-all;\r\n  text-overflow: ellipsis;\r\n  -webkit-text-overflow: ellipsis;\r\n}\r\n\r\n.zmiti-play {\r\n  width: .8rem;\r\n  height: .8rem;\r\n  border-radius: 50%;\r\n  position: fixed;\r\n  z-index: 1000;\r\n  right: .5rem;\r\n  top: .5rem;\r\n}\r\n\r\n.zmiti-play.rotate {\r\n  -webkit-animation: rotate 5s linear infinite;\r\n  animation: rotate 5s linear infinite;\r\n}\r\n\r\n@-webkit-keyframes rotate {\r\n  to {\r\n    -webkit-transform: rotate(360deg);\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.zmiti-share-main-ui {\r\n  overflow: hidden;\r\n  width: 750px;\r\n  left: 50% !important;\r\n  margin-left: -375px;\r\n  background: #4081dd;\r\n  background: #ecf7ff;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  opacity: 0;\r\n  z-index: -1;\r\n}\r\n\r\n.zmiti-share-main-ui .zmiti-share-subtitle {\r\n  position: absolute;\r\n  left: 50%;\r\n  width: 700px;\r\n  -webkit-transform: translate3d(-50%, 0, 0);\r\n  transform: translate3d(-50%, 0, 0);\r\n}\r\n\r\n.zmiti-share-main-ui.show {\r\n  opacity: 1;\r\n  z-index: 1010;\r\n}\r\n\r\n.zmiti-share-main-ui .zmiti-share-main {\r\n  width: 89vw;\r\n  height: 80vh;\r\n  background: #ecf7ff;\r\n  position: relative;\r\n  z-index: 10;\r\n  border-radius: 10px;\r\n}\r\n\r\n.zmiti-share-main-ui .zmiti-share-main::before {\r\n  content: '';\r\n}\r\n\r\n.zmiti-share-main-ui .zmiti-share-btns {\r\n  height: 2.1rem;\r\n  color: #fff;\r\n  width: 66%;\r\n  left: 17%;\r\n  bottom: 0rem;\r\n  text-align: center;\r\n  position: absolute;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-pack: justify;\r\n  -webkit-box-align: start;\r\n}\r\n\r\n.zmiti-share-main-ui .zmiti-share-btns.restart {\r\n  -webkit-box-pack: center;\r\n}\r\n\r\n.zmiti-share-main-ui .zmiti-share-btns .zmiti-team {\r\n  position: absolute;\r\n  text-decoration: underline;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, 0);\r\n  transform: translate(-50%, 0);\r\n  bottom: .3rem;\r\n  color: #ca141f;\r\n}\r\n\r\n.zmiti-share-main-ui .zmiti-share-btns > div {\r\n  background: #ca141f;\r\n  line-height: .9rem;\r\n  border-radius: 6px;\r\n  width: 2.5rem;\r\n  font-size: .45rem;\r\n}\r\n\r\n.zmiti-share-main-ui .zmiti-share-btns.btn-enter-active, .zmiti-share-main-ui .zmiti-share-btns.btn-leave-active {\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n}\r\n\r\n.zmiti-share-main-ui .zmiti-share-btns.btn-enter, .zmiti-share-main-ui .zmiti-share-btns.btn-leave-to {\r\n  opacity: 0;\r\n}\r\n", ""]);
+	exports.push([module.id, ".lt-full {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n\n.zmiti-text-overflow {\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  -webkit-text-overflow: ellipsis;\n}\n\n.zmiti-play {\n  width: .8rem;\n  height: .8rem;\n  border-radius: 50%;\n  position: fixed;\n  z-index: 1000;\n  right: .5rem;\n  top: .5rem;\n}\n\n.zmiti-play.rotate {\n  -webkit-animation: rotate 5s linear infinite;\n  animation: rotate 5s linear infinite;\n}\n\n@-webkit-keyframes rotate {\n  to {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n.zmiti-share-main-ui {\n  overflow: hidden;\n  width: 750px;\n  left: 50% !important;\n  margin-left: -375px;\n  background: #4081dd;\n  background: #ecf7ff;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n  opacity: 0;\n  z-index: -1;\n}\n\n.zmiti-share-main-ui .zmiti-share-subtitle {\n  position: absolute;\n  left: 50%;\n  width: 700px;\n  -webkit-transform: translate3d(-50%, 0, 0);\n  transform: translate3d(-50%, 0, 0);\n}\n\n.zmiti-share-main-ui.show {\n  opacity: 1;\n  z-index: 1010;\n}\n\n.zmiti-share-main-ui .zmiti-share-main {\n  width: 89vw;\n  height: 80vh;\n  background: #ecf7ff;\n  position: relative;\n  z-index: 10;\n  border-radius: 10px;\n}\n\n.zmiti-share-main-ui .zmiti-share-main::before {\n  content: '';\n}\n\n.zmiti-share-main-ui .zmiti-share-btns {\n  height: 2.1rem;\n  color: #fff;\n  width: 66%;\n  left: 17%;\n  bottom: 0rem;\n  text-align: center;\n  position: absolute;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n  -webkit-box-pack: justify;\n  -webkit-box-align: start;\n}\n\n.zmiti-share-main-ui .zmiti-share-btns.restart {\n  -webkit-box-pack: center;\n}\n\n.zmiti-share-main-ui .zmiti-share-btns .zmiti-team {\n  position: absolute;\n  text-decoration: underline;\n  left: 50%;\n  -webkit-transform: translate(-50%, 0);\n  transform: translate(-50%, 0);\n  bottom: .3rem;\n  color: #ca141f;\n}\n\n.zmiti-share-main-ui .zmiti-share-btns > div {\n  background: #ca141f;\n  line-height: .9rem;\n  border-radius: 6px;\n  width: 2.5rem;\n  font-size: .45rem;\n}\n\n.zmiti-share-main-ui .zmiti-share-btns.btn-enter-active, .zmiti-share-main-ui .zmiti-share-btns.btn-leave-active {\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.zmiti-share-main-ui .zmiti-share-btns.btn-enter, .zmiti-share-main-ui .zmiti-share-btns.btn-leave-to {\n  opacity: 0;\n}\n", ""]);
 
 	// exports
 
@@ -23969,7 +23967,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "E:\\project\\witness\\components\\loading\\index.vue"
+	  var id = "F:\\xuchang2018\\project\\witness\\components\\loading\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -24079,7 +24077,7 @@
 
 
 	// module
-	exports.push([module.id, ".lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n}\r\n\r\n.zmiti-text-overflow {\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  word-break: break-all;\r\n  text-overflow: ellipsis;\r\n  -webkit-text-overflow: ellipsis;\r\n}\r\n\r\n.zmiti-play {\r\n  width: .8rem;\r\n  height: .8rem;\r\n  border-radius: 50%;\r\n  position: fixed;\r\n  z-index: 1000;\r\n  right: .5rem;\r\n  top: .5rem;\r\n}\r\n\r\n.zmiti-play.rotate {\r\n  -webkit-animation: rotate 5s linear infinite;\r\n  animation: rotate 5s linear infinite;\r\n}\r\n\r\n@-webkit-keyframes rotate {\r\n  to {\r\n    -webkit-transform: rotate(360deg);\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.zmiti-loading {\r\n  overflow: hidden;\r\n  width: 750px !important;\r\n  left: 50% !important;\r\n  margin-left: -375px;\r\n  display: -webkit-box;\r\n  -webkit-box-align: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-box-orient: horizontal;\r\n}\r\n\r\n.zmiti-loading.loading-enter-active, .zmiti-loading.loading-leave-active {\r\n  -webkit-transition: opacity 0;\r\n  transition: opacity 0;\r\n}\r\n\r\n.zmiti-loading.loading-enter, .zmiti-loading.loading-leave-to {\r\n  opacity: 0;\r\n}\r\n\r\n.zmiti-loading .zmiti-loading-bar {\r\n  width: 400px;\r\n}\r\n\r\n.zmiti-loading .zmiti-loading-bar > div {\r\n  width: 100%;\r\n  height: 50px;\r\n  margin-top: 20px;\r\n  border-radius: 30px;\r\n  border: 2px solid #f2edc7;\r\n  position: relative;\r\n  box-sizing: border-box;\r\n  overflow: hidden;\r\n}\r\n\r\n.zmiti-loading .zmiti-loading-bar > div span {\r\n  position: absolute;\r\n  width: 0;\r\n  height: 40px;\r\n  top: 3px;\r\n  left: 2px;\r\n  background: #f2edc7;\r\n  border-radius: 30px;\r\n}\r\n\r\n.zmiti-book1,\r\n.zmiti-book2 {\r\n  position: absolute;\r\n  -webkit-transition: 1s 0.1s;\r\n  transition: 1s 0.1s;\r\n}\r\n\r\n.zmiti-book1.active,\r\n.zmiti-book2.active {\r\n  -webkit-transform: translate3d(0, -80px, 0);\r\n  transform: translate3d(0, -80px, 0);\r\n}\r\n\r\n.zmiti-book2 {\r\n  bottom: 0;\r\n  left: 0;\r\n}\r\n\r\n.zmiti-book2.active {\r\n  -webkit-transform: translate3d(0, 80px, 0);\r\n  transform: translate3d(0, 80px, 0);\r\n}\r\n", ""]);
+	exports.push([module.id, ".lt-full {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n\n.zmiti-text-overflow {\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  -webkit-text-overflow: ellipsis;\n}\n\n.zmiti-play {\n  width: .8rem;\n  height: .8rem;\n  border-radius: 50%;\n  position: fixed;\n  z-index: 1000;\n  right: .5rem;\n  top: .5rem;\n}\n\n.zmiti-play.rotate {\n  -webkit-animation: rotate 5s linear infinite;\n  animation: rotate 5s linear infinite;\n}\n\n@-webkit-keyframes rotate {\n  to {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n.zmiti-loading {\n  overflow: hidden;\n  width: 750px !important;\n  left: 50% !important;\n  margin-left: -375px;\n  display: -webkit-box;\n  -webkit-box-align: center;\n  -webkit-box-pack: center;\n  -webkit-box-orient: horizontal;\n}\n\n.zmiti-loading.loading-enter-active, .zmiti-loading.loading-leave-active {\n  -webkit-transition: opacity 0;\n  transition: opacity 0;\n}\n\n.zmiti-loading.loading-enter, .zmiti-loading.loading-leave-to {\n  opacity: 0;\n}\n\n.zmiti-loading .zmiti-loading-bar {\n  width: 400px;\n}\n\n.zmiti-loading .zmiti-loading-bar > div {\n  width: 100%;\n  height: 50px;\n  margin-top: 20px;\n  border-radius: 30px;\n  border: 2px solid #f2edc7;\n  position: relative;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n\n.zmiti-loading .zmiti-loading-bar > div span {\n  position: absolute;\n  width: 0;\n  height: 40px;\n  top: 3px;\n  left: 2px;\n  background: #f2edc7;\n  border-radius: 30px;\n}\n\n.zmiti-book1,\n.zmiti-book2 {\n  position: absolute;\n  -webkit-transition: 1s 0.1s;\n  transition: 1s 0.1s;\n}\n\n.zmiti-book1.active,\n.zmiti-book2.active {\n  -webkit-transform: translate3d(0, -80px, 0);\n  transform: translate3d(0, -80px, 0);\n}\n\n.zmiti-book2 {\n  bottom: 0;\n  left: 0;\n}\n\n.zmiti-book2.active {\n  -webkit-transform: translate3d(0, 80px, 0);\n  transform: translate3d(0, 80px, 0);\n}\n", ""]);
 
 	// exports
 
@@ -24274,9 +24272,9 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * vue-tap.js v1.2.5
+	 * vue-tap.js v1.2.3
 	 * By 雾空 https://github.com/weijhfly/vue-tap
-	 * Date:2018/1/18
+	 * Time:2018/1/18
 	*/
 	;(function (factory) {
 		if (true) {

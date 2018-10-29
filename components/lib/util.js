@@ -141,11 +141,14 @@ var zmitiUtil = {
 		 if (url.indexOf("?") > 0 ) {
 		 	paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
 		 }
-		 var key = 'headingurl4',
-			 key1 = 'nickname2';
+		 var key = 'headingur22',
+			 key1 = 'nickname22';
 		if (paraString.length > 0 ) {
 			if (!(window.localStorage.getItem(key) || window.localStorage.getItem(key1))) {
 				var nickname = this.getQueryString('nickname');
+				var re = /^[\u4e00-\u9fa5]{0,}$/;
+				
+				
 				var headimgurl = this.getQueryString('headimgurl');
 				window.localStorage.setItem(key, headimgurl);
 				window.localStorage.setItem(key1, nickname);
@@ -165,11 +168,12 @@ var zmitiUtil = {
 			
 			setTimeout(()=>{
 				wxHandlercallback('', decodeURI(window.nickname) + ' 刚刚定制到一款限量版明信片，你要吗？', document.title);
-			},5000)
+			},1000)
 		 }else{
 			 if (!this.isWeiXin()) {
 			 	return;
 			 } 
+			
 			var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + wxappid + '&redirect_uri=https://openapi.zhongguowangshi.com/wxHandler.ashx?action=getWeixinUserInfo&response_type=code&scope=snsapi_userinfo&state=XHSAh5A' + window.h5name + 'AindexAhtml#wechat_redirect'
 			window.location.href = url;
 		 }
@@ -177,7 +181,6 @@ var zmitiUtil = {
 		return;
 	
 
-		var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + wxappid + '&redirect_uri=https://openapi.zhongguowangshi.com/wxHandler.ashx?action=getWeixinUserInfo&response_type=code&scope=snsapi_userinfo&state=XHSA' + window.h5name + 'AindexAhtml#wechat_redirect'
 		
 		$.ajax({
 			type: 'post',

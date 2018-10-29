@@ -14,7 +14,7 @@
 	model9:'./assets/images/10-1.jpg',
 	model10:'./assets/images/11-1.jpg',
 	model11:'./assets/images/12-1.jpg',
-	model12:'./assets/images/13-1.jpg',
+	model12:'./assets/images/13-2.jpg',
 	loadingBg: './assets/images/loading-bg.jpg',
 	btnBg: './assets/images/btn-bg.png',
 	book1:'./assets/images/book1.png',
