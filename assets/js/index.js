@@ -58,7 +58,7 @@
 
 	var _componentsIndexIndex2 = _interopRequireDefault(_componentsIndexIndex);
 
-	var _componentsMusicIndex = __webpack_require__(16);
+	var _componentsMusicIndex = __webpack_require__(17);
 
 	var _componentsMusicIndex2 = _interopRequireDefault(_componentsMusicIndex);
 
@@ -86,7 +86,7 @@
 
 	var _componentsLibUtil = __webpack_require__(14);
 
-	var _jquery = __webpack_require__(18);
+	var _jquery = __webpack_require__(15);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -12035,7 +12035,7 @@
 
 	var __vue_script__, __vue_template__
 	__vue_script__ = __webpack_require__(10)
-	__vue_template__ = __webpack_require__(15)
+	__vue_template__ = __webpack_require__(16)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -12291,7 +12291,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	var _jquery = __webpack_require__(18);
+	var _jquery = __webpack_require__(15);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -12428,28 +12428,27 @@
 			if (url.indexOf("?") > 0) {
 				paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
 			}
-			var key = 'headingur22',
-			    key1 = 'nickname22';
-			if (paraString.length > 0) {
-				if (!(window.localStorage.getItem(key) || window.localStorage.getItem(key1))) {
-					var nickname = this.getQueryString('nickname');
-					var re = /^[\u4e00-\u9fa5]{0,}$/;
+			var key = 'headingur1',
+			    key1 = 'nickname31';
 
-					var headimgurl = this.getQueryString('headimgurl');
+			var nickname = this.getQueryString('nickname');
+			var headimgurl = this.getQueryString('headimgurl');
+			if (nickname || window.localStorage.getItem(key1)) {
+				if (!window.localStorage.getItem(key1)) {
+
 					window.localStorage.setItem(key, headimgurl);
 					window.localStorage.setItem(key1, nickname);
+
 					window.nickname = nickname;
 					window.headimgurl = headimgurl;
 				} else {
 					window.nickname = window.localStorage.getItem(key1);
-					window.headimgurl = window.localStorage.getItem(key);
 				}
 
 				obserable.trigger({
 					type: 'setNickname',
 					data: window.nickname
 				});
-
 				setTimeout(function () {
 					wxHandlercallback('', decodeURI(window.nickname) + ' 刚刚定制到一款限量版明信片，你要吗？', document.title);
 				}, 1000);
@@ -12460,6 +12459,11 @@
 
 				var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + wxappid + '&redirect_uri=https://openapi.zhongguowangshi.com/wxHandler.ashx?action=getWeixinUserInfo&response_type=code&scope=snsapi_userinfo&state=XHSAh5A' + window.h5name + 'AindexAhtml#wechat_redirect';
 				window.location.href = url;
+			}
+			var re = /^[\u4e00-\u9fa5]{0,}$/;
+
+			if (window.location.href.split('?').length > 1) {
+				window.location.href = window.location.href.split('?')[0];
 			}
 
 			return;
@@ -12652,198 +12656,6 @@
 
 /***/ }),
 /* 15 */
-/***/ (function(module, exports) {
-
-	module.exports = "\r\n\t<div ref='page'  class=\"lt-full zmiti-index-main-ui \" :style=\"{background:'url('+imgs.loadingBg+') no-repeat center bottom',backgroundSize:'cover'}\"   :class=\"{'show':show}\" >\r\n\r\n\t\t<div class='zmiti-book1' :class=\"{'active':showBook}\" @transitionend='endBook'>\r\n\t\t\t<img :src=\"imgs.book1\" alt=\"\">\r\n\t\t</div>\r\n\t\t<div class='zmiti-book2' :class=\"{'active':showBook}\">\r\n\t\t\t<img :src=\"imgs.book2\" alt=\"\">\r\n\t\t</div>\r\n\r\n\t\t<transition name='model'>\r\n\t\t\t<div v-if='showModelList' class='zmiti-model-list'>\r\n\t\t\t\t<div :class='{\"active\":reverse}' @transitionend='end' v-for='(model,i) in modelList' :key=\"i\" :style=\"{WebkitTransform:'translate3d('+( model.transX || 0 )+'px,'+ ( model.transY || 0 ) +'px,0) scale('+(model.scale===undefined?1:model.scale)+') rotate('+( model.rotate||0 ) + 'deg) '}\">\r\n\t\t\t\t\t<img :src=\"model.url\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t</div>\t\r\n\t\t</transition>\r\n\t\t\r\n\t\t\t<div class='zmiti-index-main' >\r\n\t\t\t\t<transition name='model'>\r\n\t\t\t\t\t<div class='zmiti-index-title'  v-if='!showModelList'>\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.title\" alt=\"\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t\t<transition name='model'>\r\n\t\t\t\t\t<div class='zmiti-index-entry' v-tap='[entry]'  v-if='!showModelList'>\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.entry\" alt=\"\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t\t<transition name='model'  >\r\n\t\t\t\t\t<div class='zmiti-index-logo' v-if='!showModelList'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.logo\" alt=\"\">\r\n\t\t\t\t\t\t\t<span>新华社客户端</span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.pitu\" alt=\"\">\r\n\t\t\t\t\t\t\t<span>天天P图</span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t</div>\r\n\t\t\r\n\t</div>\r\n";
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(17)
-	__vue_template__ = __webpack_require__(19)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
-	  if (!hotAPI.compatible) return
-	  var id = "F:\\xuchang2018\\project\\witness\\components\\music\\index.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// <template>
-	// 	<div  class="lt-full zmiti-music-main-ui" :style='{height:"10vh"}'>
-	// 		<audio ref='music' v-for='audio in audios' :src='audio.src' :autoplay="audio.autoplay" :loop="audio.loop"></audio>
-	//
-	// 		<div  @click='toggleMusic' class='zmiti-play' :class='{"rotate":rotate}' :style="playStyle">
-	// 			<img  :src='imgs.play'/>
-	// 		</div>
-	// 	</div>
-	// </template>
-	//
-	// <script>
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _jquery = __webpack_require__(18);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _libAssets = __webpack_require__(13);
-
-	var audios = [];
-
-	for (var music in _libAssets.musics) {
-		audios.push(_libAssets.musics[music]);
-	}
-
-	exports['default'] = {
-		props: ['obserable'],
-		name: 'zmitiindex',
-		data: function data() {
-			return {
-				audios: audios,
-				imgs: _libAssets.imgs,
-				rotate: false,
-				playStyle: {}
-			};
-		},
-		components: {},
-
-		methods: {
-
-			toggleMusic: function toggleMusic() {
-
-				var music = this.$refs['music'][0];
-				music[music.paused ? 'play' : 'pause']();
-			},
-			playAudioMuted: function playAudioMuted() {
-				//静音播放
-
-				this.audios.forEach(function (audio, i) {
-					if (i > 0) {
-						if (audio.autoplay) {
-
-							audio.muted = true; //静音
-							audio.play();
-						}
-					}
-				});
-			}
-		},
-		mounted: function mounted() {
-			var _this = this;
-
-			var obserable = this.obserable;
-
-			var audio = this.$refs['music'][0];
-			var len = audio;
-			len && (0, _jquery2['default'])(audio).on('play', function () {
-
-				_this.rotate = true;
-			}).on('pause', function () {
-				_this.rotate = false;
-			});
-
-			len && audio.play();
-			audio.volume = .1;
-
-			this.playAudioMuted();
-
-			obserable.on('playVoice', function (key) {
-				_this.audios.forEach(function (audio, i) {
-					if (i > 0) {
-
-						if (audio.name === key) {
-							_this.$refs['music'][i].currentTime = 0;
-							_this.$refs['music'][i].muted = false; //取消静音
-							_this.$refs['music'][i].play();
-						}
-					}
-				});
-			});
-
-			obserable.on('pauseVoice', function (key) {
-
-				_this.audios.forEach(function (audio, i) {
-					if (i > 0) {
-						if (audio.name === key) {
-							//audio.currentTime = 0;
-
-							_this.$refs['music'][i].pause();
-							_this.$refs['music'][i].muted = false; //取消静音
-						}
-					}
-				});
-			});
-
-			obserable.on('setPlay', function (data) {
-
-				_this.playStyle = data;
-			});
-
-			var s = this;
-			document.addEventListener("WeixinJSBridgeReady", function () {
-				WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-					audio && (audio.volume = .1);
-					len && audio.play();
-					s.playAudioMuted();
-				});
-			}, false);
-
-			var play = function play() {
-				document.removeEventListener("WeixinJSBridgeReady", play);
-				document.removeEventListener("YixinJSBridgeReady", play);
-				s.playAudioMuted();
-				len && audio.play();
-				audio && (audio.volume = .1);
-			};
-
-			if (window.WeixinJSBridge) {
-				audio && (audio.volume = .1);
-				len && audio.play();
-				s.playAudioMuted();
-			}
-			//weixin
-			if (typeof WeixinJSBridge == "undefined") {
-				document.addEventListener("WeixinJSBridgeReady", play, false);
-				s.playAudioMuted();
-			} else {
-				//yixin
-				document.addEventListener('YixinJSBridgeReady', play, false);
-				len && audio.play();
-				s.playAudioMuted();
-			}
-
-			obserable.on('toggleBgMusic', function (data) {
-
-				var audio = _this.$refs['music'][0];
-				audio[data ? 'play' : 'pause']();
-			});
-		}
-	};
-
-	// </script>
-	module.exports = exports['default'];
-
-/***/ }),
-/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -22661,6 +22473,198 @@
 	return jQuery;
 	}));
 
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+	module.exports = "\r\n\t<div ref='page'  class=\"lt-full zmiti-index-main-ui \" :style=\"{background:'url('+imgs.loadingBg+') no-repeat center bottom',backgroundSize:'cover'}\"   :class=\"{'show':show}\" >\r\n\r\n\t\t<div class='zmiti-book1' :class=\"{'active':showBook}\" @transitionend='endBook'>\r\n\t\t\t<img :src=\"imgs.book1\" alt=\"\">\r\n\t\t</div>\r\n\t\t<div class='zmiti-book2' :class=\"{'active':showBook}\">\r\n\t\t\t<img :src=\"imgs.book2\" alt=\"\">\r\n\t\t</div>\r\n\r\n\t\t<transition name='model'>\r\n\t\t\t<div v-if='showModelList' class='zmiti-model-list'>\r\n\t\t\t\t<div :class='{\"active\":reverse}' @transitionend='end' v-for='(model,i) in modelList' :key=\"i\" :style=\"{WebkitTransform:'translate3d('+( model.transX || 0 )+'px,'+ ( model.transY || 0 ) +'px,0) scale('+(model.scale===undefined?1:model.scale)+') rotate('+( model.rotate||0 ) + 'deg) '}\">\r\n\t\t\t\t\t<img :src=\"model.url\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t</div>\t\r\n\t\t</transition>\r\n\t\t\r\n\t\t\t<div class='zmiti-index-main' >\r\n\t\t\t\t<transition name='model'>\r\n\t\t\t\t\t<div class='zmiti-index-title'  v-if='!showModelList'>\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.title\" alt=\"\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t\t<transition name='model'>\r\n\t\t\t\t\t<div class='zmiti-index-entry' v-tap='[entry]'  v-if='!showModelList'>\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.entry\" alt=\"\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t\t<transition name='model'  >\r\n\t\t\t\t\t<div class='zmiti-index-logo' v-if='!showModelList'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.logo\" alt=\"\">\r\n\t\t\t\t\t\t\t<span>新华社客户端</span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.pitu\" alt=\"\">\r\n\t\t\t\t\t\t\t<span>天天P图</span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</transition>\r\n\t\t\t</div>\r\n\t\t\r\n\t</div>\r\n";
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__vue_script__ = __webpack_require__(18)
+	__vue_template__ = __webpack_require__(19)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "F:\\xuchang2018\\project\\witness\\components\\music\\index.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// <template>
+	// 	<div  class="lt-full zmiti-music-main-ui" :style='{height:"10vh"}'>
+	// 		<audio ref='music' v-for='audio in audios' :src='audio.src' :autoplay="audio.autoplay" :loop="audio.loop"></audio>
+	//
+	// 		<div  @click='toggleMusic' class='zmiti-play' :class='{"rotate":rotate}' :style="playStyle">
+	// 			<img  :src='imgs.play'/>
+	// 		</div>
+	// 	</div>
+	// </template>
+	//
+	// <script>
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _jquery = __webpack_require__(15);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _libAssets = __webpack_require__(13);
+
+	var audios = [];
+
+	for (var music in _libAssets.musics) {
+		audios.push(_libAssets.musics[music]);
+	}
+
+	exports['default'] = {
+		props: ['obserable'],
+		name: 'zmitiindex',
+		data: function data() {
+			return {
+				audios: audios,
+				imgs: _libAssets.imgs,
+				rotate: false,
+				playStyle: {}
+			};
+		},
+		components: {},
+
+		methods: {
+
+			toggleMusic: function toggleMusic() {
+
+				var music = this.$refs['music'][0];
+				music[music.paused ? 'play' : 'pause']();
+			},
+			playAudioMuted: function playAudioMuted() {
+				//静音播放
+
+				this.audios.forEach(function (audio, i) {
+					if (i > 0) {
+						if (audio.autoplay) {
+
+							audio.muted = true; //静音
+							audio.play();
+						}
+					}
+				});
+			}
+		},
+		mounted: function mounted() {
+			var _this = this;
+
+			var obserable = this.obserable;
+
+			var audio = this.$refs['music'][0];
+			var len = audio;
+			len && (0, _jquery2['default'])(audio).on('play', function () {
+
+				_this.rotate = true;
+			}).on('pause', function () {
+				_this.rotate = false;
+			});
+
+			len && audio.play();
+			audio.volume = .1;
+
+			this.playAudioMuted();
+
+			obserable.on('playVoice', function (key) {
+				_this.audios.forEach(function (audio, i) {
+					if (i > 0) {
+
+						if (audio.name === key) {
+							_this.$refs['music'][i].currentTime = 0;
+							_this.$refs['music'][i].muted = false; //取消静音
+							_this.$refs['music'][i].play();
+						}
+					}
+				});
+			});
+
+			obserable.on('pauseVoice', function (key) {
+
+				_this.audios.forEach(function (audio, i) {
+					if (i > 0) {
+						if (audio.name === key) {
+							//audio.currentTime = 0;
+
+							_this.$refs['music'][i].pause();
+							_this.$refs['music'][i].muted = false; //取消静音
+						}
+					}
+				});
+			});
+
+			obserable.on('setPlay', function (data) {
+
+				_this.playStyle = data;
+			});
+
+			var s = this;
+			document.addEventListener("WeixinJSBridgeReady", function () {
+				WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+					audio && (audio.volume = .1);
+					len && audio.play();
+					s.playAudioMuted();
+				});
+			}, false);
+
+			var play = function play() {
+				document.removeEventListener("WeixinJSBridgeReady", play);
+				document.removeEventListener("YixinJSBridgeReady", play);
+				s.playAudioMuted();
+				len && audio.play();
+				audio && (audio.volume = .1);
+			};
+
+			if (window.WeixinJSBridge) {
+				audio && (audio.volume = .1);
+				len && audio.play();
+				s.playAudioMuted();
+			}
+			//weixin
+			if (typeof WeixinJSBridge == "undefined") {
+				document.addEventListener("WeixinJSBridgeReady", play, false);
+				s.playAudioMuted();
+			} else {
+				//yixin
+				document.addEventListener('YixinJSBridgeReady', play, false);
+				len && audio.play();
+				s.playAudioMuted();
+			}
+
+			obserable.on('toggleBgMusic', function (data) {
+
+				var audio = _this.$refs['music'][0];
+				audio[data ? 'play' : 'pause']();
+			});
+		}
+	};
+
+	// </script>
+	module.exports = exports['default'];
 
 /***/ }),
 /* 19 */
