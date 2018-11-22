@@ -171,7 +171,6 @@
 .zmiti-upload-main-ui .zmiti-share-mask {
   background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
-  text-align: center;
   display: -webkit-box;
   -webkit-box-align: center;
   -webkit-box-pack: center;
@@ -181,12 +180,17 @@
 .zmiti-upload-main-ui .zmiti-share-mask > img {
   width: 400px;
   position: absolute;
-  margin: 10px 10px 0 0;
+  margin: 30px 30px 0 0;
   right: 0px;
 }
 
 .zmiti-upload-main-ui .zmiti-share-mask > div {
   color: #fff;
+  width: 94%;
+  margin: 60px auto;
+  position: relative;
+  top: 80px;
+  line-height: 44px;
 }
 
 .zmiti-upload-main-ui .zmiti-share-mask > div img {
@@ -204,20 +208,6 @@
 
 .zmiti-upload-main-ui .zmiti-share-mask > div .zmiti-share-logos > div {
   margin: 0 30px;
-}
-
-.zmiti-upload-main-ui .zmiti-share-mask > div > div {
-  font-weight: bold;
-  text-align: center;
-}
-
-.zmiti-upload-main-ui .zmiti-share-mask > div > div:nth-of-type(1) {
-  margin: 20px 0;
-}
-
-.zmiti-upload-main-ui .zmiti-share-mask > div > div:nth-of-type(2) {
-  color: #ef5050;
-  font-weight: normal;
 }
 
 .zmiti-upload-main-ui .zmiti-share-ui {
@@ -261,7 +251,7 @@
 .zmiti-upload-main-ui .zmiti-share-ui .zmiti-merge-img .zmiti-card-info {
   position: absolute;
   color: #333;
-  font-size: 18px;
+  font-size: 14px;
   bottom: 2px;
   right: 120px;
   background: #fff;

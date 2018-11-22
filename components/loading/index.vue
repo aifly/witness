@@ -1,12 +1,6 @@
 <template>
 	<transition name='loading'>
-		<div ref='page'  class="lt-full zmiti-loading " :style="{background:'url('+imgs.loadingBg+') no-repeat center bottom',backgroundSize:'cover'}" >
-			<div class='zmiti-book1' :class="{'active':show}">
-				<img :src="imgs.book1" alt="">
-			</div>
-			<div class='zmiti-book2' :class="{'active':show}">
-				<img :src="imgs.book2" alt="">
-			</div>
+		<div ref='page'  class="lt-full zmiti-loading " :style="{background:'url('+imgs.loadingBg1+') no-repeat center center',backgroundSize:'cover'}" >
 			<div class='zmiti-loading-bar'>
 				<img :src="imgs['1978']" alt="">
 				<div>

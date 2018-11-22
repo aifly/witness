@@ -1,12 +1,13 @@
 <template>
-	<div ref='page'  class="lt-full zmiti-index-main-ui " :style="{background:'url('+imgs.loadingBg+') no-repeat center bottom',backgroundSize:'cover'}"   :class="{'show':show}" >
+	<div ref='page'  class="lt-full zmiti-index-main-ui " :style="{background:'url('+imgs.loadingBg1+') no-repeat center center',backgroundSize:'cover'}"   :class="{'show':show}" >
 
-		<div class='zmiti-book1' :class="{'active':showBook}" @transitionend='endBook'>
+		<div class='zmiti-book1' style='opacity:0' :class="{'active':showBook}" @transitionend='endBook'>
 			<img :src="imgs.book1" alt="">
 		</div>
-		<div class='zmiti-book2' :class="{'active':showBook}">
-			<img :src="imgs.book2" alt="">
+		<div class='zmiti-nongchao'>
+			<img :src='imgs.nongchao'/>
 		</div>
+		
 
 		<transition name='model'>
 			<div v-if='showModelList' class='zmiti-model-list'>
@@ -19,7 +20,16 @@
 			<div class='zmiti-index-main' >
 				<transition name='model'>
 					<div class='zmiti-index-title'  v-if='!showModelList'>
-						<img @touchstart='imgStart' :src="imgs.title" alt="">
+						<div>
+							<img @touchstart='imgStart' :src="imgs.we" alt="">
+						</div>
+						<div :class='{"active":showTitle}'>
+							<img :src='imgs.nongchaoer' alt="">
+						</div>
+						<div :class='{"active":showTitle}'>
+							<img :src='imgs.dingzhi' alt="">
+						</div>
+
 					</div>
 				</transition>
 				<transition name='model'>
@@ -57,6 +67,7 @@
 				pointW:0,
 				showBook:false,
 				modelList,
+				showTitle:false,
 				showSubmit:true,
 				transY:0,
 				pointH:0,
@@ -107,6 +118,9 @@
 				if(this.count>=this.modelList.length*2-1){
 					this.reverse = true;
 					this.showModelList = false;
+					setTimeout(() => {
+						this.showTitle = true;
+					}, 1200);
 				}
 			},
 

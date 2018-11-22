@@ -129,6 +129,8 @@ var zmitiUtil = {
 	},
 
 	getOauthurl: function(obserable) {
+
+		return;
 		var s = this;
 		var {
 			wxappid,
@@ -163,7 +165,7 @@ var zmitiUtil = {
 				data: window.nickname
 			});
 			setTimeout(()=>{
-				wxHandlercallback('', decodeURI(window.nickname) + ' 刚刚定制到一款限量版明信片，你要吗？', document.title);
+				wxHandlercallback('', decodeURI(window.nickname) + ' 抢到了限量版明信片，大家都说他是明星脸', document.title);
 			},1000)
 		 }else{
 			 if (!this.isWeiXin()) {

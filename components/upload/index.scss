@@ -144,16 +144,16 @@ $viewW: 750px;
     .zmiti-share-mask {
         background: rgba(0, 0, 0, 0.8);
         z-index: 1000;
-        text-align: center;
         @include displayBox(vertical);
         &>img {
             width: 400px;
             @include pos(a);
-            margin: 10px 10px 0 0;
+            margin: 30px 30px 0 0;
             right: 0px;
         }
         &>div{
             color:#fff;
+
             img{
                 width: 80px;
                 margin: 0 auto;
@@ -166,16 +166,14 @@ $viewW: 750px;
                     margin: 0 30px;
                 }
             }
+            width: 94%;
+            margin: 60px auto;
+            @include pos(r);
+            top: 80px;
+            line-height: 44px;;
             &>div{
-                font-weight: bold;
-                text-align: center;
-                &:nth-of-type(1){
-                    margin: 20px 0;
-                }
-                &:nth-of-type(2){
-                    color:#ef5050;
-                    font-weight: normal;
-                }
+                
+                
             }
         }
     }
@@ -219,7 +217,7 @@ $viewW: 750px;
                 @include pos(a);
 
                 color: #333;
-                font-size: 18px;
+                font-size: 14px;
                 bottom: 2px;
                 right: 120px;
                 background: #fff;

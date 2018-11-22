@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 <meta name="viewport" content="width=750,user-scalable=no" />
-	<title>历史的回眸 定制改开放40年纪念明信片</title>
+	<title>我们都是弄潮儿</title>
 <script>
 	document.getElementsByTagName('html')[0].style.fontSize = 750 / 10 + 'px';
 	window.protocol = location.protocol;
@@ -16,7 +16,7 @@
 	window.wxappsecret = '149cdef95c99ff7cab523d8beca86080';
 
 	
-	window.desc = document.title;
+	window.desc = '定制你的改革开放40周年明信片！';
 	document.addEventListener('touchmove', function (e) {
 		e.preventDefault()
 	}, {
@@ -49,11 +49,11 @@
 
 			wx.ready(function () {
 				var config = {
-					title: title||document.title,
+					title: '今天，我们都是弄潮儿'||document.title,
 					desc: desc|| window.desc,
 					//link: encodeURIComponent(window.location.href.split('?')[0].split('#')[0]),
 					link: 'https://h5.zhongguowangshi.com/h5/witness/index.html',
-					imgUrl: "http://h5.zhongguowangshi.com/h5/"+window.h5name+"/assets/images/302.jpg",
+					imgUrl: "http://h5.zhongguowangshi.com/h5/"+window.h5name+"/assets/images/303.jpg",
 					error:function(){
 					},
 					success(){
@@ -73,15 +73,15 @@
 		}
 
 		/*
-		*/
 		loadScript('./assets/js/base.js');
 		loadScript('./assets/js/index.js');
+		*/
 	</script>
 
 	<!-- 
+	 -->
 		<script src='./assets/js/base.js'></script>
 		<script src='http://localhost:4051/index.js' onerror="loadScript('./assets/js/index.js')"></script>
-	 -->
 </body>
 
 </html>

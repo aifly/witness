@@ -45,15 +45,15 @@
 			<div v-if='createImg||mergeImg' class='zmiti-share-ui lt-full'>
 				<div><img :src="imgs.subtitle" alt=""></div>
 				<div class='zmiti-merge-img' ref='img'>
-					<canvas width='750' height='530' ref='canvas'></canvas>
+					<canvas width='1500' height='1060' ref='canvas'></canvas>
 					<img   ref='mergeimg' :src="createImg||mergeImg" alt="">
 					<div class='zmiti-nickname'>
 						
 					</div>
 					<div class='zmiti-card-info'>
-						<div>新华社见证系列珍藏明信片</div>
+						<div>“我们都是弄潮儿”限量明信片</div>
 						<div>
-							<div>限量编号：</div>
+							<div>编号：</div>
 							<div>
 								<span>{{pv}}</span><label for="" v-if='pv<400000'>/400000</label>
 							</div>
@@ -67,20 +67,12 @@
 				</div>
 			</div>
 			
-			<div class='zmiti-share-mask lt-full' v-if='showMask' @touchend='showMask = false'>
+			<div class='zmiti-share-mask lt-full' v-if='showMask' @touchend='showMask = false' :style="{background:'url('+imgs.shareBg+') no-repeat center bottom',backgroundSize:'cover'}">
 				<img :src="imgs.arrow" alt="">
 				<div>
-					<div class='zmiti-share-logos'>
-						<div>
-							<img :src="imgs.logo" alt="">
-							<span>新华社客户端</span>
-						</div>
-						<div>
-							<img :src="imgs.pitu" alt="">
-							<span>天天P图</span>
-						</div>
-					</div>
-					<div>纪念改革开放40年献礼策划</div>
+					<div>立刻分享</div>
+					<div>你还可以前往国家博物馆</div>
+					<div>在“伟大的变革——庆祝改革开放40周年大型展览”新华社展区中打印实体明信片！</div>
 				</div>
 			</div>
 			<img :src="cacheImg" ref='cacheimg' class='zmiti-cache-img' alt="" />
@@ -155,6 +147,8 @@
 
 			upload(){
 				var s = this;
+
+				var d = new Date().getTime();
 				
 				var file = this.$refs['file'].files[0];
 				if(file.name.split('.')[1] === 'jpg'||file.name.split('.')[1] === 'jpeg'){
@@ -180,6 +174,7 @@
 								if(typeof data === 'string'){
 									var data = JSON.parse(data);
 								}
+								console.log('上传总消耗时间 => '+(new Date().getTime()-d)/1000+' 秒');
 								if(data.rc === 0){
 									s.mergeImg = 'data:image/jpeg;base64,'+ data.data.imgBase64;
 									//s.mergeImg =  data.data.imgUrl;
@@ -243,10 +238,7 @@
 
 				var {obserable} = this;
 
-
-
 				//document.title = '开始截图....'
-
 
 				setTimeout(()=>{
 					//this.showLoading = true;
