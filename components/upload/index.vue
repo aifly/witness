@@ -1,12 +1,7 @@
 <template>
 	<transition name='upload'>
 		<div class="lt-full zmiti-upload-main-ui "  v-show='show' ref='page' :style="{background:'url('+imgs.loadingBg+') no-repeat center center',backgroundSize:'cover'}">
-			<div class='zmiti-book1' :class="{'active':true}" >
-				<img :src="imgs.book1" alt="">
-			</div>
-			<div class='zmiti-book2' :class="{'active':true}">
-				<img :src="imgs.book2" alt="">
-			</div>
+			 
 			<transition name='upload'>
 				<div class='zmiti-upload-C '  v-if='!mergeImg &&!createImg'>
 					<div>
@@ -72,7 +67,7 @@
 				<div>
 					<div>立刻分享</div>
 					<div>你还可以前往国家博物馆</div>
-					<div>在“伟大的变革——庆祝改革开放40周年大型展览”新华社展区中打印实体明信片！</div>
+					<div>在“伟大的变革——庆祝改革开放40周年大型展览”<br />新华社展区中打印实体明信片！</div>
 				</div>
 			</div>
 			<img :src="cacheImg" ref='cacheimg' class='zmiti-cache-img' alt="" />
@@ -158,69 +153,86 @@
 						//console.log(this.result);
 						var self = this;
 						s.uploading = true;
-						$.ajax({
-							type:'post',
-							url:window.config.baseUrl+'/xhs-security-activity/postcard/uploadImage',
-							dataType: 'JSON',
-							charset:"utf-8",
-							contentType:"application/json",
-							data:JSON.stringify({
-								secretKey:window.config.secretKey,
-								modelId:s.modelArr[s.modelIndex][s.sex],
-								imgData:self.result.replace('data:image/jpeg;base64,','')
-							}),
-							success(data){
-								s.uploading = false;
-								if(typeof data === 'string'){
-									var data = JSON.parse(data);
-								}
-								console.log('上传总消耗时间 => '+(new Date().getTime()-d)/1000+' 秒');
-								if(data.rc === 0){
-									s.mergeImg = 'data:image/jpeg;base64,'+ data.data.imgBase64;
-									//s.mergeImg =  data.data.imgUrl;
-									
-									setTimeout(() => {
-										var canvas = s.$refs['canvas'];
-										var context = canvas.getContext('2d');
-										var img = new Image();
-										img.onload = function(){
-											context.drawImage(this,0,0,canvas.width,canvas.height);
-											setTimeout(() => {
-												s.html2img();
-
-												setTimeout(() => {
-													context.drawImage(s.$refs['cacheimg'],0,0,canvas.width,canvas.height);
-													setTimeout(() => {
-														s.createImg = canvas.toDataURL();
-														s.showCode = false;
-													}, 100);
-												}, 1000);
-											}, 100);
-											/* setTimeout(() => {
-												canvas.toBlob((blob)=>{
-													//s.mergeImg = URL.createObjectURL(blob);
-
-													
-												});
-												
-											}, 1000); */
-										}
-										img.src = s.mergeImg;
-									}, 1000);
-
-								}
-								else{
-									s.errMsg = data.msg;
-									setTimeout(() => {
-										s.errMsg = '';
-									}, 2000);
-								}
 
 
-
+						var img = new Image();
+						img.onload = function(){
+							var canvas = document.createElement('canvas');
+							if(this.width > 750){
+								canvas.width = 750>>1;
+								canvas.height = (this.height / this.width * 750)>>1;
 							}
-		
-						})
+							else{
+								canvas.width = this.width>>1;
+								canvas.height = this.height>>1;
+							}
+							var context  = canvas.getContext('2d');
+							context.drawImage(img,0,0,canvas.width,canvas.height);
+							$.ajax({
+								type:'post',
+								url:window.config.baseUrl+'/xhs-security-activity/postcard/uploadImage',
+								dataType: 'JSON',
+								charset:"utf-8",
+								contentType:"application/json",
+								data:JSON.stringify({
+									secretKey:window.config.secretKey,
+									modelId:s.modelArr[s.modelIndex][s.sex],
+									imgData:canvas.toDataURL().replace('data:image/jpeg;base64,','')
+								}),
+								success(data){
+									s.uploading = false;
+									if(typeof data === 'string'){
+										var data = JSON.parse(data);
+									}
+									console.log('上传总消耗时间 => '+(new Date().getTime()-d)/1000+' 秒');
+									if(data.rc === 0){
+										s.mergeImg = 'data:image/jpeg;base64,'+ data.data.imgBase64;
+										//s.mergeImg =  data.data.imgUrl;
+										
+										setTimeout(() => {
+											var canvas = s.$refs['canvas'];
+											var context = canvas.getContext('2d');
+											var img = new Image();
+											img.onload = function(){
+												context.drawImage(this,0,0,canvas.width,canvas.height);
+												setTimeout(() => {
+													s.html2img();
+	
+													setTimeout(() => {
+														context.drawImage(s.$refs['cacheimg'],0,0,canvas.width,canvas.height);
+														setTimeout(() => {
+															s.createImg = canvas.toDataURL();
+															s.showCode = false;
+														}, 100);
+													}, 1000);
+												}, 100);
+												/* setTimeout(() => {
+													canvas.toBlob((blob)=>{
+														//s.mergeImg = URL.createObjectURL(blob);
+	
+														
+													});
+													
+												}, 1000); */
+											}
+											img.src = s.mergeImg;
+										}, 1000);
+	
+									}
+									else{
+										s.errMsg = data.msg;
+										setTimeout(() => {
+											s.errMsg = '';
+										}, 2000);
+									}
+	
+	
+	
+								}
+			
+							})
+						}
+						img.src = self.result;
 					}
 					reader.readAsDataURL(file);
 					return;

@@ -2,12 +2,12 @@
 	<transition name='main'>
 		<div class='zmiti-main-ui lt-full' :class="{'show':show}" >
 			<div  class='lt-full' :style="{background:'url('+imgs.loadingBg+') no-repeat center center',backgroundSize:'cover'}"></div>
-			<div class='zmiti-book1' :class="{'active':true}" >
+			<!-- <div class='zmiti-book1' :class="{'active':true}" >
 				<img :src="imgs.book1" alt="">
 			</div>
 			<div class='zmiti-book2' :class="{'active':true}">
 				<img :src="imgs.book2" alt="">
-			</div>
+			</div> -->
 			<div class='zmiti-main-C' :class='{"show":show}'>
 				<div class=''>
 					<img :src="imgs.choose" alt="">

@@ -22718,12 +22718,12 @@
 	// 	<transition name='main'>
 	// 		<div class='zmiti-main-ui lt-full' :class="{'show':show}" >
 	// 			<div  class='lt-full' :style="{background:'url('+imgs.loadingBg+') no-repeat center center',backgroundSize:'cover'}"></div>
-	// 			<div class='zmiti-book1' :class="{'active':true}" >
+	// 			<!-- <div class='zmiti-book1' :class="{'active':true}" >
 	// 				<img :src="imgs.book1" alt="">
 	// 			</div>
 	// 			<div class='zmiti-book2' :class="{'active':true}">
 	// 				<img :src="imgs.book2" alt="">
-	// 			</div>
+	// 			</div> -->
 	// 			<div class='zmiti-main-C' :class='{"show":show}'>
 	// 				<div class=''>
 	// 					<img :src="imgs.choose" alt="">
@@ -23191,7 +23191,7 @@
 /* 29 */
 /***/ (function(module, exports) {
 
-	module.exports = "\r\n\t<transition name='main'>\r\n\t\t<div class='zmiti-main-ui lt-full' :class=\"{'show':show}\" >\r\n\t\t\t<div  class='lt-full' :style=\"{background:'url('+imgs.loadingBg+') no-repeat center center',backgroundSize:'cover'}\"></div>\r\n\t\t\t<div class='zmiti-book1' :class=\"{'active':true}\" >\r\n\t\t\t\t<img :src=\"imgs.book1\" alt=\"\">\r\n\t\t\t</div>\r\n\t\t\t<div class='zmiti-book2' :class=\"{'active':true}\">\r\n\t\t\t\t<img :src=\"imgs.book2\" alt=\"\">\r\n\t\t\t</div>\r\n\t\t\t<div class='zmiti-main-C' :class='{\"show\":show}'>\r\n\t\t\t\t<div class=''>\r\n\t\t\t\t\t<img :src=\"imgs.choose\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"zmiti-model-list\"  id=\"zmiti-model-list\">\r\n\t\t\t\t\t<ul v-swipeleft='swipeLeft' v-swiperight='swipeRight'  >\r\n\t\t\t\t\t\t<li  :class=\"model.className\" \r\n\t\t\t\t\t\tclass=\"lt-full\" v-for='(model,index) in modelList' :key=\"index\" >\r\n\t\t\t\t\t\t\t<div class=\"zmiti-model-title\">\r\n\t\t\t\t\t\t\t\t<img v-if='model.url' :src=\"model.url\">\r\n\t\t\t\t\t\t\t\t<span hidden=\"\">{{index+1}}</span>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<div class=\"zmiti-ar\" @touchend='initRight'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.ar\" alt=\"\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<div class=\"zmiti-ar zmiti-ar1\" @touchend='initLeft'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.ar\" alt=\"\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div @click='sure'>\r\n\t\t\t\t\t<img :src=\"imgs.sure\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<!--\r\n\t\t\t\t<div class='zmiti-model-list' ref='modellist' :style=\"{height:viewH*.83+'px'}\">\r\n\t\t\t\t\t<ul v-show='index<=-1'>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<div   v-if='i%2===0' v-for='(model,i) in modelList' :key=\"i\">\r\n\t\t\t\t\t\t\t\t<img v-tap='[getDetail,i]' @touchstart='imgStart' :src=\"model.url\" alt=\"\">\r\n\t\t\t\t\t\t\t\t<img @touchstart='imgStart' v-tap='[toggleModel,i]'  :src='imgs.imgBar' class='zmiti-checked'/>\r\n\t\t\t\t\t\t\t\t<img @touchstart='imgStart'  v-tap='[toggleModel,i]' v-if='current === i' :src=\"imgs.checked\" alt=\"\" class='zmiti-active'>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<div  v-if='i%2===1' v-for='(model,i) in modelList' :key=\"i\">\r\n\t\t\t\t\t\t\t\t<img v-tap='[getDetail,i]' @touchstart='imgStart' :src=\"model.url\" alt=\"\">\r\n\t\t\t\t\t\t\t\t<img @touchstart='imgStart' v-tap='[toggleModel,i]'   :src='imgs.imgBar' class='zmiti-checked'/>\r\n\t\t\t\t\t\t\t\t<img  @touchstart='imgStart' v-tap='[toggleModel,i]'  v-if='current === i' :src=\"imgs.checked\" alt=\"\" class='zmiti-active'>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div class='zmiti-done' v-show='index<=-1'>\r\n\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.sure\" alt=\"\" v-tap='[chooseModel]'>\r\n\t\t\t\t\t<img :src=\"imgs.info\" alt=\"\" class='zmiti-info'>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div class='zmiti-model-list-mask lt-full' v-if='index>-1' v-swipeleft='swipeleft' v-swiperight='swiperight'>\r\n\t\t\t\t\t<ul  :style=\"{width:viewW*modelList.length+'px',WebkitTransform:'translate3d(-'+(index*viewW)+'px,0,0)'}\">\r\n\t\t\t\t\t\t<li v-for=\"(model,i) in modelList\" :key='i'>\r\n\t\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t\t<div class='zmiti-model-detail-img'>\r\n\t\t\t\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"model.url\" alt=\"\">\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<div class='zmiti-photo-C'>\r\n\t\t\t\t\t\t<div class='zmiti-goto-photo' v-tap='[chooseModel]'>\r\n\t\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.sure\" alt=\"\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class='zmiti-model-close' v-tap='[closeModel]'></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class='zmiti-progress'>\r\n\t\t\t\t\t\t<span :style=\"{WebkitTransform:'scale('+(index/(modelList.length-1))+',1)'}\"></span>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div> `\r\n\t\t\t-->\r\n\t\t\t<Toast :errorMsg='errMsg'></Toast>\r\n\t\t</div>\r\n\r\n\t</transition>\r\n";
+	module.exports = "\r\n\t<transition name='main'>\r\n\t\t<div class='zmiti-main-ui lt-full' :class=\"{'show':show}\" >\r\n\t\t\t<div  class='lt-full' :style=\"{background:'url('+imgs.loadingBg+') no-repeat center center',backgroundSize:'cover'}\"></div>\r\n\t\t\t<!-- <div class='zmiti-book1' :class=\"{'active':true}\" >\r\n\t\t\t\t<img :src=\"imgs.book1\" alt=\"\">\r\n\t\t\t</div>\r\n\t\t\t<div class='zmiti-book2' :class=\"{'active':true}\">\r\n\t\t\t\t<img :src=\"imgs.book2\" alt=\"\">\r\n\t\t\t</div> -->\r\n\t\t\t<div class='zmiti-main-C' :class='{\"show\":show}'>\r\n\t\t\t\t<div class=''>\r\n\t\t\t\t\t<img :src=\"imgs.choose\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"zmiti-model-list\"  id=\"zmiti-model-list\">\r\n\t\t\t\t\t<ul v-swipeleft='swipeLeft' v-swiperight='swipeRight'  >\r\n\t\t\t\t\t\t<li  :class=\"model.className\" \r\n\t\t\t\t\t\tclass=\"lt-full\" v-for='(model,index) in modelList' :key=\"index\" >\r\n\t\t\t\t\t\t\t<div class=\"zmiti-model-title\">\r\n\t\t\t\t\t\t\t\t<img v-if='model.url' :src=\"model.url\">\r\n\t\t\t\t\t\t\t\t<span hidden=\"\">{{index+1}}</span>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<div class=\"zmiti-ar\" @touchend='initRight'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.ar\" alt=\"\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<div class=\"zmiti-ar zmiti-ar1\" @touchend='initLeft'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.ar\" alt=\"\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div @click='sure'>\r\n\t\t\t\t\t<img :src=\"imgs.sure\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<!--\r\n\t\t\t\t<div class='zmiti-model-list' ref='modellist' :style=\"{height:viewH*.83+'px'}\">\r\n\t\t\t\t\t<ul v-show='index<=-1'>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<div   v-if='i%2===0' v-for='(model,i) in modelList' :key=\"i\">\r\n\t\t\t\t\t\t\t\t<img v-tap='[getDetail,i]' @touchstart='imgStart' :src=\"model.url\" alt=\"\">\r\n\t\t\t\t\t\t\t\t<img @touchstart='imgStart' v-tap='[toggleModel,i]'  :src='imgs.imgBar' class='zmiti-checked'/>\r\n\t\t\t\t\t\t\t\t<img @touchstart='imgStart'  v-tap='[toggleModel,i]' v-if='current === i' :src=\"imgs.checked\" alt=\"\" class='zmiti-active'>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<div  v-if='i%2===1' v-for='(model,i) in modelList' :key=\"i\">\r\n\t\t\t\t\t\t\t\t<img v-tap='[getDetail,i]' @touchstart='imgStart' :src=\"model.url\" alt=\"\">\r\n\t\t\t\t\t\t\t\t<img @touchstart='imgStart' v-tap='[toggleModel,i]'   :src='imgs.imgBar' class='zmiti-checked'/>\r\n\t\t\t\t\t\t\t\t<img  @touchstart='imgStart' v-tap='[toggleModel,i]'  v-if='current === i' :src=\"imgs.checked\" alt=\"\" class='zmiti-active'>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div class='zmiti-done' v-show='index<=-1'>\r\n\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.sure\" alt=\"\" v-tap='[chooseModel]'>\r\n\t\t\t\t\t<img :src=\"imgs.info\" alt=\"\" class='zmiti-info'>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div class='zmiti-model-list-mask lt-full' v-if='index>-1' v-swipeleft='swipeleft' v-swiperight='swiperight'>\r\n\t\t\t\t\t<ul  :style=\"{width:viewW*modelList.length+'px',WebkitTransform:'translate3d(-'+(index*viewW)+'px,0,0)'}\">\r\n\t\t\t\t\t\t<li v-for=\"(model,i) in modelList\" :key='i'>\r\n\t\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t\t<div class='zmiti-model-detail-img'>\r\n\t\t\t\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"model.url\" alt=\"\">\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<div class='zmiti-photo-C'>\r\n\t\t\t\t\t\t<div class='zmiti-goto-photo' v-tap='[chooseModel]'>\r\n\t\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.sure\" alt=\"\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class='zmiti-model-close' v-tap='[closeModel]'></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class='zmiti-progress'>\r\n\t\t\t\t\t\t<span :style=\"{WebkitTransform:'scale('+(index/(modelList.length-1))+',1)'}\"></span>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div> `\r\n\t\t\t-->\r\n\t\t\t<Toast :errorMsg='errMsg'></Toast>\r\n\t\t</div>\r\n\r\n\t</transition>\r\n";
 
 /***/ }),
 /* 30 */
@@ -23222,12 +23222,7 @@
 	// <template>
 	// 	<transition name='upload'>
 	// 		<div class="lt-full zmiti-upload-main-ui "  v-show='show' ref='page' :style="{background:'url('+imgs.loadingBg+') no-repeat center center',backgroundSize:'cover'}">
-	// 			<div class='zmiti-book1' :class="{'active':true}" >
-	// 				<img :src="imgs.book1" alt="">
-	// 			</div>
-	// 			<div class='zmiti-book2' :class="{'active':true}">
-	// 				<img :src="imgs.book2" alt="">
-	// 			</div>
+	//
 	// 			<transition name='upload'>
 	// 				<div class='zmiti-upload-C '  v-if='!mergeImg &&!createImg'>
 	// 					<div>
@@ -23293,7 +23288,7 @@
 	// 				<div>
 	// 					<div>立刻分享</div>
 	// 					<div>你还可以前往国家博物馆</div>
-	// 					<div>在“伟大的变革——庆祝改革开放40周年大型展览”新华社展区中打印实体明信片！</div>
+	// 					<div>在“伟大的变革——庆祝改革开放40周年大型展览”<br />新华社展区中打印实体明信片！</div>
 	// 				</div>
 	// 			</div>
 	// 			<img :src="cacheImg" ref='cacheimg' class='zmiti-cache-img' alt="" />
@@ -23398,63 +23393,78 @@
 						//console.log(this.result);
 						var self = this;
 						s.uploading = true;
-						$.ajax({
-							type: 'post',
-							url: window.config.baseUrl + '/xhs-security-activity/postcard/uploadImage',
-							dataType: 'JSON',
-							charset: "utf-8",
-							contentType: "application/json",
-							data: JSON.stringify({
-								secretKey: window.config.secretKey,
-								modelId: s.modelArr[s.modelIndex][s.sex],
-								imgData: self.result.replace('data:image/jpeg;base64,', '')
-							}),
-							success: function success(data) {
-								s.uploading = false;
-								if (typeof data === 'string') {
-									var data = JSON.parse(data);
-								}
-								console.log('上传总消耗时间 => ' + (new Date().getTime() - d) / 1000 + ' 秒');
-								if (data.rc === 0) {
-									s.mergeImg = 'data:image/jpeg;base64,' + data.data.imgBase64;
-									//s.mergeImg =  data.data.imgUrl;
 
-									setTimeout(function () {
-										var canvas = s.$refs['canvas'];
-										var context = canvas.getContext('2d');
-										var img = new Image();
-										img.onload = function () {
-											context.drawImage(this, 0, 0, canvas.width, canvas.height);
-											setTimeout(function () {
-												s.html2img();
-
-												setTimeout(function () {
-													context.drawImage(s.$refs['cacheimg'], 0, 0, canvas.width, canvas.height);
-													setTimeout(function () {
-														s.createImg = canvas.toDataURL();
-														s.showCode = false;
-													}, 100);
-												}, 1000);
-											}, 100);
-											/* setTimeout(() => {
-	          	canvas.toBlob((blob)=>{
-	          		//s.mergeImg = URL.createObjectURL(blob);
-	          			
-	          	});
-	          	
-	          }, 1000); */
-										};
-										img.src = s.mergeImg;
-									}, 1000);
-								} else {
-									s.errMsg = data.msg;
-									setTimeout(function () {
-										s.errMsg = '';
-									}, 2000);
-								}
+						var img = new Image();
+						img.onload = function () {
+							var canvas = document.createElement('canvas');
+							if (this.width > 750) {
+								canvas.width = 750 >> 1;
+								canvas.height = this.height / this.width * 750 >> 1;
+							} else {
+								canvas.width = this.width >> 1;
+								canvas.height = this.height >> 1;
 							}
+							var context = canvas.getContext('2d');
+							context.drawImage(img, 0, 0, canvas.width, canvas.height);
+							$.ajax({
+								type: 'post',
+								url: window.config.baseUrl + '/xhs-security-activity/postcard/uploadImage',
+								dataType: 'JSON',
+								charset: "utf-8",
+								contentType: "application/json",
+								data: JSON.stringify({
+									secretKey: window.config.secretKey,
+									modelId: s.modelArr[s.modelIndex][s.sex],
+									imgData: canvas.toDataURL().replace('data:image/jpeg;base64,', '')
+								}),
+								success: function success(data) {
+									s.uploading = false;
+									if (typeof data === 'string') {
+										var data = JSON.parse(data);
+									}
+									console.log('上传总消耗时间 => ' + (new Date().getTime() - d) / 1000 + ' 秒');
+									if (data.rc === 0) {
+										s.mergeImg = 'data:image/jpeg;base64,' + data.data.imgBase64;
+										//s.mergeImg =  data.data.imgUrl;
 
-						});
+										setTimeout(function () {
+											var canvas = s.$refs['canvas'];
+											var context = canvas.getContext('2d');
+											var img = new Image();
+											img.onload = function () {
+												context.drawImage(this, 0, 0, canvas.width, canvas.height);
+												setTimeout(function () {
+													s.html2img();
+
+													setTimeout(function () {
+														context.drawImage(s.$refs['cacheimg'], 0, 0, canvas.width, canvas.height);
+														setTimeout(function () {
+															s.createImg = canvas.toDataURL();
+															s.showCode = false;
+														}, 100);
+													}, 1000);
+												}, 100);
+												/* setTimeout(() => {
+	           	canvas.toBlob((blob)=>{
+	           		//s.mergeImg = URL.createObjectURL(blob);
+	           			
+	           	});
+	           	
+	           }, 1000); */
+											};
+											img.src = s.mergeImg;
+										}, 1000);
+									} else {
+										s.errMsg = data.msg;
+										setTimeout(function () {
+											s.errMsg = '';
+										}, 2000);
+									}
+								}
+
+							});
+						};
+						img.src = self.result;
 					};
 					reader.readAsDataURL(file);
 					return;
@@ -23777,7 +23787,7 @@
 /* 35 */
 /***/ (function(module, exports) {
 
-	module.exports = "\r\n\t<transition name='upload'>\r\n\t\t<div class=\"lt-full zmiti-upload-main-ui \"  v-show='show' ref='page' :style=\"{background:'url('+imgs.loadingBg+') no-repeat center center',backgroundSize:'cover'}\">\r\n\t\t\t<div class='zmiti-book1' :class=\"{'active':true}\" >\r\n\t\t\t\t<img :src=\"imgs.book1\" alt=\"\">\r\n\t\t\t</div>\r\n\t\t\t<div class='zmiti-book2' :class=\"{'active':true}\">\r\n\t\t\t\t<img :src=\"imgs.book2\" alt=\"\">\r\n\t\t\t</div>\r\n\t\t\t<transition name='upload'>\r\n\t\t\t\t<div class='zmiti-upload-C '  v-if='!mergeImg &&!createImg'>\r\n\t\t\t\t\t<div>\r\n\t\t\t\t\t\t<h2>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.uploadText\" alt=\"\">\r\n\t\t\t\t\t\t</h2>\r\n\t\t\t\t\t\t<div class='zmiti-upload' :class=\"{'uploading':uploading}\">\r\n\t\t\t\t\t\t\t<img @touchstart='uploadErr' :src=\"imgs.upload\" alt=\"\">\r\n\t\t\t\t\t\t\t<div @touchstart='uploadErr'>上传中...</div>\r\n\t\t\t\t\t\t\t<input v-if='sex>-1' @change='upload'  accept=\"image/*\" type=\"file\" class='zmiti-file' ref='file'>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class='zmiti-rechoose' v-tap='[rephoto]'>回去换个模板~</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div>\r\n\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.sex\" alt=\"\">\r\n\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t<div class='zmiti-upload-sex'>\r\n\t\t\t\t\t\t\t<div v-tap='[chooseSex,0]'>\r\n\t\t\t\t\t\t\t\t<img :src=\"imgs.boy\" alt=\"\" @touchstart='imgStart' >\r\n\t\t\t\t\t\t\t\t<div class='zmiti-sex-checked' v-if='sex === 0'>\r\n\t\t\t\t\t\t\t\t\t<img  :src=\"imgs.checked\" alt=\"\">\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div v-tap='[chooseSex,1]'>\r\n\t\t\t\t\t\t\t\t<img :src=\"imgs.girl\" alt=\"\"  @touchstart='imgStart' >\r\n\t\t\t\t\t\t\t\t<div class='zmiti-sex-checked'  >\r\n\t\t\t\t\t\t\t\t\t<img  :src=\"imgs.checked\" alt=\"\" v-if='sex === 1'>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</transition>\r\n\r\n\t\t\t<div v-if='createImg||mergeImg' class='zmiti-share-ui lt-full'>\r\n\t\t\t\t<div><img :src=\"imgs.subtitle\" alt=\"\"></div>\r\n\t\t\t\t<div class='zmiti-merge-img' ref='img'>\r\n\t\t\t\t\t<canvas width='1500' height='1060' ref='canvas'></canvas>\r\n\t\t\t\t\t<img   ref='mergeimg' :src=\"createImg||mergeImg\" alt=\"\">\r\n\t\t\t\t\t<div class='zmiti-nickname'>\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class='zmiti-card-info'>\r\n\t\t\t\t\t\t<div>“我们都是弄潮儿”限量明信片</div>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<div>编号：</div>\r\n\t\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t\t<span>{{pv}}</span><label for=\"\" v-if='pv<400000'>/400000</label>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class='zmiti-img-tip'>邮票是谁？长按保存高清图</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class='zmiti-share-btns'>\r\n\t\t\t\t\t<div v-tap='[rephoto]'><img :src=\"imgs.rephoto\" alt=\"\"></div>\r\n\t\t\t\t\t<div v-tap='[showShareMask]'><img :src=\"imgs.share\" alt=\"\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t\r\n\t\t\t<div class='zmiti-share-mask lt-full' v-if='showMask' @touchend='showMask = false' :style=\"{background:'url('+imgs.shareBg+') no-repeat center bottom',backgroundSize:'cover'}\">\r\n\t\t\t\t<img :src=\"imgs.arrow\" alt=\"\">\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div>立刻分享</div>\r\n\t\t\t\t\t<div>你还可以前往国家博物馆</div>\r\n\t\t\t\t\t<div>在“伟大的变革——庆祝改革开放40周年大型展览”新华社展区中打印实体明信片！</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<img :src=\"cacheImg\" ref='cacheimg' class='zmiti-cache-img' alt=\"\" />\r\n\t\t\t<Toast :errorMsg='errMsg'></Toast>\r\n\t\t</div>\r\n\t</transition>\r\n";
+	module.exports = "\r\n\t<transition name='upload'>\r\n\t\t<div class=\"lt-full zmiti-upload-main-ui \"  v-show='show' ref='page' :style=\"{background:'url('+imgs.loadingBg+') no-repeat center center',backgroundSize:'cover'}\">\r\n\t\t\t \r\n\t\t\t<transition name='upload'>\r\n\t\t\t\t<div class='zmiti-upload-C '  v-if='!mergeImg &&!createImg'>\r\n\t\t\t\t\t<div>\r\n\t\t\t\t\t\t<h2>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.uploadText\" alt=\"\">\r\n\t\t\t\t\t\t</h2>\r\n\t\t\t\t\t\t<div class='zmiti-upload' :class=\"{'uploading':uploading}\">\r\n\t\t\t\t\t\t\t<img @touchstart='uploadErr' :src=\"imgs.upload\" alt=\"\">\r\n\t\t\t\t\t\t\t<div @touchstart='uploadErr'>上传中...</div>\r\n\t\t\t\t\t\t\t<input v-if='sex>-1' @change='upload'  accept=\"image/*\" type=\"file\" class='zmiti-file' ref='file'>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class='zmiti-rechoose' v-tap='[rephoto]'>回去换个模板~</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div>\r\n\t\t\t\t\t\t<h3>\r\n\t\t\t\t\t\t\t<img :src=\"imgs.sex\" alt=\"\">\r\n\t\t\t\t\t\t</h3>\r\n\t\t\t\t\t\t<div class='zmiti-upload-sex'>\r\n\t\t\t\t\t\t\t<div v-tap='[chooseSex,0]'>\r\n\t\t\t\t\t\t\t\t<img :src=\"imgs.boy\" alt=\"\" @touchstart='imgStart' >\r\n\t\t\t\t\t\t\t\t<div class='zmiti-sex-checked' v-if='sex === 0'>\r\n\t\t\t\t\t\t\t\t\t<img  :src=\"imgs.checked\" alt=\"\">\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div v-tap='[chooseSex,1]'>\r\n\t\t\t\t\t\t\t\t<img :src=\"imgs.girl\" alt=\"\"  @touchstart='imgStart' >\r\n\t\t\t\t\t\t\t\t<div class='zmiti-sex-checked'  >\r\n\t\t\t\t\t\t\t\t\t<img  :src=\"imgs.checked\" alt=\"\" v-if='sex === 1'>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</transition>\r\n\r\n\t\t\t<div v-if='createImg||mergeImg' class='zmiti-share-ui lt-full'>\r\n\t\t\t\t<div><img :src=\"imgs.subtitle\" alt=\"\"></div>\r\n\t\t\t\t<div class='zmiti-merge-img' ref='img'>\r\n\t\t\t\t\t<canvas width='1500' height='1060' ref='canvas'></canvas>\r\n\t\t\t\t\t<img   ref='mergeimg' :src=\"createImg||mergeImg\" alt=\"\">\r\n\t\t\t\t\t<div class='zmiti-nickname'>\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class='zmiti-card-info'>\r\n\t\t\t\t\t\t<div>“我们都是弄潮儿”限量明信片</div>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<div>编号：</div>\r\n\t\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t\t<span>{{pv}}</span><label for=\"\" v-if='pv<400000'>/400000</label>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class='zmiti-img-tip'>邮票是谁？长按保存高清图</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class='zmiti-share-btns'>\r\n\t\t\t\t\t<div v-tap='[rephoto]'><img :src=\"imgs.rephoto\" alt=\"\"></div>\r\n\t\t\t\t\t<div v-tap='[showShareMask]'><img :src=\"imgs.share\" alt=\"\"></div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t\r\n\t\t\t<div class='zmiti-share-mask lt-full' v-if='showMask' @touchend='showMask = false' :style=\"{background:'url('+imgs.shareBg+') no-repeat center bottom',backgroundSize:'cover'}\">\r\n\t\t\t\t<img :src=\"imgs.arrow\" alt=\"\">\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div>立刻分享</div>\r\n\t\t\t\t\t<div>你还可以前往国家博物馆</div>\r\n\t\t\t\t\t<div>在“伟大的变革——庆祝改革开放40周年大型展览”<br />新华社展区中打印实体明信片！</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<img :src=\"cacheImg\" ref='cacheimg' class='zmiti-cache-img' alt=\"\" />\r\n\t\t\t<Toast :errorMsg='errMsg'></Toast>\r\n\t\t</div>\r\n\t</transition>\r\n";
 
 /***/ }),
 /* 36 */

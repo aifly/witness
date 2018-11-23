@@ -14,7 +14,7 @@
 	model10:'./assets/images/10-3.jpg',
 	model11:'./assets/images/11-3.jpg',
 	model12:'./assets/images/12-3.jpg',
-	loadingBg: './assets/images/loading-bg.jpg',
+	loadingBg: './assets/images/loading-bg1.jpg',
 	shareBg: './assets/images/share-bg.jpg',
 	loadingBg1: './assets/images/loading-bg1.jpg',
 	btnBg: './assets/images/btn-bg.png',
@@ -22,7 +22,7 @@
 	ar:'./assets/images/ar.png',
 	book2:'./assets/images/book2.png',
 	choose:'./assets/images/choose1.png',
-	1978:'./assets/images/1978.png',
+	1978:'./assets/images/1978-1.png',
 
 	entry:'./assets/images/entry.png',
 	nongchao:'./assets/images/nongchao.png',
