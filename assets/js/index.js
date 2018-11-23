@@ -23393,6 +23393,65 @@
 						//console.log(this.result);
 						var self = this;
 						s.uploading = true;
+						$.ajax({
+							type: 'post',
+							url: window.config.baseUrl + '/xhs-security-activity/postcard/uploadImage',
+							dataType: 'JSON',
+							charset: "utf-8",
+							contentType: "application/json",
+							data: JSON.stringify({
+								secretKey: window.config.secretKey,
+								modelId: s.modelArr[s.modelIndex][s.sex],
+								imgData: self.result.replace('data:image/jpeg;base64,', '')
+							}),
+							success: function success(data) {
+								s.uploading = false;
+								if (typeof data === 'string') {
+									var data = JSON.parse(data);
+								}
+								console.log('上传总消耗时间 => ' + (new Date().getTime() - d) / 1000 + ' 秒');
+								if (data.rc === 0) {
+									s.mergeImg = 'data:image/jpeg;base64,' + data.data.imgBase64;
+									//s.mergeImg =  data.data.imgUrl;
+
+									setTimeout(function () {
+										var canvas = s.$refs['canvas'];
+										var context = canvas.getContext('2d');
+										var img = new Image();
+										img.onload = function () {
+											context.drawImage(this, 0, 0, canvas.width, canvas.height);
+											setTimeout(function () {
+												s.html2img();
+
+												setTimeout(function () {
+													context.drawImage(s.$refs['cacheimg'], 0, 0, canvas.width, canvas.height);
+													setTimeout(function () {
+														s.createImg = canvas.toDataURL();
+														s.showCode = false;
+													}, 100);
+												}, 1000);
+											}, 100);
+											/* setTimeout(() => {
+	          	canvas.toBlob((blob)=>{
+	          		//s.mergeImg = URL.createObjectURL(blob);
+	          			
+	          	});
+	          	
+	          }, 1000); */
+										};
+										img.src = s.mergeImg;
+									}, 1000);
+								} else {
+									s.errMsg = data.msg;
+									setTimeout(function () {
+										s.errMsg = '';
+									}, 2000);
+								}
+							}
+
+						});
+
+						return;
 
 						var img = new Image();
 						img.onload = function () {
@@ -23406,63 +23465,6 @@
 							}
 							var context = canvas.getContext('2d');
 							context.drawImage(img, 0, 0, canvas.width, canvas.height);
-							$.ajax({
-								type: 'post',
-								url: window.config.baseUrl + '/xhs-security-activity/postcard/uploadImage',
-								dataType: 'JSON',
-								charset: "utf-8",
-								contentType: "application/json",
-								data: JSON.stringify({
-									secretKey: window.config.secretKey,
-									modelId: s.modelArr[s.modelIndex][s.sex],
-									imgData: canvas.toDataURL().replace('data:image/jpeg;base64,', '')
-								}),
-								success: function success(data) {
-									s.uploading = false;
-									if (typeof data === 'string') {
-										var data = JSON.parse(data);
-									}
-									console.log('上传总消耗时间 => ' + (new Date().getTime() - d) / 1000 + ' 秒');
-									if (data.rc === 0) {
-										s.mergeImg = 'data:image/jpeg;base64,' + data.data.imgBase64;
-										//s.mergeImg =  data.data.imgUrl;
-
-										setTimeout(function () {
-											var canvas = s.$refs['canvas'];
-											var context = canvas.getContext('2d');
-											var img = new Image();
-											img.onload = function () {
-												context.drawImage(this, 0, 0, canvas.width, canvas.height);
-												setTimeout(function () {
-													s.html2img();
-
-													setTimeout(function () {
-														context.drawImage(s.$refs['cacheimg'], 0, 0, canvas.width, canvas.height);
-														setTimeout(function () {
-															s.createImg = canvas.toDataURL();
-															s.showCode = false;
-														}, 100);
-													}, 1000);
-												}, 100);
-												/* setTimeout(() => {
-	           	canvas.toBlob((blob)=>{
-	           		//s.mergeImg = URL.createObjectURL(blob);
-	           			
-	           	});
-	           	
-	           }, 1000); */
-											};
-											img.src = s.mergeImg;
-										}, 1000);
-									} else {
-										s.errMsg = data.msg;
-										setTimeout(function () {
-											s.errMsg = '';
-										}, 2000);
-									}
-								}
-
-							});
 						};
 						img.src = self.result;
 					};
