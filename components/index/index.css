@@ -149,8 +149,8 @@
 }
 
 .zmiti-index-main-ui .zmiti-model-list.model-enter-active, .zmiti-index-main-ui .zmiti-model-list.model-leave-active {
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .zmiti-index-main-ui .zmiti-model-list.model-enter, .zmiti-index-main-ui .zmiti-model-list.model-leave-to {
@@ -222,55 +222,55 @@
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(1) {
-  transition-delay: 200ms;
+  transition-delay: 100ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(2) {
-  transition-delay: 400ms;
+  transition-delay: 200ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(3) {
-  transition-delay: 600ms;
+  transition-delay: 300ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(4) {
-  transition-delay: 800ms;
+  transition-delay: 400ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(5) {
-  transition-delay: 1000ms;
+  transition-delay: 500ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(6) {
-  transition-delay: 1200ms;
+  transition-delay: 600ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(7) {
-  transition-delay: 1400ms;
+  transition-delay: 700ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(8) {
-  transition-delay: 1600ms;
+  transition-delay: 800ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(9) {
-  transition-delay: 1800ms;
+  transition-delay: 900ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(10) {
-  transition-delay: 2000ms;
+  transition-delay: 1000ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(11) {
-  transition-delay: 2200ms;
+  transition-delay: 1100ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(12) {
-  transition-delay: 2400ms;
+  transition-delay: 1200ms;
 }
 
 .zmiti-index-main-ui .zmiti-model-list div:nth-of-type(13) {
-  transition-delay: 2600ms;
+  transition-delay: 1300ms;
 }
 
 .zmiti-index-main-ui .zmiti-index-logo {

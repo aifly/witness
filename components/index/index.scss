@@ -111,7 +111,7 @@ $bgColor: #4081dd;
          width: 100%;
          &.model-enter-active,
          &.model-leave-active {
-             @include transition(.4s );
+             @include transition(.2s );
          }
          &.model-enter,
          &.model-leave-to {
@@ -135,7 +135,7 @@ $bgColor: #4081dd;
 
              @for $i from 1 through 13{
                 &:nth-of-type(#{$i}){
-                    transition-delay: $i*200ms;
+                   transition-delay: $i*100ms;
                 }
              }
          }

@@ -1,7 +1,7 @@
 <template>
 	<div ref='page'  class="lt-full zmiti-index-main-ui " :style="{background:'url('+imgs.loadingBg1+') no-repeat center center',backgroundSize:'cover'}"   :class="{'show':show}" >
 
-		<div class='zmiti-book1' style='opacity:0' :class="{'active':showBook}" @transitionend='endBook'>
+		<div class='zmiti-book1' style='opacity:0' :class="{'active':showBook}" >
 			<img :src="imgs.book1" alt="">
 		</div>
 		<div class='zmiti-nongchao'>
@@ -10,7 +10,7 @@
 		
 
 		<transition name='model'>
-			<div v-if='showModelList' class='zmiti-model-list'>
+			<div v-if='showModelList && false' class='zmiti-model-list'>
 				<div :class='{"active":reverse}' @transitionend='end' v-for='(model,i) in modelList' :key="i" :style="{WebkitTransform:'translate3d('+( model.transX || 0 )+'px,'+ ( model.transY || 0 ) +'px,0) scale('+(model.scale===undefined?1:model.scale)+') rotate('+( model.rotate||0 ) + 'deg) '}">
 					<img :src="model.url" alt="">
 				</div>
@@ -103,6 +103,12 @@
 					model.transY = (this.viewH/2 ) * Math.random();
 
 				});
+				this.reverse = true;
+				this.showModelList = false;
+				setTimeout(() => {
+					this.showTitle = true;
+					
+				}, 1200);
 			},
 			end(e){
 				this.count++;
@@ -119,7 +125,7 @@
 					this.reverse = true;
 					this.showModelList = false;
 					setTimeout(() => {
-						this.showTitle = true;
+						
 					}, 1200);
 				}
 			},
@@ -145,8 +151,8 @@
 
 			setTimeout(() => {
 				this.showBook = true;
-				 
-			}, 400);
+				this.endBook();
+			}, 100);
 
 			obserable.on('toggleIndex',(data)=>{
 				this.show = data.show;

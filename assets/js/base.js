@@ -75,8 +75,6 @@ var modelArr = [
 		'pitu_open_1000117_20181026145058_276',
 		'pitu_open_1000117_20181026145106_277'
 	],
-
-
 	[
 		'pitu_open_1000117_20181011172517_259',
 		'pitu_open_1000117_20181011172523_260'
@@ -116,10 +114,10 @@ for(var i = 1 ;i<=12;i++){
 		y = (this.viewH * Math.random()) + (Math.random() > .5 ? this.viewH * 2 : -1 * this.viewH * 2);
 	window.modelList.push({
 		url:imgs['model'+i],
-		transX: x,
-		transY: y,
-		defaultX:x,
-		defaultY:y
+		transX: this.viewW/2 - 130,
+		transY: 150,
+		defaultX:0,
+		defaultY:0
 	})
 }
 
