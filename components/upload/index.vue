@@ -164,6 +164,9 @@
 								modelId:s.modelArr[s.modelIndex][s.sex],
 								imgData:self.result.replace('data:image/jpeg;base64,','')
 							}),
+							error(){
+								s.errMsg = '已超时，请稍后重试';
+							},
 							success(data){
 								s.uploading = false;
 								if(typeof data === 'string'){
