@@ -41,7 +41,7 @@
 				<div><img :src="imgs.subtitle" alt=""></div>
 				<div class='zmiti-merge-img' ref='img'>
 					<canvas width='1500' height='1060' ref='canvas'></canvas>
-					<img   ref='mergeimg' :src="createImg||mergeImg" alt="">
+					<img  @touchstart='touchstart' ref='mergeimg' :src="createImg||mergeImg" alt="">
 					<div class='zmiti-nickname'>
 						
 					</div>
@@ -109,6 +109,12 @@
 		
 		methods:{
 
+			touchstart(e){
+				if(!this.createImg){
+					e.preventDefault();
+				}
+			},
+
 			imgStart(e){
 				e.preventDefault();
 			},
@@ -146,7 +152,7 @@
 				var d = new Date().getTime();
 				
 				var file = this.$refs['file'].files[0];
-				if(file.name.split('.')[1] === 'jpg'||file.name.split('.')[1] === 'jpeg'){
+				if(file.name.split('.')[1] === 'jpg'||file.name.split('.')[1] === 'jpeg'||true){
 
 					var reader = new FileReader();
 					reader.onload = function(){
@@ -166,6 +172,10 @@
 							}),
 							error(){
 								s.errMsg = '已超时，请稍后重试';
+								setTimeout(() => {
+									s.errMsg = '';
+									s.uploading = false;
+								}, 2000);
 							},
 							success(data){
 								s.uploading = false;
@@ -191,8 +201,8 @@
 													setTimeout(() => {
 														s.createImg = canvas.toDataURL();
 														s.showCode = false;
-													}, 100);
-												}, 1000);
+													}, 200);
+												}, 1300);
 											}, 100);
 											/* setTimeout(() => {
 												canvas.toBlob((blob)=>{
@@ -272,7 +282,7 @@
 					      width: dom.clientWidth,
 					      height:dom.clientHeight
 					})
-				},100)
+				},1)
 			},
 
 			

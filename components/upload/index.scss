@@ -263,7 +263,12 @@ $viewW: 750px;
 }
 
 @-webkit-keyframes flash {
+    from{
+      opacity: 1;
+        -webkit-transform:scale(1.1);
+    }
     to {
-        opacity: 0;
+        opacity: .2;
+        -webkit-transform:scale(1);
     }
 }
